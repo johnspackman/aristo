@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="test/" kind="src" path="demo/default/source/class/aristo/demo"/>
+	<classpathentry kind="src" path="demo/default/source/class/aristo/demo/test"/>
+	<classpathentry kind="src" path="demo/default/source/script"/>
+	<classpathentry excluding="theme/" kind="src" path="source/class/aristo"/>
+	<classpathentry kind="src" path="source/class/aristo/theme"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path=""/>
+</classpath>

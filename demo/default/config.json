@@ -1,0 +1,60 @@
+{
+  "name"    : "Aristo Demo",
+
+  "include" :
+  [
+    {
+      "path" : "${QOOXDOO_PATH}/tool/data/config/application.json"
+    }
+  ],
+
+  "export" :
+  [
+    "api",
+    "api-data",
+    "build",
+    "clean",
+    "distclean",
+    "fix",
+    "info",
+    "inspector",
+    "lint",
+    "migration",
+    "pretty",
+    "profiling",
+    "source",
+    "source-all",
+    "test",
+    "test-source",
+    "translation"
+  ],
+
+  "default-job" : "source-hybrid",
+  
+  "let" :
+  {
+    "APPLICATION"  : "aristo.demo",
+    "XQOOXDOO_PATH" : "../../../../qooxdoo/2.0",
+    "QOOXDOO_PATH" : "../../../../../../../../Local/WebContent/public/grasshopper/qooxdoo-trunk",
+    "XQOOXDOO_PATH" : "../../../../../../../../../../../os/qooxdoo-1.6-sdk",
+    "XQOOXDOO_PATH" : "../../../../../../../../../../../os/qooxdoo-2.0.2-sdk",
+    "QXTHEME"      : "aristo.Aristo",
+    "API_EXCLUDE"  : ["qx.test.*", "${APPLICATION}.theme.*", "${APPLICATION}.test.*"],
+    "LOCALES"      : [ "en" ],
+    "CACHE"        : "./cache",
+    "ROOT"         : "."
+  },
+
+  "jobs" :
+  {
+    "libraries" : 
+    {
+      "library" :
+      [
+        {
+          "manifest" : "../../Manifest.json"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,867 @@
+{
+  // FRAMEWORK IMAGE CLIPPING AND COMBINING JOBS
+  "jobs" :
+  {
+    "common" :
+    {
+      "let" :
+      {
+        "RESPATH" : "./source/resource",
+        "ARISTO" : "aristo/decoration"
+      },
+
+      "cache" :
+      {
+        "compile" : "${TMPDIR}/cache"
+      }
+    },
+
+
+    "image-clipping" :
+    {
+      "extend" : ["common"],
+
+      "slice-images" :
+      {
+        "images" :
+        {               
+          "${RESPATH}/source/aristo/scrollbar-button-bg-vertical.png" :
+          {
+            "prefix" : "../../${ARISTO}/scrollbar/scrollbar-button-bg-vertical",
+            "border-width" : [8,0,8,0]
+          },
+          "${RESPATH}/source/aristo/scrollbar-button-bg-horizontal.png" :
+          {
+            "prefix" : "../../${ARISTO}/scrollbar/scrollbar-button-bg-horizontal",
+            "border-width" : [0,8,0,8]
+          },            
+          // this is the input file
+          "${RESPATH}/source/aristo/shadow.png" :
+          {
+            "prefix" : "../../${ARISTO}/shadow/shadow",
+            "border-width" : 5
+          }, 
+          "${RESPATH}/source/aristo/shadow-window.png" :
+          {
+            "prefix" : "../../${ARISTO}/shadow/shadow-window",
+            "border-width" : [ 6, 8, 8, 6 ]
+          },
+          "${RESPATH}/source/aristo/shadow-window-active.png" :
+          {
+            "prefix" : "../../${ARISTO}/shadow/shadow-window-active",
+            "border-width" : [ 8, 10, 10, 8 ]
+          },
+          "${RESPATH}/source/aristo/red-shadow.png" :
+          {
+            "prefix" : "../../${ARISTO}/shadow/red-shadow",
+            "border-width" : 5
+          },
+          "${RESPATH}/source/aristo/gray-shadow.png" :
+          {
+            "prefix" : "../../${ARISTO}/shadow/gray-shadow",
+            "border-width" : 5
+          },
+          "${RESPATH}/source/aristo/tooltip-error.png" :
+          {
+            "prefix" : "../../${ARISTO}/form/tooltip-error",
+            "border-width" : 6
+          },          
+          "${RESPATH}/source/aristo/button-checked.png" :
+          {
+            "prefix" : "../../${ARISTO}/form/button-checked",
+            "border-width" : 2
+          },
+
+          "${RESPATH}/source/aristo/button-pressed.png" :
+          {
+            "prefix" : "../../${ARISTO}/form/button-pressed",
+            "border-width" : 2
+          },
+          "${RESPATH}/source/aristo/button-hovered.png" :
+          {
+            "prefix" : "../../${ARISTO}/form/button-hovered",
+            "border-width" : 2
+          },
+          "${RESPATH}/source/aristo/button-disabled.png" :
+          {
+            "prefix" : "../../${ARISTO}/form/button-disabled",
+            "border-width" : 2
+          },
+          "${RESPATH}/source/aristo/button.png" :
+          {
+            "prefix" : "../../${ARISTO}/form/button",
+            "border-width" : 2
+          },
+          // window captionbar split
+          "${RESPATH}/source/aristo/window-captionbar.png" :
+          {
+            "prefix" : "../../${ARISTO}/window/captionbar",
+            "border-width" : 4
+          },
+          // window captionbar active split
+          "${RESPATH}/source/aristo/window-captionbar-active.png" :
+          {
+            "prefix" : "../../${ARISTO}/window/captionbar-active",
+            "border-width" : 4
+          },
+
+          // window statusbar split
+          "${RESPATH}/source/aristo/window-statusbar.png" :
+          {
+            "prefix" : "../../${ARISTO}/window/statusbar",
+            "border-width" : 4
+          },
+          // tabview-pane split
+          "${RESPATH}/source/aristo/tabview-pane.png" :
+          {
+            "prefix" : "../../${ARISTO}/tabview/tabview-pane",
+            "border-width" : 30
+          },          
+          // active top tabview button split
+          "${RESPATH}/source/aristo/tab-button-top-active.png" :
+          {
+            "prefix" : "../../${ARISTO}/tabview/tab-button-top-active",
+            "border-width" : 5
+          },
+          // inactive top tabview button split
+          "${RESPATH}/source/aristo/tab-button-top-inactive.png" :
+          {
+            "prefix" : "../../${ARISTO}/tabview/tab-button-top-inactive",
+            "border-width" : 3
+          },
+          // small shadow e.g. for menus
+          "${RESPATH}/source/aristo/shadow-small.png" :
+          {
+            "prefix" : "../../${ARISTO}/shadow/shadow-small",
+            "border-width" : 5
+          },
+          // groupBox
+          "${RESPATH}/source/aristo/groupbox.png" :
+          {
+            "prefix" : "../../${ARISTO}/groupbox/groupbox",
+            "border-width" : 4
+          }
+        }
+      }
+    },
+
+
+    "image-combine" :
+    {
+      "extend" : ["common"],
+
+      "combine-images" :
+      {
+        "images" :
+        {     
+          
+          "${RESPATH}/${ARISTO}/scrollbar-bg-button-tb-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+            [
+              {
+                "prefix" : [ "${RESPATH}" ],
+                "files"  :
+                [
+                  "${RESPATH}/${ARISTO}/scrollbar/scrollbar-bg-button-t.png",
+                  "${RESPATH}/${ARISTO}/scrollbar/scrollbar-bg-button-b.png",
+                  "${RESPATH}/${ARISTO}/scrollbar/scrollbar-bg-button-focused-t.png",
+                  "${RESPATH}/${ARISTO}/scrollbar/scrollbar-bg-button-focused-b.png"
+                ]
+              }
+            ],
+            "layout" : "vertical"
+          },
+          
+          "${RESPATH}/${ARISTO}/scrollbar-bg-button-lr-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+            [
+              {
+                "prefix" : [ "${RESPATH}" ],
+                "files"  :
+                [
+                  "${RESPATH}/${ARISTO}/scrollbar/scrollbar-bg-button-l.png",
+                  "${RESPATH}/${ARISTO}/scrollbar/scrollbar-bg-button-r.png",
+                  "${RESPATH}/${ARISTO}/scrollbar/scrollbar-bg-button-focused-l.png",
+                  "${RESPATH}/${ARISTO}/scrollbar/scrollbar-bg-button-focused-r.png"
+                ]
+              }
+            ],
+            "layout" : "vertical"
+          },
+          
+          // this is the output file
+          "${RESPATH}/${ARISTO}/tooltip-error-tb-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+            [
+              {
+                "prefix" : [ "${RESPATH}" ],
+                "files"  :
+                [
+                  "${RESPATH}/${ARISTO}/form/tooltip-error-[tb]*.png"
+                ]
+              }
+            ],
+            "layout" : "vertical"
+          },
+
+          "${RESPATH}/${ARISTO}/tooltip-error-lr-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+            [
+              {
+                "prefix" : [ "${RESPATH}" ],
+                "files"  :
+                [
+                  "${RESPATH}/${ARISTO}/form/tooltip-error-[lr].png"
+                ]
+              }
+            ],
+            "layout" : "horizontal"
+          },
+                    
+          "${RESPATH}/${ARISTO}/button-tb-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+            [
+              {
+                "prefix" : [ "${RESPATH}" ],
+                "files"  :
+                [
+                  "${RESPATH}/${ARISTO}/form/button-*-[tb]*.png",
+                  "${RESPATH}/${ARISTO}/form/button-[tb]*.png"
+                ]
+              }
+            ],
+            "layout" : "vertical"
+          },
+
+          "${RESPATH}/${ARISTO}/button-lr-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+            [
+              {
+                "prefix" : [ "${RESPATH}" ],
+                "files"  :
+                [
+                  "${RESPATH}/${ARISTO}/form/button-*-[lr].png",
+                  "${RESPATH}/${ARISTO}/form/button-[lr].png"
+                ]
+              }
+            ],
+            "layout" : "horizontal"
+          },
+
+          "${RESPATH}/${ARISTO}/checkradio-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/form/checkbox*.png",
+                    "${RESPATH}/${ARISTO}/form/radiobutton*.png"
+                  ]
+                }
+              ],
+             "layout" : "horizontal"
+          },
+
+          // window captionbar buttons
+          "${RESPATH}/${ARISTO}/window-captionbar-buttons-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/window/close-*.png",
+                    "${RESPATH}/${ARISTO}/window/minimize-*.png",
+                    "${RESPATH}/${ARISTO}/window/maximize-*.png",
+                    "${RESPATH}/${ARISTO}/window/restore-*.png"
+                  ]
+                }
+              ],
+             "layout" : "horizontal"
+          },
+
+          // window captionbar - top and bottom
+          "${RESPATH}/${ARISTO}/window-captionbar-tb-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/window/captionbar-b*.png",
+                    "${RESPATH}/${ARISTO}/window/captionbar-t*.png"
+                  ]
+                }
+              ],
+             "layout" : "vertical"
+          },
+
+          // window captionbar - left and right
+          "${RESPATH}/${ARISTO}/window-captionbar-lr-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/window/captionbar-l.png",
+                    "${RESPATH}/${ARISTO}/window/captionbar-r.png"
+                  ]
+                }
+              ],
+             "layout" : "horizontal"
+          },
+
+          // window captionbar-active - top and bottom
+          "${RESPATH}/${ARISTO}/window-captionbar-active-tb-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/window/captionbar-active-b*.png",
+                    "${RESPATH}/${ARISTO}/window/captionbar-active-t*.png"
+                  ]
+                }
+              ],
+             "layout" : "vertical"
+          },
+
+          // window captionbar-active - left and right
+          "${RESPATH}/${ARISTO}/window-captionbar-active-lr-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/window/captionbar-active-l.png",
+                    "${RESPATH}/${ARISTO}/window/captionbar-active-r.png"
+                  ]
+                }
+              ],
+             "layout" : "horizontal"
+          },
+
+          "${RESPATH}/${ARISTO}/shadow-tb-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+            [
+              {
+                "prefix" : [ "${RESPATH}" ],
+                "files"  :
+                [
+                  "${RESPATH}/${ARISTO}/shadow/shadow-[tb]*.png"
+                ]
+              }
+            ],
+            "layout" : "vertical"
+          },
+
+          "${RESPATH}/${ARISTO}/shadow-lr-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+            [
+              {
+                "prefix" : [ "${RESPATH}" ],
+                "files"  :
+                [
+                  "${RESPATH}/${ARISTO}/shadow/shadow-[lr].png"
+                ]
+              }
+            ],
+            "layout" : "horizontal"
+          },
+          
+          "${RESPATH}/${ARISTO}/red-shadow-tb-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+            [
+              {
+                "prefix" : [ "${RESPATH}" ],
+                "files"  :
+                [
+                  "${RESPATH}/${ARISTO}/shadow/red-shadow-[tb]*.png"
+                ]
+              }
+            ],
+            "layout" : "vertical"
+          },
+
+          "${RESPATH}/${ARISTO}/red-shadow-lr-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+            [
+              {
+                "prefix" : [ "${RESPATH}" ],
+                "files"  :
+                [
+                  "${RESPATH}/${ARISTO}/shadow/red-shadow-[lr].png"
+                ]
+              }
+            ],
+            "layout" : "horizontal"
+          },
+          
+          "${RESPATH}/${ARISTO}/gray-shadow-tb-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+            [
+              {
+                "prefix" : [ "${RESPATH}" ],
+                "files"  :
+                [
+                  "${RESPATH}/${ARISTO}/shadow/gray-shadow-[tb]*.png"
+                ]
+              }
+            ],
+            "layout" : "vertical"
+          },
+
+          "${RESPATH}/${ARISTO}/gray-shadow-lr-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+            [
+              {
+                "prefix" : [ "${RESPATH}" ],
+                "files"  :
+                [
+                  "${RESPATH}/${ARISTO}/shadow/gray-shadow-[lr].png"
+                ]
+              }
+            ],
+            "layout" : "horizontal"
+          },
+
+          "${RESPATH}/${ARISTO}/shadow-small-tb-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+            [
+              {
+                "prefix" : [ "${RESPATH}" ],
+                "files"  :
+                [
+                  "${RESPATH}/${ARISTO}/shadow/shadow-small-[tb]*.png"
+                ]
+              }
+            ],
+            "layout" : "vertical"
+          },
+
+          "${RESPATH}/${ARISTO}/shadow-small-lr-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+            [
+              {
+                "prefix" : [ "${RESPATH}" ],
+                "files"  :
+                [
+                  "${RESPATH}/${ARISTO}/shadow/shadow-small-[lr].png"
+                ]
+              }
+            ],
+            "layout" : "horizontal"
+          },
+              
+          "${RESPATH}/${ARISTO}/shadow-window-tb-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+            [
+              {
+                "prefix" : [ "${RESPATH}" ],
+                "files"  :
+                [
+                  "${RESPATH}/${ARISTO}/shadow/shadow-window-[tb]*.png"
+                ]
+              }
+            ],
+            "layout" : "vertical"
+          },
+
+          "${RESPATH}/${ARISTO}/shadow-window-lr-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+            [
+              {
+                "prefix" : [ "${RESPATH}" ],
+                "files"  :
+                [
+                  "${RESPATH}/${ARISTO}/shadow/shadow-window-[lr].png"
+                ]
+              }
+            ],
+            "layout" : "horizontal"
+          },
+
+          "${RESPATH}/${ARISTO}/shadow-window-active-tb-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+            [
+              {
+                "prefix" : [ "${RESPATH}" ],
+                "files"  :
+                [
+                  "${RESPATH}/${ARISTO}/shadow/shadow-window-active-[tb]*.png"
+                ]
+              }
+            ],
+            "layout" : "vertical"
+          },
+
+          "${RESPATH}/${ARISTO}/shadow-window-active-lr-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+            [
+              {
+                "prefix" : [ "${RESPATH}" ],
+                "files"  :
+                [
+                  "${RESPATH}/${ARISTO}/shadow/shadow-window-active-[lr].png"
+                ]
+              }
+            ],
+            "layout" : "horizontal"
+          },
+
+          "${RESPATH}/${ARISTO}/cursors-combined.gif":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/cursors/*.gif"
+                  ]
+                }
+              ],
+             "layout" : "horizontal"
+          },
+
+          // toolbar images
+          "${RESPATH}/${ARISTO}/toolbar-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/toolbar/*.png"
+                  ]
+                }
+              ],
+             "layout" : "horizontal"
+          },
+
+          // arrow images
+          "${RESPATH}/${ARISTO}/arrows-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/arrows/*.png"
+                  ]
+                }
+              ],
+             "layout" : "horizontal"
+          },
+
+          // tree images
+          "${RESPATH}/${ARISTO}/tree-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/tree/*.png"
+                  ]
+                }
+              ],
+             "layout" : "horizontal"
+          },
+
+          // menu and menubar background images
+          "${RESPATH}/${ARISTO}/menu-background-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/menu/background.png",
+                    "${RESPATH}/${ARISTO}/menu/bar-background.png"
+                  ]
+                }
+              ],
+             "layout" : "horizontal"
+          },
+          
+          // menu checkbox and radiobutton
+          "${RESPATH}/${ARISTO}/menu-checkradio-combined.gif":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/menu/*.gif"
+                  ]
+                }
+              ],
+             "layout" : "horizontal"
+          },
+
+          // table images
+          "${RESPATH}/${ARISTO}/table-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/table/*.png"
+                  ]
+                }
+              ],
+             "layout" : "horizontal"
+          },
+
+          // colorselector images
+          "${RESPATH}/${ARISTO}/colorselector-combined.gif":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/colorselector/*.gif"
+                  ]
+                }
+              ],
+             "layout" : "horizontal"
+          },
+
+          // groupbox - top and bottom
+          "${RESPATH}/${ARISTO}/groupbox-tb-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/groupbox/groupbox-t*.png",
+                    "${RESPATH}/${ARISTO}/groupbox/groupbox-b*.png"
+                  ]
+                }
+              ],
+             "layout" : "vertical"
+          },
+
+          // groupbox - left and right
+          "${RESPATH}/${ARISTO}/groupbox-lr-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/groupbox/groupbox-l.png",
+                    "${RESPATH}/${ARISTO}/groupbox/groupbox-r.png"
+                  ]
+                }
+              ],
+             "layout" : "horizontal"
+          },
+          
+          // tabview-pane - top and bottom
+          "${RESPATH}/${ARISTO}/tabview-pane-tb-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/tabview/tabview-pane-t*.png",
+                    "${RESPATH}/${ARISTO}/tabview/tabview-pane-b*.png"
+                  ]
+                }
+              ],
+             "layout" : "vertical"
+          },
+          
+          // tabview-pane - left and right
+          "${RESPATH}/${ARISTO}/tabview-pane-lr-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/tabview/tabview-pane-[lr].png"
+                  ]
+                }
+              ],
+             "layout" : "horizontal"
+          },
+          
+          // TABVIEW INFO
+          // Due a rendering bug in Firefox 2 under Linux it is not
+          // possible to combine the top and bottom images of the INACTIVE
+          // tab buttons.
+          // Instead the top and bottom images have to combined SEPERATELY.
+
+          // tabview-button-active-top - top and bottom
+          "${RESPATH}/${ARISTO}/tabview-button-top-active-tb-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/tabview/tab-button-top-active-t*.png",
+                    "${RESPATH}/${ARISTO}/tabview/tab-button-top-active-b*.png"
+                  ]
+                }
+              ],
+             "layout" : "vertical"
+          },
+
+          // tabview-button-active-top - left and right
+          "${RESPATH}/${ARISTO}/tabview-button-top-active-lr-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/tabview/tab-button-top-active-l.png",
+                    "${RESPATH}/${ARISTO}/tabview/tab-button-top-active-r.png"
+                  ]
+                }
+              ],
+             "layout" : "horizontal"
+          },
+          
+          // tabview-button-inactive-top - top images
+          "${RESPATH}/${ARISTO}/tabview-button-top-inactive-t-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/tabview/tab-button-top-inactive-t*.png"
+                  ]
+                }
+              ],
+             "layout" : "vertical"
+          },
+          
+          // tabview-button-inactive-top - bottom images
+          "${RESPATH}/${ARISTO}/tabview-button-top-inactive-b-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/tabview/tab-button-top-inactive-b*.png"
+                  ]
+                }
+              ],
+             "layout" : "vertical"
+          },
+                
+          // splitpane-knobs
+          "${RESPATH}/${ARISTO}/splitpane-knobs-combined.png":
+          {
+            "prefix" : [ "${RESPATH}" ],
+            "input"  :
+              [
+                {
+                  "prefix" : [ "${RESPATH}" ],
+                  "files"  :
+                  [
+                    "${RESPATH}/${ARISTO}/splitpane/*.png"
+                  ]
+                }
+              ],
+             "layout" : "vertical"
+          }
+        }
+      }
+    }
+  }
+}

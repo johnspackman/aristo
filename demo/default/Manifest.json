@@ -1,0 +1,34 @@
+{
+  "info" : 
+  {
+    "name" : "Aristo Demo",
+
+    "summary" : "Aristo Demo",
+    "description" : "A demo for the Aristo contribution. This demo application is under qooxdoo's regular LGPL/EPL license, <br/>while the theme contribution Aristo is under a Creative Commons Attribution Share-Alike License. <br/>Please see the info accompanying the theme contribution <br/>for proper licensing and attribution.",
+    
+    "homepage" : "http://demo.qooxdoo.org/contrib/Aristo",
+
+    "license" : "LGPL/EPL",
+    "authors" : 
+    [
+      {
+        "name" : "Norbert Schröder (scro34)",
+        "email" : "schroeder AT scro34 DOT de"
+      }
+    ],
+
+    "version" : "trunk",
+    "qooxdoo-versions": ["2.0", "2.1"]
+  },
+  
+  "provides" : 
+  {
+    "namespace"   : "aristo.demo",
+    "encoding"    : "utf-8",
+    "class"       : "source/class",
+    "resource"    : "source/resource",
+    "translation" : "source/translation",
+    "type"        : "application"
+  }
+}
+
