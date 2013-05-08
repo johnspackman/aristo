@@ -74,7 +74,7 @@ qx.Class.define("aristo.demo.ScrollBar",
       hScrollBarNative.addListener("scroll", doScroll);
       container.add(hScrollBarNative, {row: 2, column: 0});
 
-      hScrollBar.setPosition(170);
+      //hScrollBar.setPosition(170);
     }
   }
 

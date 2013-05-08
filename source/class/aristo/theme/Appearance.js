@@ -109,7 +109,6 @@ qx.Theme.define("aristo.theme.Appearance", {
 				return {
 					decorator : "list",
 					backgroundColor : "background-light"
-				// shadow : "gray-shadow"
 				};
 			}
 		},
@@ -124,7 +123,8 @@ qx.Theme.define("aristo.theme.Appearance", {
 			alias : "atom",
 
 			style : function(states) {
-				var decorator, textColor, shadow;
+				var decorator = "button";
+				var textColor;
 
 				if (states.checked) {
 					decorator = "button-checked";
@@ -145,18 +145,10 @@ qx.Theme.define("aristo.theme.Appearance", {
 					decorator = "button";
 					textColor = undefined;
 				}
-				var useCSS = qx.core.Environment.get("css.boxshadow");
-				if (useCSS)
-					decorator += "-css";
-
-				if (states.focused || (states.invalid && !states.disabled)) {
-					shadow = useCSS ? "shadow-css" : "shadow";
-				}
 
 				return {
 					decorator : decorator,
-					textColor : textColor,
-					shadow : shadow
+					textColor : textColor
 				};
 			}
 		},
@@ -181,6 +173,8 @@ qx.Theme.define("aristo.theme.Appearance", {
 				};
 			}
 		},
+		
+		"menubutton": "button",
 
 		"hover-button" : {
 			alias : "atom",
@@ -199,8 +193,7 @@ qx.Theme.define("aristo.theme.Appearance", {
 		"splitbutton" : {
 			style : function(states) {
 				return {
-					shadow : states.focused ? "shadow"
-							: undefined
+					//shadow : states.focused ? "shadow" : undefined
 				};
 			}
 		},
@@ -208,7 +201,7 @@ qx.Theme.define("aristo.theme.Appearance", {
 			include : "button",
 			style : function(states) {
 				return {
-					shadow : undefined
+					//shadow : undefined
 				};
 			}
 		},
@@ -220,8 +213,8 @@ qx.Theme.define("aristo.theme.Appearance", {
 				return {
 					icon : "aristo/decoration/arrows/arrow-down.png",
 					padding : 2,
-					marginLeft : -2,
-					shadow : undefined
+					marginLeft : -2 /*,
+					shadow : undefined */
 				};
 			}
 		},
@@ -237,29 +230,21 @@ qx.Theme.define("aristo.theme.Appearance", {
 
 			style : function(states) {
 				var decorator = "list";
-				var shadow = "shadow";
 
 				var focused = !!states.focused;
 				var invalid = !!states.invalid;
 				var disabled = !!states.disabled;
 
-				if (focused && invalid && !disabled) {
-					shadow = "red-shadow";
-				} else if (focused && !invalid && !disabled) {
-					shadow = "shadow";
-				} else if (disabled) {
-					decorator = "input";
-				} else if (!focused && invalid && !disabled) {
-					shadow = "red-shadow";
+				if (!disabled) {
+					if (focused)
+						decorator += "-shadow";
+					if (invalid)
+						decorator += "-invalid";
 				}
 
-				if (!focused) {
-					shadow = undefined;
-				}
 				return {
 					backgroundColor : "background-light",
 					decorator : decorator,
-					shadow : shadow,
 					margin : 2
 				};
 			}
@@ -339,12 +324,9 @@ qx.Theme.define("aristo.theme.Appearance", {
 				}
 
 				return {
-					maxWidth : states.horizontal ? undefined
-							: 13,
-					maxHeight : states.horizontal ? 13
-							: undefined,
-					decorator : states.horizontal ? "scrollbar-horizontal"
-							: "scrollbar-vertical",
+					maxWidth : states.horizontal ? undefined : 13,
+					maxHeight : states.horizontal ? 13 : undefined,
+					decorator : states.horizontal ? "scrollbar-horizontal" : "scrollbar-vertical",
 					padding : 0
 				};
 			}
@@ -355,32 +337,26 @@ qx.Theme.define("aristo.theme.Appearance", {
 
 			style : function(states) {
 				return {
-					padding : states.horizontal ? [ 1, -7, 0,
-							-8 ] : [ -8, 0, -9, 0 ]
+					margin : states.horizontal ? [ 1, -6, 0, -6 ] : [ -8, 0, -7, 0 ]
 				};
 			}
 		},
 
 		"scrollbar/slider/knob" : {
 			style : function(states) {
-				var decorator = states.horizontal ? "scrollbar-slider-horizontal"
-						: "scrollbar-slider-vertical";
+				var decorator = states.horizontal ? "scrollbar-slider-horizontal" : "scrollbar-slider-vertical";
 				if (states.disabled) {
 					decorator += "-disabled";
 				}
 
 				return {
 					decorator : decorator,
-					// width: states.horizontal? undefined : 16,
-					marginLeft : qx.bom.client.Browser.NAME == "ie"
-							&& !states.horizontal ? 2 : 1,
-					marginTop : qx.bom.client.Browser.NAME == "ie"
-							&& states.horizontal ? 1
-							: undefined,
-					minHeight : states.horizontal ? undefined
-							: 16,
-					minWidth : states.horizontal ? 16
-							: undefined
+					marginLeft : qx.bom.client.Browser.NAME == "ie" && !states.horizontal ? 2 : 1,
+					marginTop : qx.bom.client.Browser.NAME == "ie" && states.horizontal ? 1 : undefined,
+					minHeight : states.horizontal ? undefined : 16,
+					minWidth : states.horizontal ? 16 : undefined,
+					maxWidth: states.horizontal ? undefined : 10,
+					maxHeight: states.horizontal ? 10 : undefined
 				};
 			}
 		},
@@ -393,35 +369,25 @@ qx.Theme.define("aristo.theme.Appearance", {
 				var icon = "aristo/decoration/arrows/arrow-";
 				var decorator;
 				if (states.left) {
-					icon += states.pressed ? "focused-left.png"
-							: "left.png";
+					icon += states.pressed ? "focused-left.png" : "left.png";
 					decorator = states.hovered
-							|| states.docused ? "scroll-bt-left-focused"
-							: "scroll-bt-left";
+							|| states.docused ? "scroll-bt-left-focused" : "scroll-bt-left";
 				} else if (states.right) {
-					icon += states.pressed ? "focused-right.png"
-							: "right.png";
+					icon += states.pressed ? "focused-right.png" : "right.png";
 					decorator = states.hovered
-							|| states.docused ? "scroll-bt-right-focused"
-							: "scroll-bt-right";
+							|| states.docused ? "scroll-bt-right-focused" : "scroll-bt-right";
 				} else if (states.up) {
-					icon += states.pressed ? "focused-up.png"
-							: "up.png";
+					icon += states.pressed ? "focused-up.png" : "up.png";
 					decorator = states.hovered
-							|| states.focused ? "scroll-bt-up-focused"
-							: "scroll-bt-up";
+							|| states.focused ? "scroll-bt-up-focused" : "scroll-bt-up";
 				} else {
-					icon += states.pressed ? "focused-down.png"
-							: "down.png";
-					decorator = states.hovered
-							|| states.focused ? "scroll-bt-down-focused"
-							: "scroll-bt-down";
+					icon += states.pressed ? "focused-down.png" : "down.png";
+					decorator = states.hovered || states.focused ? "scroll-bt-down-focused" : "scroll-bt-down";
 				}
 
 				if (states.left || states.right) {
 					return {
-						padding : [ 0, 0, 0,
-								states.left ? 6 : 16 ],
+						padding : [ 0, 0, 0, states.left ? 6 : 16 ],
 						icon : icon,
 						width : 29,
 						height : 13,
@@ -429,8 +395,7 @@ qx.Theme.define("aristo.theme.Appearance", {
 					};
 				} else {
 					return {
-						padding : [ states.up ? -10 : 12, 0, 0,
-								2 ],
+						padding : [ states.up ? -10 : 12, 0, 0, 2 ],
 						icon : icon,
 						width : 13,
 						height : 29,
@@ -451,30 +416,21 @@ qx.Theme.define("aristo.theme.Appearance", {
 
 		"spinner" : {
 			style : function(states) {
-				var decorator, shadow;
+				var decorator = "input";
 
 				var focused = !!states.focused;
 				var invalid = !!states.invalid;
 				var disabled = !!states.disabled;
-
-				if (focused && invalid && !disabled) {
-					decorator = "input";
-					shadow = "red-shadow";
-				} else if (focused && !invalid && !disabled) {
-					// decorator = "input-focused";
-					shadow = "shadow";
-					decorator = "input";
-				} else if (disabled) {
-					decorator = "input";
-				} else if (!focused && invalid && !disabled) {
-					decorator = "red-shadow";
-				} else {
-					decorator = "input";
+				
+				if (!disabled) {
+					if (focused)
+						decorator += "-shadow";
+					if (invalid)
+						decorator += "-invalid";
 				}
 
 				return {
 					decorator : decorator,
-					shadow : shadow,
 					margin : 2
 				};
 			}
@@ -500,8 +456,7 @@ qx.Theme.define("aristo.theme.Appearance", {
 				return {
 					icon : "aristo/decoration/arrows/up-small.png",
 					padding : states.pressed ? [ 2, 2, 0, 4 ]
-							: [ 1, 3, 1, 3 ],
-					shadow : undefined
+							: [ 1, 3, 1, 3 ]
 				};
 			}
 		},
@@ -514,8 +469,7 @@ qx.Theme.define("aristo.theme.Appearance", {
 				return {
 					icon : "aristo/decoration/arrows/down-small.png",
 					padding : states.pressed ? [ 2, 2, 0, 4 ]
-							: [ 1, 3, 1, 3 ],
-					shadow : undefined
+							: [ 1, 3, 1, 3 ]
 				};
 			}
 		},
@@ -651,25 +605,17 @@ qx.Theme.define("aristo.theme.Appearance", {
 
 		"textfield" : {
 			style : function(states) {
-				var decorator, shadow;
+				var decorator = "input";
 
 				var focused = !!states.focused;
 				var invalid = !!states.invalid;
 				var disabled = !!states.disabled;
-
-				decorator = "input";
-
-				if (focused && invalid && !disabled) {
-					shadow = "red-shadow";
-				} else if (focused && !invalid && !disabled) {
-					shadow = "shadow";
-				} else if (disabled) {
-					decorator = "input-disabled";
-					shadow = undefined;
-				} else if (!focused && invalid && !disabled) {
-					shadow = "red-shadow";
-				} else {
-					shadow = undefined;
+				
+				if (!disabled) {
+					if (focused)
+						decorator += "-shadow";
+					if (invalid)
+						decorator += "-invalid";
 				}
 
 				var textColor;
@@ -684,10 +630,9 @@ qx.Theme.define("aristo.theme.Appearance", {
 				}
 
 				return {
-					decorator : "input",
+					decorator : decorator,
 					padding : [ 2, 4, 1 ],
 					textColor : textColor,
-					shadow : shadow,
 					margin : 2
 				};
 			}
@@ -712,9 +657,8 @@ qx.Theme.define("aristo.theme.Appearance", {
 
 		"window" : {
 			style : function(states) {
-				var useCSS = qx.core.Environment.get("css.boxshadow");
 				return {
-					shadow : (states.active ? "shadow-window-active" : "shadow-window-inactive") + (useCSS ? "-css" : ""),
+					decorator : (states.active ? "window-active" : "window"),
 					contentPadding : [ 10, 10, 10, 10 ]
 				};
 			}
@@ -1019,37 +963,15 @@ qx.Theme.define("aristo.theme.Appearance", {
 
 		"slider" : {
 			style : function(states) {
-				var decorator = states.horizontal ? "slider-horizontal"
-						: "slider-vertical";
-
-				var focused = !!states.focused;
-				var invalid = !!states.invalid;
-				var disabled = !!states.disabled;
-
-				/*
-				 * if (focused && invalid && !disabled) {
-				 * decorator = "input-focused-invalid"; } else
-				 * if (focused && !invalid && !disabled) {
-				 * decorator = "input-focused"; } else if
-				 * (disabled) { decorator = "input-disabled"; }
-				 * else if (!focused && invalid && !disabled) {
-				 * decorator = "border-invalid"; }
-				 */
+				var decorator = states.horizontal ? "slider-horizontal" : "slider-vertical";
 
 				return {
 					decorator : decorator,
-					maxHeight : states.horizontal ? 20
-							: undefined,
-					maxWidth : states.horizontal ? undefined
-							: 20,
-					minHeight : states.horizontal ? 20
-							: undefined,
-					minWidth : states.horizontal ? undefined
-							: 20,
-					padding : [ states.horizontal ? 0 : -10,
-							states.horizontal ? -10 : 0,
-							states.horizontal ? 0 : -10,
-							states.horizontal ? -10 : 2 ]
+					maxHeight : states.horizontal ? 20 : undefined,
+					maxWidth : states.horizontal ? undefined : 20,
+					minHeight : states.horizontal ? 20 : undefined,
+					minWidth : states.horizontal ? undefined : 20,
+					padding : 0
 				};
 			}
 		},
@@ -1063,8 +985,6 @@ qx.Theme.define("aristo.theme.Appearance", {
 					decorator : states.disabled ? "slider-knob-disabled"
 							: states.focused ? "slider-knob-focused"
 									: "slider-knob",
-					// shadow: states.focused? "shadow" :
-					// undefined,
 					maxHeight : 18,
 					// minHeight: 17,
 					// marginTop: -0,
@@ -1083,7 +1003,6 @@ qx.Theme.define("aristo.theme.Appearance", {
 			style : function(states) {
 				var result = {
 					decorator : "menu",
-					shadow : "shadow-popup",
 					spacingX : 6,
 					spacingY : 1,
 					iconColumnWidth : 16,
@@ -1278,8 +1197,7 @@ qx.Theme.define("aristo.theme.Appearance", {
 					icon : "aristo/decoration/icons/16x16/calendar.png",
 					padding : [ 0, 3 ],
 					decorator : "blank",
-					marginLeft : -3,
-					shadow : undefined
+					marginLeft : -3
 				};
 			}
 		},
@@ -1339,8 +1257,7 @@ qx.Theme.define("aristo.theme.Appearance", {
 
 			style : function(states) {
 				var result = {
-					padding : [ 2, 4 ],
-					shadow : undefined
+					padding : [ 2, 4 ]
 				};
 
 				if (states.lastYear) {
@@ -1438,16 +1355,21 @@ qx.Theme.define("aristo.theme.Appearance", {
 
 		"combobox" : {
 			style : function(states) {
-				// var decorator = "input";
+				var decorator = "input";
 
 				var focused = !!states.focused;
 				var invalid = !!states.invalid;
 				var disabled = !!states.disabled;
+				
+				if (!disabled) {
+					if (focused)
+						decorator += "-shadow";
+					if (invalid)
+						decorator += "-invalid";
+				}
 
 				return {
-					decorator : "input",
-					shadow : focused ? invalid ? "red-shadow"
-							: "shadow" : undefined
+					decorator : decorator
 				};
 			}
 		},
@@ -1465,8 +1387,7 @@ qx.Theme.define("aristo.theme.Appearance", {
 			style : function(states) {
 				var ret = {
 					icon : "aristo/decoration/arrows/arrow-down.png",
-					padding : 2,
-					shadow : undefined
+					padding : 2
 				};
 
 				if (states.selected) {
@@ -1522,7 +1443,6 @@ qx.Theme.define("aristo.theme.Appearance", {
 					showTimeout : 100,
 					hideTimeout : 10000,
 					decorator : "tooltip-error",
-					shadow : "tooltip-error-arrow",
 					font : "bold"
 				};
 			}
@@ -1550,8 +1470,7 @@ qx.Theme.define("aristo.theme.Appearance", {
 			style : function(states) {
 				return {
 					padding : [ 1, 0, 1, 4 ],
-					textColor : states.invalid ? "invalid"
-							: "text-title",
+					textColor : states.invalid ? "invalid" : "text-title",
 					font : "bold"
 				};
 			}
@@ -1575,8 +1494,7 @@ qx.Theme.define("aristo.theme.Appearance", {
 			style : function(states) {
 				return {
 					padding : [ 1, 0, 1, 4 ],
-					textColor : states.invalid ? "invalid"
-							: "text-title",
+					textColor : states.invalid ? "invalid" : "text-title",
 					font : "bold"
 				};
 			}
@@ -1765,19 +1683,6 @@ qx.Theme.define("aristo.theme.Appearance", {
 					textColor : states.checked ? "text-active"
 							: states.disabled ? "text-disabled"
 									: "text-inactive"
-				};
-			}
-		},
-
-		"tabview-page/button/label" : {
-			alias : "label",
-
-			style : function(states) {
-				return {
-					padding : [ 0, 1, 0, 1 ],
-					margin : states.focused ? 0 : 1,
-					decorator : states.focused ? "keyboard-focus"
-							: undefined
 				};
 			}
 		},

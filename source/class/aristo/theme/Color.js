@@ -70,7 +70,13 @@ qx.Theme.define("aristo.theme.Color", {
 		"button-active-gradient-end" : "#83b0ca",
 		"button-focused-shadow" : "#a1cae2",
 		
+		"window-caption-gradient-start": "#e9e9e9",
+		"window-caption-gradient-end": "#d8d8d8",
+		"window-caption-active-gradient-start": "#e2eff3",
+		"window-caption-active-gradient-end": "#c6dfe7",
+		
 		"window-shadow": "#7f7f7f",
+		"input-shadow": "#b8b8b8",
 
 		/*
 		 * ---------------------------------------------------------------------------

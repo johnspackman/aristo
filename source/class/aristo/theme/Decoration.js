@@ -41,7 +41,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 	decorations : {
 
 		"main" : {
-			decorator : qx.ui.decoration.Uniform,
+			decorator : qx.ui.decoration.Decorator,
 
 			style : {
 				width : 1,
@@ -50,7 +50,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"border-invalid" : {
-			decorator : qx.ui.decoration.Uniform,
+			decorator : qx.ui.decoration.Decorator,
 
 			style : {
 				width : 2,
@@ -65,14 +65,6 @@ qx.Theme.define("aristo.theme.Decoration", {
 		 */
 
 		"button" : {
-			decorator : qx.ui.decoration.Grid,
-
-			style : {
-				baseImage : "aristo/decoration/form/button.png",
-				insets : 2
-			}
-		},
-		"button-css" : {
 			decorator : [
 					qx.ui.decoration.MLinearBackgroundGradient,
 					qx.ui.decoration.MBorderRadius,
@@ -87,14 +79,6 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"button-hovered" : {
-			decorator : qx.ui.decoration.Grid,
-
-			style : {
-				baseImage : "aristo/decoration/form/button-hovered.png",
-				insets : 2
-			}
-		},
-		"button-hovered-css" : {
 			decorator : [
 					qx.ui.decoration.MLinearBackgroundGradient,
 					qx.ui.decoration.MBorderRadius,
@@ -109,14 +93,6 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"button-pressed" : {
-			decorator : qx.ui.decoration.Grid,
-
-			style : {
-				baseImage : "aristo/decoration/form/button-pressed.png",
-				insets : 2
-			}
-		},
-		"button-pressed-css" : {
 			decorator : [
 					qx.ui.decoration.MLinearBackgroundGradient,
 					qx.ui.decoration.MBorderRadius,
@@ -131,27 +107,11 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"button-checked" : {
-			decorator : qx.ui.decoration.Grid,
-
-			style : {
-				baseImage : "aristo/decoration/form/button-checked.png",
-				insets : 2
-			}
-		},
-		"button-checked-css" : {
-			include : "button-pressed-css"
+			include : "button-pressed"
 		},
 
 		"button-disabled" : {
-			decorator : qx.ui.decoration.Grid,
-
-			style : {
-				baseImage : "aristo/decoration/form/button-disabled.png",
-				insets : 2
-			}
-		},
-		"button-disabled-css" : {
-			include : "button-disabled"
+			include : "button"
 		},
 
 		/*******************************************************
@@ -159,14 +119,6 @@ qx.Theme.define("aristo.theme.Decoration", {
 		 */
 
 		"shadow" : {
-			decorator : qx.ui.decoration.Grid,
-
-			style : {
-				baseImage : "aristo/decoration/shadow/shadow.png",
-				insets : 1
-			}
-		},
-		"shadow-css" : {
 			decorator : [ qx.ui.decoration.MSingleBorder,
 					qx.ui.decoration.MBorderRadius,
 					qx.ui.decoration.MBoxShadow ],
@@ -180,102 +132,44 @@ qx.Theme.define("aristo.theme.Decoration", {
 				shadowColor : "button-focused-shadow"
 			}
 		},
-		/*
-		 * "shadow-css" : { decorator : qx.ui.decoration.Single,
-		 * 
-		 * style : { color : "invalid", width : 1 } },
-		 */
 
-		"shadow-window-inactive" : {
-			decorator : qx.ui.decoration.Grid,
 
-			style : {
-				baseImage : "aristo/decoration/shadow/shadow-window.png",
-				insets : [ -2, 8, 10, -2 ]
-			}
-		},
-
-		"shadow-window-inactive-css" : {
-			decorator : [ qx.ui.decoration.MSingleBorder,
-							qx.ui.decoration.MBorderRadius,
-							qx.ui.decoration.MBoxShadow ],
-
-			style : {
-				width : 0,
-				color : "window-shadow",
-				radius : 2,
-				shadowLength : 1,
-				shadowBlurRadius : 6,
-				shadowSpreadRadius: 0,
-				shadowColor : "window-shadow"
-			}
-		},
-
-		"shadow-window-active" : {
-			decorator : qx.ui.decoration.Grid,
-
-			style : {
-				baseImage : "aristo/decoration/shadow/shadow-window-active.png",
-				insets : [ -6, 12, 14, -6 ]
-			}
-		},
-
-		"shadow-window-active-css" : {
-			decorator : [ qx.ui.decoration.MSingleBorder,
-							qx.ui.decoration.MBorderRadius,
-							qx.ui.decoration.MBoxShadow ],
-
-			style : {
-				width : 0,
-				color : "window-shadow",
-				radius : 2,
-				shadowLength : 2,
-				shadowBlurRadius : 10,
-				shadowSpreadRadius: 2,
-				shadowColor : "window-shadow"
-			}
-		},
-
-		"red-shadow" : {
-			decorator : qx.ui.decoration.Grid,
-
-			style : {
-				baseImage : "aristo/decoration/shadow/red-shadow.png",
-				insets : 3
-			}
-		},
-		"gray-shadow" : {
-			decorator : qx.ui.decoration.Grid,
-
-			style : {
-				baseImage : "aristo/decoration/shadow/gray-shadow.png",
-				insets : 3
-			}
-		},
-
-		"shadow-popup" : {
-			decorator : qx.ui.decoration.Grid,
-
-			style : {
-				baseImage : "aristo/decoration/shadow/shadow-small.png",
-				insets : [ 0, 3, 3, 0 ]
-			}
-		},
 
 		/*******************************************************
 		 * INPUT
 		 ******************************************************/
 
 		"input" : {
-			decorator : qx.ui.decoration.Beveled,
+			decorator : [ qx.ui.decoration.MBoxShadow ],
 
 			style : {
-				outerColor : "border-input",
-				innerColor : "white",
-				innerOpacity : 0.5,
+				color : "border-input",
 				backgroundImage : "aristo/decoration/form/input.png",
 				backgroundRepeat : "repeat-x",
 				backgroundColor : "white"
+			}
+		},
+
+		"input-invalid": {
+			include: "input",
+			style : {
+				color: "invalid"
+			}
+		},
+		
+		"input-shadow": {
+			include: "input",
+			style : {
+				shadowColor: "input-shadow",
+				shadowLength: 2,
+				shadowBlurRadius: 2
+			}
+		},
+
+		"input-shadow-invalid": {
+			include: "input-shadow",
+			style : {
+				color: "invalid"
 			}
 		},
 
@@ -288,13 +182,35 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"list" : {
-			decorator : qx.ui.decoration.Single,
+			decorator : [ qx.ui.decoration.MBoxShadow ],
 			style : {
 				width : 1,
-
 				color : "#b8b8b8",
-
 				style : "solid"
+			}
+		},
+
+		"list-invalid" : {
+			include: "list",
+			style : {
+				color : "invalid"
+			}
+		},
+
+		"list-shadow" : {
+			include: "list",
+			style : {
+				shadowColor: "border-main",
+				shadowLength: 2,
+				shadowBlurRadius: 2
+			}
+		},
+
+		"list-shadow-invalid" : {
+			include: "list-shadow",
+			style : {
+				color : "invalid",
+				shadowColor: "invalid"
 			}
 		},
 
@@ -307,20 +223,20 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"scrollbar-horizontal" : {
-			decorator : qx.ui.decoration.Background,
+			decorator : [ qx.ui.decoration.MLinearBackgroundGradient ],
 
 			style : {
-				backgroundImage : "aristo/decoration/scrollbar/scrollbar-bg-horizontal.png",
-				backgroundRepeat : "repeat-x"
+				startColor: "#afafaf",
+				endColor: "#c8c8c8",
+				orientation: "horizontal"
 			}
 		},
 
 		"scrollbar-vertical" : {
-			decorator : qx.ui.decoration.Background,
+			include: "scrollbar-horizontal",
 
 			style : {
-				backgroundImage : "aristo/decoration/scrollbar/scrollbar-bg-vertical.png",
-				backgroundRepeat : "repeat-y"
+				orientation: "horizontal"
 			}
 		},
 
@@ -331,18 +247,20 @@ qx.Theme.define("aristo.theme.Decoration", {
 				backgroundImage : "aristo/decoration/scrollbar/scrollbar-bg-button-t.png"
 			}
 		},
-		"scroll-bt-down" : {
-			decorator : qx.ui.decoration.Background,
-
-			style : {
-				backgroundImage : "aristo/decoration/scrollbar/scrollbar-bg-button-b.png"
-			}
-		},
+		
 		"scroll-bt-up-focused" : {
 			decorator : qx.ui.decoration.Background,
 
 			style : {
 				backgroundImage : "aristo/decoration/scrollbar/scrollbar-bg-button-focused-t.png"
+			}
+		},
+		
+		"scroll-bt-down" : {
+			decorator : qx.ui.decoration.Background,
+
+			style : {
+				backgroundImage : "aristo/decoration/scrollbar/scrollbar-bg-button-b.png"
 			}
 		},
 
@@ -361,18 +279,20 @@ qx.Theme.define("aristo.theme.Decoration", {
 				backgroundImage : "aristo/decoration/scrollbar/scrollbar-bg-button-l.png"
 			}
 		},
-		"scroll-bt-right" : {
-			decorator : qx.ui.decoration.Background,
-
-			style : {
-				backgroundImage : "aristo/decoration/scrollbar/scrollbar-bg-button-r.png"
-			}
-		},
+		
 		"scroll-bt-left-focused" : {
 			decorator : qx.ui.decoration.Background,
 
 			style : {
 				backgroundImage : "aristo/decoration/scrollbar/scrollbar-bg-button-focused-l.png"
+			}
+		},
+		
+		"scroll-bt-right" : {
+			decorator : qx.ui.decoration.Background,
+
+			style : {
+				backgroundImage : "aristo/decoration/scrollbar/scrollbar-bg-button-r.png"
 			}
 		},
 
@@ -385,20 +305,28 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"scrollbar-slider-vertical" : {
-			decorator : qx.ui.decoration.VBox,
-
+			decorator : [	qx.ui.decoration.MLinearBackgroundGradient,
+							qx.ui.decoration.MBorderRadius,
+							qx.ui.decoration.MSingleBorder,
+							qx.ui.decoration.MBoxShadow],
 			style : {
-				baseImage : "aristo/decoration/scrollbar/scrollbar-button-bg-vertical.png",
-				insets : [ 8, 0, 8, 0 ]
+				startColor : "#f5f5f5",
+				endColor : "#eaeaea",
+				orientation: "horizontal",
+				radius : 6,
+				width : 0,
+				color : "border-main",
+				shadowLength: 0,
+				shadowBlurRadius: 4,
+				shadowColor: "#000"
 			}
 		},
 
 		"scrollbar-slider-horizontal" : {
-			decorator : qx.ui.decoration.HBox,
+			include: "scrollbar-slider-vertical",
 
 			style : {
-				baseImage : "aristo/decoration/scrollbar/scrollbar-button-bg-horizontal.png",
-				insets : [ 0, 8, 0, 8 ]
+				orientation: "vertical"
 			}
 		},
 
@@ -409,19 +337,19 @@ qx.Theme.define("aristo.theme.Decoration", {
 		 */
 
 		"slider-vertical" : {
-			decorator : qx.ui.decoration.VBox,
+			decorator : [ qx.ui.decoration.MBackgroundImage ],
 
 			style : {
-				baseImage : "aristo/decoration/form/slider-vertical.png",
-				insets : [ 10, 0 ]
+				backgroundImage : "aristo/decoration/form/slider-vertical-c.png",
+				backgroundRepeat: "repeat-y"
 			}
 		},
 		"slider-horizontal" : {
-			decorator : qx.ui.decoration.HBox,
+			decorator : [ qx.ui.decoration.MBackgroundImage ],
 
 			style : {
-				baseImage : "aristo/decoration/form/slider-horizontal.png",
-				insets : [ 0, 10, 0, 10 ]
+				backgroundImage : "aristo/decoration/form/slider-horizontal-c.png",
+				backgroundRepeat: "repeat-x"
 			}
 		},
 
@@ -456,30 +384,45 @@ qx.Theme.define("aristo.theme.Decoration", {
 		 */
 
 		"window" : {
-			decorator : qx.ui.decoration.Single,
+			decorator : [ qx.ui.decoration.MSingleBorder,
+							qx.ui.decoration.MBorderRadius,
+							qx.ui.decoration.MBoxShadow ],
 
 			style : {
-				backgroundColor : "white"
-
-			// width : 1,
-			// color : "border-main",
-			// widthTop : 0
+				backgroundColor : "white",
+				width : 0,
+				color : "window-shadow",
+				radius : 2,
+				shadowLength : 1,
+				shadowBlurRadius : 6,
+				shadowSpreadRadius: 0,
+				shadowColor : "window-shadow"
 			}
 		},
 
-		"window-captionbar" : {
-			decorator : qx.ui.decoration.Grid,
+		"window-active" : {
+			include: "window",
 
 			style : {
-				baseImage : "aristo/decoration/window/captionbar.png"
+				shadowLength : 2,
+				shadowBlurRadius : 10,
+				shadowSpreadRadius: 2
+			}
+		},
+		
+		"window-captionbar" : {
+			decorator : [ qx.ui.decoration.MLinearBackgroundGradient  ],
+			style : {
+				startColor : "window-caption-gradient-start",
+				endColor : "window-caption-gradient-end"
 			}
 		},
 
 		"window-captionbar-active" : {
-			decorator : qx.ui.decoration.Grid,
-
+			decorator : [ qx.ui.decoration.MLinearBackgroundGradient  ],
 			style : {
-				baseImage : "aristo/decoration/window/captionbar-active.png"
+				startColor : "window-caption-active-gradient-start",
+				endColor : "window-caption-active-gradient-end"
 			}
 		},
 
@@ -546,22 +489,20 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"toolbar-button-hovered" : {
-			decorator : qx.ui.decoration.Beveled,
+			decorator : qx.ui.decoration.Decorator,
 
 			style : {
-				outerColor : "border-main",
-				innerColor : "#d1d1d1",
+				color : "border-main",
 				backgroundImage : "aristo/decoration/form/button-disabled-c.png",
 				backgroundRepeat : "scale"
 			}
 		},
 
 		"toolbar-button-checked" : {
-			decorator : qx.ui.decoration.Beveled,
+			decorator : qx.ui.decoration.Decorator,
 
 			style : {
-				outerColor : "border-main",
-				innerColor : "#d1d1d1",
+				color : "border-main",
 				backgroundImage : "aristo/decoration/form/button-checked-c.png",
 				backgroundRepeat : "scale"
 			}
@@ -679,22 +620,14 @@ qx.Theme.define("aristo.theme.Decoration", {
 		 */
 
 		"tooltip-error" : {
-			decorator : qx.ui.decoration.Grid,
+			decorator : [ qx.ui.decoration.MBoxShadow, qx.ui.decoration.MBackground ],
 
 			style : {
-				baseImage : "aristo/decoration/tooltip/tooltip-error.png",
-				insets : [ 2, 5, 5, 2 ]
-			}
-		},
-
-		"tooltip-error-arrow" : {
-			decorator : qx.ui.decoration.Background,
-
-			style : {
+				backgroundColor : "#c82c2c",
+				//insets : [ 2, 5, 5, 2 ],
 				backgroundImage : "aristo/decoration/tooltip/tooltip-error-arrow.png",
 				backgroundPositionY : "center",
-				backgroundRepeat : "no-repeat",
-				insets : [ 0, 0, 0, 10 ]
+				backgroundRepeat : "no-repeat"
 			}
 		},
 
@@ -704,10 +637,13 @@ qx.Theme.define("aristo.theme.Decoration", {
 		 * ------------------------------------------------------------------------
 		 */
 		"group" : {
-			decorator : qx.ui.decoration.Grid,
+			decorator : [ qx.ui.decoration.MSingleBorder, qx.ui.decoration.MBorderRadius ],
 
 			style : {
-				baseImage : "aristo/decoration/groupbox/groupbox.png"
+				radius: 4,
+				width: 1,
+				color: "border-main",
+				backgroundColor : "background-light"
 			}
 		},
 
@@ -718,95 +654,92 @@ qx.Theme.define("aristo.theme.Decoration", {
 		 */
 
 		"tabview-pane" : {
-			decorator : qx.ui.decoration.Grid,
+			decorator : [ qx.ui.decoration.MBorderImage ],
 
 			style : {
-				baseImage : "aristo/decoration/tabview/tabview-pane.png",
-				insets : [ 4, 6, 7, 4 ]
+				borderImage : "aristo/decoration/tabview/tabview-pane.png" /*,
+				insets : [ 4, 6, 7, 4 ] */
 			}
 		},
 
 		"tabview-page-button-top-active" : {
-			decorator : qx.ui.decoration.Grid,
+			decorator : [ qx.ui.decoration.MBorderImage ],
 
 			style : {
-				baseImage : "aristo/decoration/tabview/tab-button-top-active.png"
+				borderImage : "aristo/decoration/tabview/tab-button-top-active.png"
 			}
 		},
 
 		"tabview-page-button-top-inactive" : {
-			decorator : qx.ui.decoration.Grid,
+			decorator : [ qx.ui.decoration.MBorderImage ],
 
 			style : {
-				baseImage : "aristo/decoration/tabview/tab-button-top-inactive.png"
+				borderImage : "aristo/decoration/tabview/tab-button-top-inactive.png"
 			}
 		},
 
 		"tabview-page-button-bottom-active" : {
-			decorator : qx.ui.decoration.Grid,
+			decorator : [ qx.ui.decoration.MBorderImage ],
 
 			style : {
-				baseImage : "aristo/decoration/tabview/tab-button-bottom-active.png"
+				borderImage : "aristo/decoration/tabview/tab-button-bottom-active.png"
 			}
 		},
 
 		"tabview-page-button-bottom-inactive" : {
-			decorator : qx.ui.decoration.Grid,
+			decorator : [ qx.ui.decoration.MBorderImage ],
 
 			style : {
-				baseImage : "aristo/decoration/tabview/tab-button-bottom-inactive.png"
+				borderImage : "aristo/decoration/tabview/tab-button-bottom-inactive.png"
 			}
 		},
 
 		"tabview-page-button-left-active" : {
-			decorator : qx.ui.decoration.Grid,
+			decorator : [ qx.ui.decoration.MBorderImage ],
 
 			style : {
-				baseImage : "aristo/decoration/tabview/tab-button-left-active.png"
+				borderImage : "aristo/decoration/tabview/tab-button-left-active.png"
 			}
 		},
 
 		"tabview-page-button-left-inactive" : {
-			decorator : qx.ui.decoration.Grid,
+			decorator : [ qx.ui.decoration.MBorderImage ],
 
 			style : {
-				baseImage : "aristo/decoration/tabview/tab-button-left-inactive.png"
+				borderImage : "aristo/decoration/tabview/tab-button-left-inactive.png"
 			}
 		},
 
 		"tabview-page-button-right-active" : {
-			decorator : qx.ui.decoration.Grid,
+			decorator : [ qx.ui.decoration.MBorderImage ],
 
 			style : {
-				baseImage : "aristo/decoration/tabview/tab-button-right-active.png"
+				borderImage : "aristo/decoration/tabview/tab-button-right-active.png"
 			}
 		},
 
 		"tabview-page-button-right-inactive" : {
-			decorator : qx.ui.decoration.Grid,
+			decorator : [ qx.ui.decoration.MBorderImage ],
 
 			style : {
-				baseImage : "aristo/decoration/tabview/tab-button-right-inactive.png"
-			}
-		},
-		"keyboard-focus" : {
-			decorator : qx.ui.decoration.Single,
-
-			style : {
-				width : 1,
-				color : "black",
-				style : "dotted"
+				borderImage : "aristo/decoration/tabview/tab-button-right-inactive.png"
 			}
 		},
 
 		"pane" : {
-			decorator : qx.ui.decoration.Grid,
+			decorator : [ qx.ui.decoration.MSingleBorder, qx.ui.decoration.MBorderRadius, qx.ui.decoration.MBoxShadow ],
 
 			style : {
-				baseImage : "aristo/decoration/pane/pane.png",
-				insets : [ 0, 2, 3, 0 ]
+				color: "#00204d",
+				width: 1,
+				radius: 2,
+				shadowLength : 1,
+				shadowBlurRadius : 6,
+				shadowSpreadRadius: 0,
+				shadowColor : "window-shadow"
 			}
 		},
+
 
 		/*
 		 * ---------------------------------------------------------------------------
@@ -815,7 +748,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 		 */
 
 		"splitpane" : {
-			decorator : qx.ui.decoration.Uniform,
+			decorator : qx.ui.decoration.Decorator,
 
 			style : {
 				backgroundColor : "background-pane",

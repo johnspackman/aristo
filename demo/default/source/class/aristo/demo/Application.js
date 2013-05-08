@@ -438,7 +438,7 @@ qx.Class.define("aristo.demo.Application",
     	  widgetButton.setSelection([selWidgetButton]);
       
       this.closeShowcase();
-      this.stack.setSelection([menuBarWidgets]);
+      this.stack.setSelection([sliderWidgets]);
     },
 
     createHeader : function()
