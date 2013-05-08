@@ -140,10 +140,11 @@ qx.Theme.define("aristo.theme.Decoration", {
 		 ******************************************************/
 
 		"input" : {
-			decorator : [ qx.ui.decoration.MBoxShadow ],
+			decorator : [ qx.ui.decoration.MBoxShadow, qx.ui.decoration.MSingleBorder ],
 
 			style : {
 				color : "border-input",
+				width: 1,
 				backgroundImage : "aristo/decoration/form/input.png",
 				backgroundRepeat : "repeat-x",
 				backgroundColor : "white"
@@ -478,33 +479,42 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"toolbar-window" : {
-			decorator : qx.ui.decoration.Single,
+			decorator : [ qx.ui.decoration.MLinearBackgroundGradient ],
 
 			style : {
-				backgroundImage : "aristo/decoration/toolbar/toolbar-gradient.png",
-				backgroundRepeat : "scale",
 				color : "border-main",
-				widthBottom : 1
+				widthBottom : 1,
+				startColor: "#d5d5d5",
+				endColor: "#c3c3c3"
+			}
+		},
+
+		"toolbar-button" : {
+			decorator : [ qx.ui.decoration.MSingleBorder, qx.ui.decoration.MBorderRadius, qx.ui.decoration.MLinearBackgroundGradient ],
+
+			style : {
+				color : "background-light",
+				radius: 2,
+				width: 1
 			}
 		},
 
 		"toolbar-button-hovered" : {
-			decorator : qx.ui.decoration.Decorator,
+			include: "toolbar-button",
 
 			style : {
 				color : "border-main",
-				backgroundImage : "aristo/decoration/form/button-disabled-c.png",
-				backgroundRepeat : "scale"
+				endColor: "#d0d0d0",
+				startColor: "#f0f0f0"
 			}
 		},
 
 		"toolbar-button-checked" : {
-			decorator : qx.ui.decoration.Decorator,
+			include: "toolbar-button",
 
 			style : {
-				color : "border-main",
-				backgroundImage : "aristo/decoration/form/button-checked-c.png",
-				backgroundRepeat : "scale"
+				startColor: "#d0d0d0",
+				endColor: "#f0f0f0"
 			}
 		},
 
@@ -657,8 +667,8 @@ qx.Theme.define("aristo.theme.Decoration", {
 			decorator : [ qx.ui.decoration.MBorderImage ],
 
 			style : {
-				borderImage : "aristo/decoration/tabview/tabview-pane.png" /*,
-				insets : [ 4, 6, 7, 4 ] */
+				borderImage : "aristo/decoration/tabview/tabview-pane.png",
+				slice: [ 4, 6, 7, 4 ]
 			}
 		},
 

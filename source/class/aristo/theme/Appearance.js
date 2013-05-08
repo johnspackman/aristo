@@ -867,16 +867,13 @@ qx.Theme.define("aristo.theme.Appearance", {
 				return {
 					marginTop : 2,
 					marginBottom : 2,
-					padding : (states.pressed || states.checked || states.hovered)
-							&& !states.disabled
-							|| (states.disabled && states.checked) ? 3
-							: 5,
+					padding : 5,
 					decorator : states.pressed
 							|| (states.checked && !states.hovered)
 							|| (states.checked && states.disabled) ? "toolbar-button-checked"
 							: states.hovered
 									&& !states.disabled ? "toolbar-button-hovered"
-									: undefined
+									: "toolbar-button"
 				};
 			}
 		},
@@ -1623,22 +1620,22 @@ qx.Theme.define("aristo.theme.Appearance", {
 				if (states.checked) {
 					if (states.barTop) {
 						decorator = "tabview-page-button-top-active";
-						padding = [ 6, 14 ];
+						padding = [ 3, 7 ];
 						marginLeft = states.firstTab ? -1 : -5;
 						marginRight = states.lastTab ? 0 : -5;
 					} else if (states.barBottom) {
 						decorator = "tabview-page-button-bottom-active";
-						padding = [ 6, 14 ];
+						padding = [ 3, 7 ];
 						marginLeft = states.firstTab ? 0 : -5;
 						marginRight = states.lastTab ? 0 : -5;
 					} else if (states.barRight) {
 						decorator = "tabview-page-button-right-active";
-						padding = [ 6, 13 ];
+						padding = [ 3, 6 ];
 						marginTop = states.firstTab ? 0 : -5;
 						marginBottom = states.lastTab ? 0 : -5;
 					} else {
 						decorator = "tabview-page-button-left-active";
-						padding = [ 6, 13 ];
+						padding = [ 3, 6 ];
 						marginTop = states.firstTab ? 0 : -5;
 						marginBottom = states.lastTab ? 0 : -5;
 					}
