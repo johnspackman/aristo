@@ -311,8 +311,8 @@ qx.Theme.define("aristo.theme.Decoration", {
 							qx.ui.decoration.MSingleBorder,
 							qx.ui.decoration.MBoxShadow],
 			style : {
-				startColor : "#f5f5f5",
-				endColor : "#eaeaea",
+				startColor : "#ebebeb",//"#f5f5f5",
+				endColor : "#cecece",//"#eaeaea",
 				orientation: "horizontal",
 				radius : 6,
 				width : 0,
