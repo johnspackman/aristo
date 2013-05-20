@@ -77,6 +77,13 @@ qx.Theme.define("aristo.theme.Color", {
 		
 		"window-shadow": "#7f7f7f",
 		"input-shadow": "#b8b8b8",
+		
+		"tabbutton-active-start": "#c7e3f3",
+		"tabbutton-active-end": "#88b4cd",
+		"tabbutton-active-border": "#30434e",
+		"tabbutton-inactive-start": "#e5e5e5",
+		"tabbutton-inactive-end": "#c9c9c9",
+		"tabbutton-inactive-border": "#667180",
 
 		/*
 		 * ---------------------------------------------------------------------------

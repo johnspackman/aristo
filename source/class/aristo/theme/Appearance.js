@@ -193,7 +193,6 @@ qx.Theme.define("aristo.theme.Appearance", {
 		"splitbutton" : {
 			style : function(states) {
 				return {
-					//shadow : states.focused ? "shadow" : undefined
 				};
 			}
 		},
@@ -201,20 +200,17 @@ qx.Theme.define("aristo.theme.Appearance", {
 			include : "button",
 			style : function(states) {
 				return {
-					//shadow : undefined
 				};
 			}
 		},
 		"splitbutton/arrow" : {
-			// alias : "button",
 			include : "button",
 
 			style : function(states) {
 				return {
 					icon : "aristo/decoration/arrows/arrow-down.png",
 					padding : 2,
-					marginLeft : -2 /*,
-					shadow : undefined */
+					marginLeft : -2
 				};
 			}
 		},
@@ -1533,8 +1529,8 @@ qx.Theme.define("aristo.theme.Appearance", {
 			style : function(states) {
 				var result = {
 					marginBottom : states.barTop ? -1 : 0,
-					marginTop : states.barBottom ? -4 : 0,
-					marginLeft : states.barRight ? -3 : 0,
+					marginTop : states.barBottom ? -1 : 0,
+					marginLeft : states.barRight ? -1 : 0,
 					marginRight : states.barLeft ? -1 : 0,
 					paddingTop : 0,
 					paddingRight : 0,
@@ -1546,7 +1542,7 @@ qx.Theme.define("aristo.theme.Appearance", {
 					result.paddingLeft = 0;
 					result.paddingRight = 7;
 				} else {
-					result.paddingTop = 5;
+					result.paddingTop = 0;
 					result.paddingBottom = 7;
 				}
 
@@ -1596,8 +1592,15 @@ qx.Theme.define("aristo.theme.Appearance", {
 
 		"tabview/pane" : {
 			style : function(states) {
+				/*
+				 * default tabview does not forward states to the pane
+				 */
 				return {
-					decorator : "tabview-pane",
+					decorator : states.barTop ? "tabview-pane-top" :
+						states.barRight ? "tabview-pane-right" :
+						states.barBottom ? "tabview-pane-bottom" :
+						states.barLeft ? "tabview-pane-left" :
+							"tabview-pane",
 					minHeight : 100,
 
 					marginBottom : states.barBottom ? -1 : 0,
@@ -1616,58 +1619,72 @@ qx.Theme.define("aristo.theme.Appearance", {
 			style : function(states) {
 				var decorator, padding = 0;
 				var marginTop = 0, marginBottom = 0, marginLeft = 0, marginRight = 0;
+				
+				if (states.barTop || states.barBottom) {
+					padding = [ 4, 10 ];
+				} else {
+					padding = [ 5, 6 ];
+				}
 
 				if (states.checked) {
 					if (states.barTop) {
 						decorator = "tabview-page-button-top-active";
-						padding = [ 3, 7 ];
-						marginLeft = states.firstTab ? -1 : -5;
+						marginTop = 2;
 						marginRight = states.lastTab ? 0 : -5;
+						marginLeft = states.firstTab ? 0 : -5;
 					} else if (states.barBottom) {
 						decorator = "tabview-page-button-bottom-active";
-						padding = [ 3, 7 ];
+						marginBottom = 2;
 						marginLeft = states.firstTab ? 0 : -5;
 						marginRight = states.lastTab ? 0 : -5;
 					} else if (states.barRight) {
+						marginRight = 0;
 						decorator = "tabview-page-button-right-active";
-						padding = [ 3, 6 ];
 						marginTop = states.firstTab ? 0 : -5;
 						marginBottom = states.lastTab ? 0 : -5;
 					} else {
 						decorator = "tabview-page-button-left-active";
-						padding = [ 3, 6 ];
 						marginTop = states.firstTab ? 0 : -5;
 						marginBottom = states.lastTab ? 0 : -5;
 					}
 				} else {
 					if (states.barTop) {
 						decorator = "tabview-page-button-top-inactive";
-						padding = [ 4, 10 ];
 						marginTop = 4;
-						marginLeft = states.firstTab ? 5 : 1;
 						marginRight = 1;
+						marginLeft = 0;
 					} else if (states.barBottom) {
 						decorator = "tabview-page-button-bottom-inactive";
-						padding = [ 4, 10 ];
 						marginBottom = 4;
-						marginLeft = states.firstTab ? 5 : 1;
 						marginRight = 1;
+						marginLeft = 0;
 					} else if (states.barRight) {
 						decorator = "tabview-page-button-right-inactive";
-						padding = [ 4, 10 ];
-						marginRight = 5;
-						marginTop = states.firstTab ? 5 : 1;
+						marginRight = 3;
+						marginTop = 1;
 						marginBottom = 1;
-						marginLeft = 1;
+						marginLeft = 0;
 					} else {
 						decorator = "tabview-page-button-left-inactive";
-						padding = [ 4, 10 ];
-						marginLeft = 5;
-						marginTop = states.firstTab ? 5 : 1;
+						marginLeft = 3;
+						marginTop = 1;
 						marginBottom = 1;
-						marginRight = 1;
+						marginRight = 0;
 					}
 				}
+				
+				/*
+				padding = [ 4, 10 ];
+				marginLeft = 0;
+				marginTop = 0;
+				marginRight = 0;
+				marginBottom = 0;
+				
+				if (states.checked && states.barTop) {
+					marginLeft = -2;
+					marginRight = -2;
+				}
+				*/
 
 				return {
 					zIndex : states.checked ? 10 : 5,

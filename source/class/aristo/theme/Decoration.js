@@ -552,21 +552,8 @@ qx.Theme.define("aristo.theme.Decoration", {
 			decorator : qx.ui.decoration.Single,
 
 			style : {
-				/*
-				 * backgroundImage :
-				 * "aristo/decoration/menu/background.png",
-				 * backgroundRepeat : "scale",
-				 */
 				backgroundColor : "background-menu",
 				width : 1
-			/*
-			 * width:1 is required or the popup will overlap the
-			 * mouse and be immediately closed (as of Qx1.5)
-			 */
-
-			/*
-			 * width : 1, color : "border-main", style : "solid"
-			 */
 			}
 		},
 
@@ -664,75 +651,124 @@ qx.Theme.define("aristo.theme.Decoration", {
 		 */
 
 		"tabview-pane" : {
-			decorator : [ qx.ui.decoration.MBorderImage ],
+			decorator : [	qx.ui.decoration.MLinearBackgroundGradient,
+							qx.ui.decoration.MSingleBorder,
+							qx.ui.decoration.MBorderRadius ],
 
 			style : {
-				borderImage : "aristo/decoration/tabview/tabview-pane.png",
-				slice: [ 4, 6, 7, 4 ]
+				startColor: "#fcfcfc",
+				endColor: "#efefef",
+				startColorPosition: 75,
+				radius: 0,
+				width: 1,
+				color: "tabbutton-active-border"
+			}
+		},
+		"tabview-pane-top": {
+			include: "tabview-pane",
+			style: {
+				radius: [ 0, 0, 4, 4 ]
+			}
+		},
+		"tabview-pane-right": {
+			include: "tabview-pane",
+			style: {
+				radius: [ 4, 0, 0, 4 ]
+			}
+		},
+		"tabview-pane-bottom": {
+			include: "tabview-pane",
+			style: {
+				radius: [ 4, 4, 0, 0 ]
+			}
+		},
+		"tabview-pane-left": {
+			include: "tabview-pane",
+			style: {
+				radius: [ 0, 4, 4, 0 ]
 			}
 		},
 
 		"tabview-page-button-top-active" : {
-			decorator : [ qx.ui.decoration.MBorderImage ],
+			decorator : [	qx.ui.decoration.MLinearBackgroundGradient,
+							qx.ui.decoration.MSingleBorder,
+							qx.ui.decoration.MBorderRadius ],
 
 			style : {
-				borderImage : "aristo/decoration/tabview/tab-button-top-active.png"
+				startColor: "tabbutton-active-start",
+				endColor: "tabbutton-active-end",
+				color: "tabbutton-active-border",
+				radius: [ 3, 3, 0, 0 ],
+				width: [ 1, 1, 0, 1 ]
 			}
 		},
 
 		"tabview-page-button-top-inactive" : {
-			decorator : [ qx.ui.decoration.MBorderImage ],
+			include: "tabview-page-button-top-active",
 
 			style : {
-				borderImage : "aristo/decoration/tabview/tab-button-top-inactive.png"
+				startColor: "tabbutton-inactive-start",
+				endColor: "tabbutton-inactive-end",
+				color: "tabbutton-inactive-border",
+				width: 1
 			}
 		},
 
 		"tabview-page-button-bottom-active" : {
-			decorator : [ qx.ui.decoration.MBorderImage ],
+			include: "tabview-page-button-top-active",
 
 			style : {
-				borderImage : "aristo/decoration/tabview/tab-button-bottom-active.png"
+				startColor: "tabbutton-active-start",
+				endColor: "tabbutton-active-end",
+				radius: [ 0, 0, 3, 3 ],
+				width: [ 0, 1, 1, 1 ]
 			}
 		},
 
 		"tabview-page-button-bottom-inactive" : {
-			decorator : [ qx.ui.decoration.MBorderImage ],
+			include: "tabview-page-button-top-inactive",
 
 			style : {
-				borderImage : "aristo/decoration/tabview/tab-button-bottom-inactive.png"
+				startColor: "tabbutton-inactive-end",
+				endColor: "tabbutton-inactive-start",
+				radius: [ 0, 0, 3, 3 ],
+				width: 1
 			}
 		},
 
 		"tabview-page-button-left-active" : {
-			decorator : [ qx.ui.decoration.MBorderImage ],
-
-			style : {
-				borderImage : "aristo/decoration/tabview/tab-button-left-active.png"
+			include: "tabview-page-button-top-active",
+			
+			style: {
+				radius: [ 2, 0, 0, 2 ],
+				width: [ 1, 0, 1, 1 ]
 			}
 		},
 
 		"tabview-page-button-left-inactive" : {
-			decorator : [ qx.ui.decoration.MBorderImage ],
-
-			style : {
-				borderImage : "aristo/decoration/tabview/tab-button-left-inactive.png"
+			include: "tabview-page-button-top-inactive",
+			
+			style: {
+				radius: [ 2, 0, 0, 2 ],
+				width: [ 1, 0, 1, 1 ]
 			}
 		},
 
 		"tabview-page-button-right-active" : {
-			decorator : [ qx.ui.decoration.MBorderImage ],
-
-			style : {
-				borderImage : "aristo/decoration/tabview/tab-button-right-active.png"
+			include: "tabview-page-button-top-active",
+			
+			style: {
+				radius: [ 0, 2, 2, 0 ],
+				width: [ 1, 1, 1, 0 ]
 			}
 		},
 
 		"tabview-page-button-right-inactive" : {
-			decorator : [ qx.ui.decoration.MBorderImage ],
-
-			style : {
-				borderImage : "aristo/decoration/tabview/tab-button-right-inactive.png"
+			include: "tabview-page-button-top-inactive",
+			
+			style: {
+				radius: [ 0, 2, 2, 0 ],
+				width: 1
 			}
 		},
 
