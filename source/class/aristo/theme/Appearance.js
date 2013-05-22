@@ -414,14 +414,12 @@ qx.Theme.define("aristo.theme.Appearance", {
 			style : function(states) {
 				var decorator = "input";
 
-				var focused = !!states.focused;
-				var invalid = !!states.invalid;
-				var disabled = !!states.disabled;
-				
-				if (!disabled) {
-					if (focused)
+				if (!states.disabled) {
+					if (!!states.focused)
 						decorator += "-shadow";
-					if (invalid)
+					if (!!states.readonly)
+						decorator += "-readonly";
+					else if (!!states.invalid)
 						decorator += "-invalid";
 				}
 
@@ -603,23 +601,21 @@ qx.Theme.define("aristo.theme.Appearance", {
 			style : function(states) {
 				var decorator = "input";
 
-				var focused = !!states.focused;
-				var invalid = !!states.invalid;
-				var disabled = !!states.disabled;
-				
-				if (!disabled) {
-					if (focused)
+				if (!states.disabled) {
+					if (!!states.focused)
 						decorator += "-shadow";
-					if (invalid)
+					if (!!states.readonly)
+						decorator += "-readonly";
+					else if (!!states.invalid)
 						decorator += "-invalid";
 				}
 
 				var textColor;
-				if (states.disabled) {
+				if (!!states.disabled) {
 					textColor = "text-disabled";
 				} else if (states.showingPlaceholder) {
 					textColor = "text-placeholder";
-				} else if (states.readonly) {
+				} else if (!!states.readonly) {
 					textColor = "text-readonly";
 				} else {
 					textColor = "text-input";

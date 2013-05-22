@@ -139,15 +139,21 @@ qx.Theme.define("aristo.theme.Decoration", {
 		 * INPUT
 		 ******************************************************/
 
-		"input" : {
+		"input-base" : {
 			decorator : [ qx.ui.decoration.MBoxShadow, qx.ui.decoration.MSingleBorder ],
 
 			style : {
 				color : "border-input",
 				width: 1,
-				backgroundImage : "aristo/decoration/form/input.png",
 				backgroundRepeat : "repeat-x",
 				backgroundColor : "white"
+			}
+		},
+
+		"input" : {
+			include: "input-base",
+			style : {
+				backgroundImage : "aristo/decoration/form/input.png"
 			}
 		},
 
@@ -158,9 +164,17 @@ qx.Theme.define("aristo.theme.Decoration", {
 			}
 		},
 		
-		"input-shadow": {
-			include: "input",
+		"input-readonly": {
+			include: "input-base",
 			style : {
+				backgroundColor : "input-readonly"
+			}
+		},
+		
+		"input-shadow": {
+			include: "input-base",
+			style : {
+				backgroundImage : "aristo/decoration/form/input.png",
 				shadowColor: "input-shadow",
 				shadowLength: 2,
 				shadowBlurRadius: 2
@@ -174,6 +188,16 @@ qx.Theme.define("aristo.theme.Decoration", {
 			}
 		},
 
+		"input-shadow-readonly": {
+			include: "input-base",
+			style : {
+				backgroundColor : "input-readonly",
+				shadowColor: "input-shadow",
+				shadowLength: 2,
+				shadowBlurRadius: 2
+			}
+		},
+		
 		"spinner-input" : {
 			decorator : [ qx.ui.decoration.MBackgroundColor ],
 
