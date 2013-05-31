@@ -27,14 +27,9 @@
 
  ************************************************************************ */
 
-/* ************************************************************************
-
- #asset(aristo/decoration/*)
-
- ************************************************************************* */
-
 /**
  * The Aristo appearance theme.
+ * @asset(aristo.decoration.*)
  */
 qx.Theme.define("aristo.theme.Appearance", {
 	appearances : {
@@ -1636,35 +1631,35 @@ qx.Theme.define("aristo.theme.Appearance", {
 					} else if (states.barRight) {
 						marginRight = 0;
 						decorator = "tabview-page-button-right-active";
-						marginTop = states.firstTab ? 0 : -5;
-						marginBottom = states.lastTab ? 0 : -5;
+						marginTop = states.firstTab ? 0 : -4;
+						marginBottom = states.lastTab ? 0 : -4;
 					} else {
 						decorator = "tabview-page-button-left-active";
-						marginTop = states.firstTab ? 0 : -5;
-						marginBottom = states.lastTab ? 0 : -5;
+						marginTop = states.firstTab ? 0 : -4;
+						marginBottom = states.lastTab ? 0 : -4;
 					}
 				} else {
 					if (states.barTop) {
 						decorator = "tabview-page-button-top-inactive";
 						marginTop = 4;
-						marginRight = 1;
+						marginRight = -1;
 						marginLeft = 0;
 					} else if (states.barBottom) {
 						decorator = "tabview-page-button-bottom-inactive";
 						marginBottom = 4;
-						marginRight = 1;
+						marginRight = -1;
 						marginLeft = 0;
 					} else if (states.barRight) {
 						decorator = "tabview-page-button-right-inactive";
 						marginRight = 3;
-						marginTop = 1;
-						marginBottom = 1;
+						marginTop = 0;
+						marginBottom = -1;
 						marginLeft = 0;
 					} else {
 						decorator = "tabview-page-button-left-inactive";
 						marginLeft = 3;
-						marginTop = 1;
-						marginBottom = 1;
+						marginTop = 0;
+						marginBottom = -1;
 						marginRight = 0;
 					}
 				}

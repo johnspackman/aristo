@@ -12,16 +12,10 @@
 
 ************************************************************************ */
 
-/* ************************************************************************
-
-#asset(aristo.demo/*)
-
-#asset(qx/icon/*)
-
-************************************************************************ */
-
 /**
  * This is a demo of the Aristo contribution
+ * @asset(aristo.demo.*)
+ * @asset(qx.icon.*)
  */
 
 qx.Class.define("aristo.demo.Application",
@@ -438,7 +432,7 @@ qx.Class.define("aristo.demo.Application",
     	  widgetButton.setSelection([selWidgetButton]);
       
       this.closeShowcase();
-      this.stack.setSelection([textFieldWidgets]);
+      this.stack.setSelection([tabViewWidgets]);
     },
 
     createHeader : function()

@@ -27,14 +27,9 @@
 
  ************************************************************************ */
 
-/* ************************************************************************
-
- #asset(aristo/decoration/*)
-
- ************************************************************************* */
-
 /**
  * The Aristo decoration theme.
+ * @asset(aristo.decoration.*)
  */
 qx.Theme.define("aristo.theme.Decoration", {
 
@@ -210,7 +205,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 			decorator : [ qx.ui.decoration.MBoxShadow ],
 			style : {
 				width : 1,
-				color : "#b8b8b8",
+				color : "input-shadow",
 				style : "solid"
 			}
 		},
@@ -573,11 +568,15 @@ qx.Theme.define("aristo.theme.Decoration", {
 		 */
 
 		"menu" : {
-			decorator : qx.ui.decoration.Single,
-
+			decorator : [ qx.ui.decoration.MBoxShadow ],
 			style : {
 				backgroundColor : "background-menu",
-				width : 1
+				width : 1,
+				color : "input-shadow",
+				style : "solid",
+				shadowColor: "border-main",
+				shadowLength: 2,
+				shadowBlurRadius: 2
 			}
 		},
 
@@ -713,7 +712,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 			}
 		},
 
-		"tabview-page-button-top-active" : {
+		"tabview-page-button-base-active" : {
 			decorator : [	qx.ui.decoration.MLinearBackgroundGradient,
 							qx.ui.decoration.MSingleBorder,
 							qx.ui.decoration.MBorderRadius ],
@@ -722,77 +721,90 @@ qx.Theme.define("aristo.theme.Decoration", {
 				startColor: "tabbutton-active-start",
 				endColor: "tabbutton-active-end",
 				color: "tabbutton-active-border",
+				radius: 3,
+				width: 1
+			}
+		},
+
+		"tabview-page-button-base-inactive" : {
+			decorator : [	qx.ui.decoration.MLinearBackgroundGradient,
+							qx.ui.decoration.MSingleBorder,
+							qx.ui.decoration.MBorderRadius ],
+
+			style : {
+				startColor: "tabbutton-inactive-start",
+				endColor: "tabbutton-inactive-end",
+				color: "tabbutton-inactive-border",
+				radius: 5,
+				width: 1
+			}
+		},
+
+		"tabview-page-button-top-active" : {
+			include: "tabview-page-button-base-active",
+
+			style : {
 				radius: [ 3, 3, 0, 0 ],
 				width: [ 1, 1, 0, 1 ]
 			}
 		},
 
 		"tabview-page-button-top-inactive" : {
-			include: "tabview-page-button-top-active",
+			include: "tabview-page-button-base-inactive",
 
 			style : {
-				startColor: "tabbutton-inactive-start",
-				endColor: "tabbutton-inactive-end",
-				color: "tabbutton-inactive-border",
-				width: 1
+				radius: [ 5, 5, 0, 0 ]
 			}
 		},
 
 		"tabview-page-button-bottom-active" : {
-			include: "tabview-page-button-top-active",
+			include: "tabview-page-button-base-active",
 
 			style : {
-				startColor: "tabbutton-active-start",
-				endColor: "tabbutton-active-end",
 				radius: [ 0, 0, 3, 3 ],
 				width: [ 0, 1, 1, 1 ]
 			}
 		},
 
 		"tabview-page-button-bottom-inactive" : {
-			include: "tabview-page-button-top-inactive",
+			include: "tabview-page-button-base-inactive",
 
 			style : {
-				startColor: "tabbutton-inactive-end",
-				endColor: "tabbutton-inactive-start",
-				radius: [ 0, 0, 3, 3 ],
-				width: 1
+				radius: [ 0, 0, 5, 5 ]
 			}
 		},
 
 		"tabview-page-button-left-active" : {
-			include: "tabview-page-button-top-active",
+			include: "tabview-page-button-base-active",
 			
 			style: {
-				radius: [ 2, 0, 0, 2 ],
+				radius: [ 3, 0, 0, 3 ],
 				width: [ 1, 0, 1, 1 ]
 			}
 		},
 
 		"tabview-page-button-left-inactive" : {
-			include: "tabview-page-button-top-inactive",
+			include: "tabview-page-button-base-inactive",
 			
 			style: {
-				radius: [ 2, 0, 0, 2 ],
-				width: [ 1, 0, 1, 1 ]
+				radius: [ 5, 0, 0, 5 ]
 			}
 		},
 
 		"tabview-page-button-right-active" : {
-			include: "tabview-page-button-top-active",
+			include: "tabview-page-button-base-active",
 			
 			style: {
-				radius: [ 0, 2, 2, 0 ],
+				radius: [ 0, 3, 3, 0 ],
 				width: [ 1, 1, 1, 0 ]
 			}
 		},
 
 		"tabview-page-button-right-inactive" : {
-			include: "tabview-page-button-top-inactive",
+			include: "tabview-page-button-base-inactive",
 			
 			style: {
-				radius: [ 0, 2, 2, 0 ],
-				width: 1
+				radius: [ 0, 5, 5, 0 ]
 			}
 		},
 

@@ -1,3 +1,6 @@
+/*
+@ignore(alert)
+ */
 qx.Class.define("aristo.demo.CheckBox",
 {
   extend: qx.ui.groupbox.GroupBox,
