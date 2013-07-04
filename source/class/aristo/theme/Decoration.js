@@ -61,6 +61,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 
 		"button" : {
 			decorator : [
+			    qx.ui.decoration.MBoxShadow,
 					qx.ui.decoration.MLinearBackgroundGradient,
 					qx.ui.decoration.MBorderRadius,
 					qx.ui.decoration.MSingleBorder ],
@@ -73,8 +74,18 @@ qx.Theme.define("aristo.theme.Decoration", {
 			}
 		},
 
+    "button-focused" : {
+      include : "button",
+      style : {
+        shadowColor: "input-shadow",
+        shadowLength: 1,
+        shadowBlurRadius: 2
+      }
+    },
+
 		"button-hovered" : {
 			decorator : [
+					qx.ui.decoration.MBoxShadow,
 					qx.ui.decoration.MLinearBackgroundGradient,
 					qx.ui.decoration.MBorderRadius,
 					qx.ui.decoration.MSingleBorder ],
@@ -87,8 +98,18 @@ qx.Theme.define("aristo.theme.Decoration", {
 			}
 		},
 
+    "button-hovered-focused" : {
+      include : "button-hovered",
+      style : {
+        shadowColor: "input-shadow",
+        shadowLength: 1,
+        shadowBlurRadius: 2
+      }
+    },
+
 		"button-pressed" : {
 			decorator : [
+					qx.ui.decoration.MBoxShadow, 
 					qx.ui.decoration.MLinearBackgroundGradient,
 					qx.ui.decoration.MBorderRadius,
 					qx.ui.decoration.MSingleBorder ],
@@ -101,9 +122,22 @@ qx.Theme.define("aristo.theme.Decoration", {
 			}
 		},
 
-		"button-checked" : {
-			include : "button-pressed"
-		},
+    "button-pressed-focused" : {
+      include : "button-pressed"
+    },
+
+    "button-checked" : {
+      include : "button-pressed"
+    },
+
+    "button-checked-focused" : {
+      include : "button-checked",
+      style : {
+        shadowColor: "input-shadow",
+        shadowLength: 1,
+        shadowBlurRadius: 2
+      }
+    },
 
 		"button-disabled" : {
 			include : "button"
@@ -171,7 +205,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 			style : {
 				backgroundImage : "aristo/decoration/form/input.png",
 				shadowColor: "input-shadow",
-				shadowLength: 2,
+				shadowLength: 1,
 				shadowBlurRadius: 2
 			}
 		},

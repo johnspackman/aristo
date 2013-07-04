@@ -8,57 +8,57 @@
      EPL: http://www.eclipse.org/org/documents/epl-v10.php
 
    Authors:
-     * Norbert Schröder (scro34)
+ * Norbert Schröder (scro34)
 
-************************************************************************ */
+ ************************************************************************ */
 
 /**
  * This is a demo of the Aristo contribution
+ * 
  * @asset(aristo.demo.*)
  * @asset(qx.icon.*)
  */
 
-qx.Class.define("aristo.demo.Application",
-{
+qx.Class.define("aristo.demo.Application", {
   extend : qx.application.Standalone,
 
   /*
-  *****************************************************************************
-     MEMBERS
-  *****************************************************************************
-  */
+   * ****************************************************************************
+   * MEMBERS
+   * ****************************************************************************
+   */
 
-  members :
-  {
-  editor: null,
+  members : {
+    editor : null,
 
     /**
-     * This method contains the initial application code and gets called
-     * during startup of the application
-     *
+     * This method contains the initial application code and gets called during
+     * startup of the application
+     * 
      * @lint ignoreDeprecated(alert)
      */
-    main : function()
-    {
+    main : function() {
       // Call super class
       this.base(arguments);
 
       // Enable logging in debug variant
-      if (qx.core.Environment.get("qx.debug"))
-      {
+      if (qx.core.Environment.get("qx.debug")) {
         // support native logging capabilities, e.g. Firebug for Firefox
         qx.log.appender.Native;
-        // support additional cross-browser console. Press F7 to toggle visibility
+        // support additional cross-browser console. Press F7 to toggle
+        // visibility
         qx.log.appender.Console;
       }
 
       /*
-      -------------------------------------------------------------------------
-        ToolBarTop
-      -------------------------------------------------------------------------
-      */
+       * -------------------------------------------------------------------------
+       * ToolBarTop
+       * -------------------------------------------------------------------------
+       */
       var showcaseButton = this.showcaseButton = new qx.ui.form.SelectBox();
-      showcaseButton.set({font: "bold"});
+      showcaseButton.set({
+        font : "bold"
+      });
       var emptyItem = this.emptyItem = new qx.ui.form.ListItem("<not selected>");
       var calcItem = this.calcItem = new qx.ui.form.ListItem("Calculator");
       var colorItem = this.colorItem = new qx.ui.form.ListItem("Color Selector");
@@ -75,34 +75,32 @@ qx.Class.define("aristo.demo.Application",
       showcaseButton.add(tableItem);
       showcaseButton.add(browserItem);
 
-      showcaseButton.addListener("changeSelection", function(e)
-      {
+      showcaseButton.addListener("changeSelection", function(e) {
         var selItem = this.showcaseButton.getSelection()[0].getLabel();
-        switch (selItem)
-        {
-          case "Calculator":
-            this.calcWindow.open();
-            break;
+        switch (selItem) {
+        case "Calculator":
+          this.calcWindow.open();
+          break;
 
-          case "Color Selector":
-            this.colorWindow.open();
-            break;
+        case "Color Selector":
+          this.colorWindow.open();
+          break;
 
-          case "Form":
-            this.formWindow.open();
-            break;
+        case "Form":
+          this.formWindow.open();
+          break;
 
-          case "HTML Editor":
-            this.editorWindow.open();
-            break;
+        case "HTML Editor":
+          this.editorWindow.open();
+          break;
 
-          case "Table":
-        this.tableWindow.open();
-            break;
+        case "Table":
+          this.tableWindow.open();
+          break;
 
-          case "Web Browser":
-            this.browserWindow.open();
-            break;
+        case "Web Browser":
+          this.browserWindow.open();
+          break;
         }
       }, this);
 
@@ -183,7 +181,9 @@ qx.Class.define("aristo.demo.Application",
 
       var widgetButton = this.widgetButton = new qx.ui.form.SelectBox();
       var selWidgetButton = null;
-      widgetButton.set({font: "bold"});
+      widgetButton.set({
+        font : "bold"
+      });
       widgetButton.add(new qx.ui.form.ListItem("<not selected>"));
       widgetButton.add(new qx.ui.form.ListItem("Atom"));
       widgetButton.add(new qx.ui.form.ListItem("Button"));
@@ -221,192 +221,207 @@ qx.Class.define("aristo.demo.Application",
       widgetButton.add(new qx.ui.form.ListItem("TreeVirtual"));
       widgetButton.add(new qx.ui.form.ListItem("Window"));
 
-      widgetButton.addListener("changeSelection", function(e)
-      {
+      widgetButton.addListener("changeSelection", function(e) {
         this.closeShowcase();
         var selItem = this.widgetButton.getSelection()[0].getLabel();
-        switch (selItem)
-        {
-          case "Atom":
-            this.stack.setSelection([this.stack.getChildren()[0]]);
-            break;
+        switch (selItem) {
+        case "Atom":
+          this.stack.setSelection([ this.stack.getChildren()[0] ]);
+          break;
 
-          case "Button":
-            this.stack.setSelection([this.stack.getChildren()[1]]);
-            break;
+        case "Button":
+          this.stack.setSelection([ this.stack.getChildren()[1] ]);
+          break;
 
-          case "Canvas":
-            this.stack.setSelection([this.stack.getChildren()[2]]);
-            break;
+        case "Canvas":
+          this.stack.setSelection([ this.stack.getChildren()[2] ]);
+          break;
 
-          case "CheckBox":
-            this.stack.setSelection([this.stack.getChildren()[3]]);
-            break;
+        case "CheckBox":
+          this.stack.setSelection([ this.stack.getChildren()[3] ]);
+          break;
 
-          case "ColorPopup":
-            this.stack.setSelection([this.stack.getChildren()[4]]);
-            break;
+        case "ColorPopup":
+          this.stack.setSelection([ this.stack.getChildren()[4] ]);
+          break;
 
-          case "ComboBox":
-            this.stack.setSelection([this.stack.getChildren()[5]]);
-            break;
+        case "ComboBox":
+          this.stack.setSelection([ this.stack.getChildren()[5] ]);
+          break;
 
-          case "DateChooser":
-            this.stack.setSelection([this.stack.getChildren()[6]]);
-            break;
+        case "DateChooser":
+          this.stack.setSelection([ this.stack.getChildren()[6] ]);
+          break;
 
-          case "DateField":
-            this.stack.setSelection([this.stack.getChildren()[7]]);
-            break;
+        case "DateField":
+          this.stack.setSelection([ this.stack.getChildren()[7] ]);
+          break;
 
-          case "Desktop":
-            this.stack.setSelection([this.stack.getChildren()[8]]);
-            break;
+        case "Desktop":
+          this.stack.setSelection([ this.stack.getChildren()[8] ]);
+          break;
 
-          case "GroupBox":
-            this.stack.setSelection([this.stack.getChildren()[9]]);
-            break;
+        case "GroupBox":
+          this.stack.setSelection([ this.stack.getChildren()[9] ]);
+          break;
 
-          case "HtmlEmbed":
-            this.stack.setSelection([this.stack.getChildren()[10]]);
-            break;
+        case "HtmlEmbed":
+          this.stack.setSelection([ this.stack.getChildren()[10] ]);
+          break;
 
-          case "Image":
-            this.stack.setSelection([this.stack.getChildren()[11]]);
-            break;
+        case "Image":
+          this.stack.setSelection([ this.stack.getChildren()[11] ]);
+          break;
 
-          case "Label":
-            this.stack.setSelection([this.stack.getChildren()[12]]);
-            break;
+        case "Label":
+          this.stack.setSelection([ this.stack.getChildren()[12] ]);
+          break;
 
-          case "List":
-            this.stack.setSelection([this.stack.getChildren()[13]]);
-            break;
+        case "List":
+          this.stack.setSelection([ this.stack.getChildren()[13] ]);
+          break;
 
-          case "Menu":
-            this.stack.setSelection([this.stack.getChildren()[14]]);
-            break;
+        case "Menu":
+          this.stack.setSelection([ this.stack.getChildren()[14] ]);
+          break;
 
-          case "MenuBar":
-            this.stack.setSelection([this.stack.getChildren()[15]]);
-            break;
+        case "MenuBar":
+          this.stack.setSelection([ this.stack.getChildren()[15] ]);
+          break;
 
-          case "Popup":
-            this.stack.setSelection([this.stack.getChildren()[16]]);
-            break;
+        case "Popup":
+          this.stack.setSelection([ this.stack.getChildren()[16] ]);
+          break;
 
-          case "RadioButton":
-            this.stack.setSelection([this.stack.getChildren()[17]]);
-            break;
+        case "RadioButton":
+          this.stack.setSelection([ this.stack.getChildren()[17] ]);
+          break;
 
-          case "RadioButtonGroup":
-            this.stack.setSelection([this.stack.getChildren()[18]]);
-            break;
+        case "RadioButtonGroup":
+          this.stack.setSelection([ this.stack.getChildren()[18] ]);
+          break;
 
-          case "Resizer":
-            this.stack.setSelection([this.stack.getChildren()[19]]);
-            break;
+        case "Resizer":
+          this.stack.setSelection([ this.stack.getChildren()[19] ]);
+          break;
 
-          case "ScrollBar":
-            this.stack.setSelection([this.stack.getChildren()[20]]);
-            break;
+        case "ScrollBar":
+          this.stack.setSelection([ this.stack.getChildren()[20] ]);
+          break;
 
-          case "SelectBox":
-            this.stack.setSelection([this.stack.getChildren()[21]]);
-            break;
+        case "SelectBox":
+          this.stack.setSelection([ this.stack.getChildren()[21] ]);
+          break;
 
-          case "SlideBar":
-            this.stack.setSelection([this.stack.getChildren()[22]]);
-            break;
+        case "SlideBar":
+          this.stack.setSelection([ this.stack.getChildren()[22] ]);
+          break;
 
-          case "Slider":
-            this.stack.setSelection([this.stack.getChildren()[23]]);
-            break;
+        case "Slider":
+          this.stack.setSelection([ this.stack.getChildren()[23] ]);
+          break;
 
-          case "Spinner":
-            this.stack.setSelection([this.stack.getChildren()[24]]);
-            break;
+        case "Spinner":
+          this.stack.setSelection([ this.stack.getChildren()[24] ]);
+          break;
 
-          case "SplitPane":
-            this.stack.setSelection([this.stack.getChildren()[25]]);
-            break;
+        case "SplitPane":
+          this.stack.setSelection([ this.stack.getChildren()[25] ]);
+          break;
 
-          case "StackContainer":
-            this.stack.setSelection([this.stack.getChildren()[26]]);
-            break;
+        case "StackContainer":
+          this.stack.setSelection([ this.stack.getChildren()[26] ]);
+          break;
 
-          case "TabView":
-            this.stack.setSelection([this.stack.getChildren()[27]]);
-            break;
+        case "TabView":
+          this.stack.setSelection([ this.stack.getChildren()[27] ]);
+          break;
 
-          case "TextField":
-            this.stack.setSelection([this.stack.getChildren()[28]]);
-            break;
+        case "TextField":
+          this.stack.setSelection([ this.stack.getChildren()[28] ]);
+          break;
 
-          case "ToolBar":
-            this.stack.setSelection([this.stack.getChildren()[29]]);
-            break;
+        case "ToolBar":
+          this.stack.setSelection([ this.stack.getChildren()[29] ]);
+          break;
 
-          case "Tooltip":
-            this.stack.setSelection([this.stack.getChildren()[30]]);
-            break;
+        case "Tooltip":
+          this.stack.setSelection([ this.stack.getChildren()[30] ]);
+          break;
 
-          case "Tree":
-            this.stack.setSelection([this.stack.getChildren()[31]]);
-            break;
+        case "Tree":
+          this.stack.setSelection([ this.stack.getChildren()[31] ]);
+          break;
 
-          case "Tree Columns":
-            this.stack.setSelection([this.stack.getChildren()[32]]);
-            break;
+        case "Tree Columns":
+          this.stack.setSelection([ this.stack.getChildren()[32] ]);
+          break;
 
-          case "TreeVirtual":
-            this.stack.setSelection([this.stack.getChildren()[33]]);
-            break;
+        case "TreeVirtual":
+          this.stack.setSelection([ this.stack.getChildren()[33] ]);
+          break;
 
-          case "Window":
-            this.stack.setSelection([this.stack.getChildren()[34]]);
-            break;
+        case "Window":
+          this.stack.setSelection([ this.stack.getChildren()[34] ]);
+          break;
 
-          default:
-            this.stack.resetSelection();
+        default:
+          this.stack.resetSelection();
         }
       }, this);
 
       var tbTop = new qx.ui.toolbar.ToolBar();
-      tbTop.set({padding: 5, spacing: 5});
-      tbTop.add(new qx.ui.basic.Label("Showcase: ").set({alignY: "middle", font: "bold"}));
+      tbTop.set({
+        padding : 5,
+        spacing : 5
+      });
+      tbTop.add(new qx.ui.basic.Label("Showcase: ").set({
+        alignY : "middle",
+        font : "bold"
+      }));
       tbTop.add(showcaseButton);
-      tbTop.add(new qx.ui.basic.Label("Widgets: ").set({paddingLeft: 10, alignY: "middle", font: "bold"}));
+      tbTop.add(new qx.ui.basic.Label("Widgets: ").set({
+        paddingLeft : 10,
+        alignY : "middle",
+        font : "bold"
+      }));
       tbTop.add(widgetButton);
 
       /*
-      -------------------------------------------------------------------------
-        Document
-      -------------------------------------------------------------------------
-      */
+       * -------------------------------------------------------------------------
+       * Document
+       * -------------------------------------------------------------------------
+       */
       var doc = this.getRoot();
-      doc.set({blockerColor: '#afafaf', blockerOpacity: 0.4});
+      doc.set({
+        blockerColor : '#afafaf',
+        blockerOpacity : 0.4
+      });
 
       var mainContainer = new qx.ui.container.Composite()
       mainContainer.setLayout(new qx.ui.layout.VBox(0));
 
       /*
-      -------------------------------------------------------------------------
-        Main GroupBox
-      -------------------------------------------------------------------------
-      */
+       * -------------------------------------------------------------------------
+       * Main GroupBox
+       * -------------------------------------------------------------------------
+       */
 
       mainContainer.add(this.createHeader());
       mainContainer.add(tbTop);
-      mainContainer.add(stack, {flex: 1});
+      mainContainer.add(stack, {
+        flex : 1
+      });
 
-      doc.add(mainContainer, {edge: 0});
+      doc.add(mainContainer, {
+        edge : 0
+      });
 
       /*
-      -------------------------------------------------------------------------
-        Windows
-      -------------------------------------------------------------------------
-      */
+       * -------------------------------------------------------------------------
+       * Windows
+       * -------------------------------------------------------------------------
+       */
       var formWindow = this.formWindow = new aristo.demo.FormWindow("Form Widgets");
       formWindow.addListener("changeActive", this.resetShowcase, this);
 
@@ -427,26 +442,31 @@ qx.Class.define("aristo.demo.Application",
 
       this.calcWindow.open();
       this.colorWindow.open();
-      
+
       if (selWidgetButton)
-    	  widgetButton.setSelection([selWidgetButton]);
-      
+        widgetButton.setSelection([ selWidgetButton ]);
+
       this.closeShowcase();
-      this.stack.setSelection([tabViewWidgets]);
+      this.stack.setSelection([ selectBoxWidgets ]);
     },
 
-    createHeader : function()
-    {
+    createHeader : function() {
       var header = new qx.ui.toolbar.ToolBar();
-//      header.setDecorator("window-captionbar-active");
+      // header.setDecorator("window-captionbar-active");
       header.setDecorator("window-captionbar");
-      header.setPadding([5, 10, 7, 10]);
+      header.setPadding([ 5, 10, 7, 10 ]);
 
       var label = new qx.ui.basic.Atom("Aristo Demo");
-      label.set({alignY: "middle", font: "bold"});
+      label.set({
+        alignY : "middle",
+        font : "bold"
+      });
 
       var version = new qx.ui.basic.Atom(qx.core.Environment.get("qx.version"), "aristo.demo/logo.png");
-      version.set({alignY: "middle", font: "bold"});
+      version.set({
+        alignY : "middle",
+        font : "bold"
+      });
 
       header.add(label);
       header.addSpacer();
@@ -455,41 +475,38 @@ qx.Class.define("aristo.demo.Application",
       return header;
     },
 
-    resetShowcase: function()
-    {
-      switch (true)
-      {
-        case this.formWindow.getActive():
-          this.showcaseButton.setSelection([this.formItem]);
-          break;
+    resetShowcase : function() {
+      switch (true) {
+      case this.formWindow.getActive():
+        this.showcaseButton.setSelection([ this.formItem ]);
+        break;
 
-        case this.tableWindow.getActive():
-          this.showcaseButton.setSelection([this.tableItem]);
-          break;
+      case this.tableWindow.getActive():
+        this.showcaseButton.setSelection([ this.tableItem ]);
+        break;
 
-        case this.editorWindow.getActive():
-          this.showcaseButton.setSelection([this.editorItem]);
-          break;
+      case this.editorWindow.getActive():
+        this.showcaseButton.setSelection([ this.editorItem ]);
+        break;
 
-        case this.calcWindow.getActive():
-          this.showcaseButton.setSelection([this.calcItem]);
-          break;
+      case this.calcWindow.getActive():
+        this.showcaseButton.setSelection([ this.calcItem ]);
+        break;
 
-        case this.browserWindow.getActive():
-          this.showcaseButton.setSelection([this.browserItem]);
-          break;
+      case this.browserWindow.getActive():
+        this.showcaseButton.setSelection([ this.browserItem ]);
+        break;
 
-        case this.colorWindow.getActive():
-          this.showcaseButton.setSelection([this.colorItem]);
-          break;
+      case this.colorWindow.getActive():
+        this.showcaseButton.setSelection([ this.colorItem ]);
+        break;
 
-        default:
-          this.showcaseButton.setSelection([this.emptyItem]);
+      default:
+        this.showcaseButton.setSelection([ this.emptyItem ]);
       }
     },
 
-    closeShowcase: function()
-    {
+    closeShowcase : function() {
       this.formWindow.close();
       this.tableWindow.close();
       this.editorWindow.close();

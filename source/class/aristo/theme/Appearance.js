@@ -119,27 +119,27 @@ qx.Theme.define("aristo.theme.Appearance", {
 
 			style : function(states) {
 				var decorator = "button";
-				var textColor;
+				var textColor = undefined;
 
-				if (states.checked) {
-					decorator = "button-checked";
-					textColor = undefined;
-				} else if (states.disabled) {
-					decorator = "button-disabled";
-					textColor = undefined;
-				} else if (states.pressed) {
-					decorator = "button-pressed";
-					textColor = "text-hovered";
-				} else if (states.checked) {
-					decorator = "button-checked";
-					textColor = undefined;
-				} else if (states.hovered || states.preselected) {
-					decorator = "button-hovered";
-					textColor = "text-hovered";
-				} else {
-					decorator = "button";
-					textColor = undefined;
-				}
+				if (states.disabled) {
+          decorator = "button-disabled";
+        } else {
+          
+          if (states.hovered || states.preselected) {
+            decorator = "button-hovered";
+            textColor = "text-hovered";
+            
+          } else if (states.checked) {
+            decorator += "-checked";
+            
+          } else if (states.pressed) {
+            decorator += "-pressed";
+            textColor = "text-hovered";
+          }
+          
+          if (states.focused)
+            decorator += "-focused";
+        }
 
 				return {
 					decorator : decorator,

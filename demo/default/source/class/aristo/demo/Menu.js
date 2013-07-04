@@ -7,6 +7,22 @@ qx.Class.define("aristo.demo.Menu",
     this.base(arguments);
 
     this._createControls();
+    var menu = new qx.ui.menu.Menu;
+
+    var cutButton = new qx.ui.menu.Button("Cut", "icon/16/actions/edit-cut.png", this.__cutCommand);
+    var copyButton = new qx.ui.menu.Button("Copy", "icon/16/actions/edit-copy.png", this.__copyCommand);
+    var pasteButton = new qx.ui.menu.Button("Paste", "icon/16/actions/edit-paste.png", this.__pasteCommand);
+
+    cutButton.addListener("execute", this.debugButton);
+    copyButton.addListener("execute", this.debugButton);
+    pasteButton.addListener("execute", this.debugButton);
+
+    menu.add(cutButton);
+    menu.add(copyButton);
+    menu.add(pasteButton);
+
+    this.setContextMenu(menu);
+
   },
 
   /*
@@ -591,25 +607,6 @@ qx.Class.define("aristo.demo.Menu",
       menu.add(onlineButton);
       menu.addSeparator();
       menu.add(infoButton);
-
-      return menu;
-    },
-
-    getContextMenu : function()
-    {
-      var menu = new qx.ui.menu.Menu;
-
-      var cutButton = new qx.ui.menu.Button("Cut", "icon/16/actions/edit-cut.png", this.__cutCommand);
-      var copyButton = new qx.ui.menu.Button("Copy", "icon/16/actions/edit-copy.png", this.__copyCommand);
-      var pasteButton = new qx.ui.menu.Button("Paste", "icon/16/actions/edit-paste.png", this.__pasteCommand);
-
-      cutButton.addListener("execute", this.debugButton);
-      copyButton.addListener("execute", this.debugButton);
-      pasteButton.addListener("execute", this.debugButton);
-
-      menu.add(cutButton);
-      menu.add(copyButton);
-      menu.add(pasteButton);
 
       return menu;
     }
