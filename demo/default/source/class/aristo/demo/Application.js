@@ -398,7 +398,7 @@ qx.Class.define("aristo.demo.Application", {
         blockerOpacity : 0.4
       });
 
-      var mainContainer = new qx.ui.container.Composite()
+      var mainContainer = new qx.ui.container.Composite();
       mainContainer.setLayout(new qx.ui.layout.VBox(0));
 
       /*
@@ -447,7 +447,7 @@ qx.Class.define("aristo.demo.Application", {
         widgetButton.setSelection([ selWidgetButton ]);
 
       this.closeShowcase();
-      this.stack.setSelection([ selectBoxWidgets ]);
+      this.stack.setSelection([ textFieldWidgets ]);
     },
 
     createHeader : function() {

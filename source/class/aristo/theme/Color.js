@@ -33,7 +33,7 @@
 qx.Theme.define("aristo.theme.Color", {
 	colors : {
 		"text-label" : "#333333",
-		"text-disabled" : "#A7A7A7",
+		"text-disabled" : "#858585",
 		"text-hovered" : "#4f4f4f",
 		"text-placeholder" : "#A7A7A7",
 		"text-selected" : "#FFFFFF",
@@ -77,7 +77,8 @@ qx.Theme.define("aristo.theme.Color", {
 		
 		"window-shadow": "#7f7f7f",
 		"input-shadow": "#b8b8b8",
-		"input-readonly": "#e0e0e0",
+    "input-readonly": "#ededed",
+    "input-disabled": "#e0e0e0",
 		
 		"tabbutton-active-start": "#c7e3f3",
 		"tabbutton-active-end": "#88b4cd",

@@ -596,7 +596,9 @@ qx.Theme.define("aristo.theme.Appearance", {
 			style : function(states) {
 				var decorator = "input";
 
-				if (!states.disabled) {
+				if (!!states.disabled)
+				  decorator += "-disabled";
+				else {
 					if (!!states.focused)
 						decorator += "-shadow";
 					if (!!states.readonly)

@@ -192,13 +192,20 @@ qx.Theme.define("aristo.theme.Decoration", {
 				color: "invalid"
 			}
 		},
-		
-		"input-readonly": {
-			include: "input-base",
-			style : {
-				backgroundColor : "input-readonly"
-			}
-		},
+    
+    "input-readonly": {
+      include: "input-base",
+      style : {
+        backgroundColor : "input-readonly"
+      }
+    },
+    
+    "input-disabled": {
+      include: "input-base",
+      style : {
+        backgroundColor : "input-disabled"
+      }
+    },
 		
 		"input-shadow": {
 			include: "input-base",
