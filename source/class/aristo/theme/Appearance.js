@@ -56,6 +56,7 @@ qx.Theme.define("aristo.theme.Appearance", {
 				};
 			}
 		},
+		
 		"image" : {
 			style : function(states) {
 				return {
@@ -65,7 +66,16 @@ qx.Theme.define("aristo.theme.Appearance", {
 			}
 		},
 		"atom" : {},
-		"atom/label" : "label",
+		"atom/label" : {
+		  alias: "label",
+      style : function(states) {
+        return {
+          padding: 0,
+          textColor : states.disabled ? "text-disabled"
+              : "text-label"
+        };
+      }
+		},
 		"atom/icon" : "image",
 
 		"move-frame" : {
@@ -270,6 +280,7 @@ qx.Theme.define("aristo.theme.Appearance", {
 		"listitem/label" : {
 			style : function(states) {
 				return {
+				  padding: 0,
 					textColor : states.selected ? "text-selected"
 							: states.disabled ? "text-disabled"
 									: "text-label"

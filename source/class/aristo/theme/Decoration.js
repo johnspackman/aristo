@@ -262,7 +262,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 			include: "list",
 			style : {
 				shadowColor: "border-main",
-				shadowLength: 2,
+				shadowLength: 1,
 				shadowBlurRadius: 2
 			}
 		},
