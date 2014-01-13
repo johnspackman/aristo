@@ -50,6 +50,7 @@ qx.Theme.define("aristo.theme.Appearance", {
 		"label" : {
 			style : function(states) {
 				return {
+				  padding: [ 3, 0, 2, 0 ],
 					textColor : states.disabled ? "text-disabled"
 							: "text-label"
 				};
