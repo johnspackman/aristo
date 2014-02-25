@@ -493,7 +493,7 @@ qx.Theme.define("aristo.theme.Appearance", {
 				if (states.focused)
 				  icon += "-focused";
 				else if (states.disabled)
-				  icon += "-disabled";
+				  ;
 				else if (states.invalid)
 				  icon += "-invalid";
 
