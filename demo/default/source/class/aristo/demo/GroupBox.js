@@ -1,26 +1,25 @@
-qx.Class.define("aristo.demo.GroupBox",
-{
+qx.Class.define("aristo.demo.GroupBox", {
   extend: qx.ui.groupbox.GroupBox,
 
-  construct: function()
-  {
+  construct: function() {
     this.base(arguments);
 
     this._createControls();
   },
 
   /*
-  *****************************************************************************
-     MEMBERS
-  *****************************************************************************
-  */
+   * ****************************************************************************
+   * MEMBERS
+   * ****************************************************************************
+   */
 
-  members:
-  {
-    _createControls: function()
-    {
+  members: {
+    _createControls: function() {
       var layout = new qx.ui.layout.Canvas();
-      this.set({layout: layout, contentPadding: 10});
+      this.set({
+        layout: layout,
+        contentPadding: 10
+      });
 
       // create the main layout
       var mainLayout = new qx.ui.layout.VBox();
@@ -30,10 +29,12 @@ qx.Class.define("aristo.demo.GroupBox",
       var container = new qx.ui.container.Composite(mainLayout);
       container.setPadding(20);
 
-    this.addListenerOnce("appear", function(e)
-      {
-        this.add(container, {left:0,top:0});
-    }, this);
+      this.addListenerOnce("appear", function(e) {
+        this.add(container, {
+          left: 0,
+          top: 0
+        });
+      }, this);
 
       // create the first group box
       var box1 = new qx.ui.groupbox.GroupBox("Code Assist", "icon/16/apps/utilities-text-editor.png");
@@ -83,4 +84,3 @@ qx.Class.define("aristo.demo.GroupBox",
   }
 
 });
-
