@@ -499,7 +499,7 @@ qx.Theme.define("aristo.theme.Appearance", {
 
 				return {
 					icon : "aristo/decoration/form/" + icon + ".png",
-					gap : 6
+					gap : 4
 				};
 			}
 		},
@@ -525,7 +525,7 @@ qx.Theme.define("aristo.theme.Appearance", {
 				return {
 					icon : "aristo/decoration/form/" + icon
 							+ ".png",
-					gap : 6
+					gap : 4
 				};
 			}
 		},
