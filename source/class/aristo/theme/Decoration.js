@@ -79,7 +79,7 @@ qx.Theme.define("aristo.theme.Decoration", {
       style : {
         shadowColor: "input-shadow",
         shadowLength: 1,
-        shadowBlurRadius: 2
+        shadowBlurRadius: 1
       }
     },
 
@@ -103,7 +103,7 @@ qx.Theme.define("aristo.theme.Decoration", {
       style : {
         shadowColor: "input-shadow",
         shadowLength: 1,
-        shadowBlurRadius: 2
+        shadowBlurRadius: 1
       }
     },
 
@@ -704,7 +704,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 				radius: 4,
 				width: 1,
 				color: "border-main",
-				backgroundColor : "background-light"
+				backgroundColor : "background-application"
 			}
 		},
 
@@ -720,7 +720,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 							qx.ui.decoration.MBorderRadius ],
 
 			style : {
-				startColor: "#fcfcfc",
+				startColor: "background-application",
 				endColor: "#efefef",
 				startColorPosition: 75,
 				radius: 0,

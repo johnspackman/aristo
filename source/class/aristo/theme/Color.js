@@ -51,7 +51,7 @@ qx.Theme.define("aristo.theme.Color", {
 		"border-input" : "#d1d1d1",// "#949494",
 		"border-separator" : "#808080",
 
-		"background-application" : "#FFFFFF",
+		"background-application" : "#fcfcfc",
 		"background-light" : "#EEEEEE",
 		"background-item-selected" : "#5f83b9",
 		"background-splitpane" : "#AFAFAF",
@@ -64,8 +64,8 @@ qx.Theme.define("aristo.theme.Color", {
 		"background-odd" : "#E4E4E4",
 		"background-selected-dark" : "#333333",
 
-		"button-gradient-start" : "#ededed",
-		"button-gradient-end" : "#c4c4c4",
+		"button-gradient-start" : "#f5f5f5",
+		"button-gradient-end" : "#cccccc",
 		"button-active-gradient-start" : "#b7def4",
 		"button-active-gradient-end" : "#83b0ca",
 		"button-focused-shadow" : "#a1cae2",
