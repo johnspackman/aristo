@@ -485,58 +485,20 @@ qx.Theme.define("aristo.theme.Appearance", {
 			alias : "atom",
 
 			style : function(states) {
-				// "disabled" state is not handled here with
-				// purpose. The image widget
-				// does handle this already by replacing the
-				// current image with a
-				// disabled version (if available). If no
-				// disabled image is found the
-				// opacity style is used.
-				var icon;
-				if (states.undetermined) {
-					if (states.focused) {
-						icon = "checkbox-undetermined-focused";
-					} else if (states.disabled) {
-						icon = "checkbox-undetermined-disabled";
-					} else if (states.pressed) {
-						icon = "checkbox-undetermined-pressed";
-					} else if (states.hovered) {
-						icon = "checkbox-undetermined-hovered";
-					} else {
-						icon = "checkbox-undetermined";
-					}
-					
-				} else if (states.checked) {
-					if (states.focused) {
-						icon = "checkbox-checked-focused";
-					} else if (states.disabled) {
-						icon = "checkbox-checked-disabled";
-					} else if (states.pressed) {
-						icon = "checkbox-checked-pressed";
-					} else if (states.hovered) {
-						icon = "checkbox-checked-hovered";
-					} else {
-						icon = "checkbox-checked";
-					}
-					
-				} else {
-					if (states.focused) {
-						icon = "checkbox-focused";
-					} else if (states.pressed) {
-						icon = "checkbox-pressed";
-					} else if (states.hovered && !states.disabled) {
-						icon = "checkbox-hovered";
-					} else {
-						icon = "checkbox";
-					}
-				}
-
-				var invalid = states.invalid
-						&& !states.disabled ? "-invalid" : "";
+				var icon = "checkbox";
+				if (states.undetermined)
+				  icon += "-undetermined";
+				else if (states.checked)
+				  icon += "-checked";
+				if (states.focused)
+				  icon += "-focused";
+				else if (states.disabled)
+				  icon += "-disabled";
+				else if (states.invalid)
+				  icon += "-invalid";
 
 				return {
-					icon : "aristo/decoration/form/" + icon
-							+ invalid + ".png",
+					icon : "aristo/decoration/form/" + icon + ".png",
 					gap : 6
 				};
 			}

@@ -681,7 +681,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 		 */
 
 		"tooltip-error" : {
-			decorator : [ qx.ui.decoration.MBoxShadow, qx.ui.decoration.MBackground ],
+			decorator : [ qx.ui.decoration.MBoxShadow ],
 
 			style : {
 				backgroundColor : "#c82c2c",
