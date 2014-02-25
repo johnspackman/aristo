@@ -447,7 +447,7 @@ qx.Class.define("aristo.demo.Application", {
         widgetButton.setSelection([ selWidgetButton ]);
 
       this.closeShowcase();
-      this.stack.setSelection([ checkBoxWidgets ]);
+      this.stack.setSelection([ selectBoxWidgets ]);
     },
 
     createHeader : function() {
