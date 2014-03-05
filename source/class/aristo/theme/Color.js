@@ -80,8 +80,8 @@ qx.Theme.define("aristo.theme.Color", {
     "input-readonly": "#ededed",
     "input-disabled": "#e0e0e0",
 		
-		"tabbutton-active-start": "#c7e3f3",
-		"tabbutton-active-end": "#88b4cd",
+		"tabbutton-active-start": "white",//"#c7e3f3",
+		"tabbutton-active-end": "white",//"#88b4cd",
 		"tabbutton-active-border": "#30434e",
 		"tabbutton-inactive-start": "#e5e5e5",
 		"tabbutton-inactive-end": "#c9c9c9",
