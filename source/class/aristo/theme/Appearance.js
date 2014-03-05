@@ -594,7 +594,7 @@ qx.Theme.define("aristo.theme.Appearance", {
 
 				return {
 					decorator : decorator,
-					padding : [ 2, 4, 1 ],
+					padding : [ 1, 4, 1 ],
 					textColor : textColor,
 					margin : 2
 				};
