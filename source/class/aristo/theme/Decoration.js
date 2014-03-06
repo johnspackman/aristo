@@ -383,6 +383,14 @@ qx.Theme.define("aristo.theme.Decoration", {
 			}
 		},
 
+    "scrollbar-slider-vertical-disabled" : {
+      include: "scrollbar-slider-vertical",
+      style: {
+        startColor: "text-disabled",
+        endColor: "text-disabled"
+      }
+    },
+    
 		"scrollbar-slider-horizontal" : {
 			include: "scrollbar-slider-vertical",
 
@@ -391,6 +399,13 @@ qx.Theme.define("aristo.theme.Decoration", {
 			}
 		},
 
+    "scrollbar-slider-horizontal-disabled" : {
+      include: "scrollbar-slider-vertical-disabled",
+      style: {
+        orientation: "vertical"
+      }
+    },
+    
 		/*
 		 * --------------------------------------------------------------------------
 		 * SLIDER
