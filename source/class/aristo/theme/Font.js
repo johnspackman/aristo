@@ -35,20 +35,42 @@ qx.Theme.define("aristo.theme.Font", {
     "default": {
       size: 12,
       lineHeight: 1.4,
-      family: [ "Open Sans", "Segoe UI", "Arial", "Tahoma", "Verdana", "Bitstream Vera Sans", "Liberation Sans" ]
+      family: [ /* "Open Sans", "Segoe UI", */ "Arial", "Tahoma", "Verdana", "Bitstream Vera Sans", "Liberation Sans" ]
     },
 
     "bold": {
       size: 12,
       lineHeight: 1.4,
-      family: [ "Open Sans", "Segoe UI", "Arial", "Tahoma", "Verdana", "Bitstream Vera Sans", "Liberation Sans" ],
+      family: [ /* "Open Sans", "Segoe UI", */ "Arial", "Tahoma", "Verdana", "Bitstream Vera Sans", "Liberation Sans" ],
       bold: true
+    },
+
+    "underline": {
+      size: 12,
+      lineHeight: 1.4,
+      family: [ /* "Open Sans", "Segoe UI", */ "Arial", "Tahoma", "Verdana", "Bitstream Vera Sans", "Liberation Sans" ],
+      decoration: "underline"
+    },
+
+    "italic": {
+      size: 12,
+      lineHeight: 1.4,
+      family: [ /* "Open Sans", "Segoe UI", */ "Arial", "Tahoma", "Verdana", "Bitstream Vera Sans", "Liberation Sans" ],
+      italic: true
+    },
+
+    "bold-underline": {
+      size: 12,
+      lineHeight: 1.4,
+      family: [ /* "Open Sans", "Segoe UI", */ "Arial", "Tahoma", "Verdana", "Bitstream Vera Sans", "Liberation Sans" ],
+      bold: true,
+      decoration: "underline"
     },
 
     "small": {
       size: 11,
       lineHeight: 1.4,
-      family: [ "Open Sans", "Segoe UI", "Arial", "Tahoma", "Verdana", "Bitstream Vera Sans", "Liberation Sans" ]
+      family: [ /* "Open Sans", "Segoe UI", */ "Arial", "Tahoma", "Verdana", "Bitstream Vera Sans", "Liberation Sans" ]
     },
 
     "monospace": {
@@ -59,7 +81,7 @@ qx.Theme.define("aristo.theme.Font", {
 
     "headline": {
       size: 24,
-      family: [ "Open Sans", "Segoe UI", "Arial", "Tahoma", "Verdana", "Bitstream Vera Sans", "Liberation Sans" ]
+      family: [ /* "Open Sans", "Segoe UI", */ "Arial", "Tahoma", "Verdana", "Bitstream Vera Sans", "Liberation Sans" ]
     }
 
   }

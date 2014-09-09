@@ -276,8 +276,6 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"selected" : {
-			decorator : qx.ui.decoration.Background,
-
 			style : {
 				backgroundColor : "background-item-selected"
 			}
@@ -302,64 +300,48 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"scroll-bt-up" : {
-			decorator : qx.ui.decoration.Background,
-
 			style : {
 				backgroundImage : "aristo/decoration/scrollbar/scrollbar-bg-button-t.png"
 			}
 		},
 		
 		"scroll-bt-up-focused" : {
-			decorator : qx.ui.decoration.Background,
-
 			style : {
 				backgroundImage : "aristo/decoration/scrollbar/scrollbar-bg-button-focused-t.png"
 			}
 		},
 		
 		"scroll-bt-down" : {
-			decorator : qx.ui.decoration.Background,
-
 			style : {
 				backgroundImage : "aristo/decoration/scrollbar/scrollbar-bg-button-b.png"
 			}
 		},
 
 		"scroll-bt-down-focused" : {
-			decorator : qx.ui.decoration.Background,
-
 			style : {
 				backgroundImage : "aristo/decoration/scrollbar/scrollbar-bg-button-focused-b.png"
 			}
 		},
 
 		"scroll-bt-left" : {
-			decorator : qx.ui.decoration.Background,
-
 			style : {
 				backgroundImage : "aristo/decoration/scrollbar/scrollbar-bg-button-l.png"
 			}
 		},
 		
 		"scroll-bt-left-focused" : {
-			decorator : qx.ui.decoration.Background,
-
 			style : {
 				backgroundImage : "aristo/decoration/scrollbar/scrollbar-bg-button-focused-l.png"
 			}
 		},
 		
 		"scroll-bt-right" : {
-			decorator : qx.ui.decoration.Background,
-
 			style : {
 				backgroundImage : "aristo/decoration/scrollbar/scrollbar-bg-button-r.png"
 			}
 		},
 
 		"scroll-bt-right-focused" : {
-			decorator : qx.ui.decoration.Background,
-
 			style : {
 				backgroundImage : "aristo/decoration/scrollbar/scrollbar-bg-button-focused-r.png"
 			}
@@ -430,24 +412,18 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"slider-knob" : {
-			decorator : qx.ui.decoration.Background,
-
 			style : {
 				backgroundImage : "aristo/decoration/form/radiobutton-checked.png"
 			}
 		},
 
 		"slider-knob-focused" : {
-			decorator : qx.ui.decoration.Background,
-
 			style : {
 				backgroundImage : "aristo/decoration/form/radiobutton-checked-focused.png"
 			}
 		},
 
 		"slider-knob-disabled" : {
-			decorator : qx.ui.decoration.Background,
-
 			style : {
 				backgroundImage : "aristo/decoration/form/radiobutton-checked-disabled.png"
 			}
@@ -503,7 +479,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"window-statusbar" : {
-			decorator : qx.ui.decoration.Single,
+		  decorator : [ qx.ui.decoration.MSingleBorder ],
 
 			style : {
 				backgroundColor : "background-light",
@@ -513,7 +489,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"table-statusbar" : {
-			decorator : qx.ui.decoration.Single,
+		  decorator : [ qx.ui.decoration.MSingleBorder ],
 
 			style : {
 				backgroundColor : "background-light",
@@ -530,7 +506,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 		 */
 
 		"progressbar" : {
-			decorator : qx.ui.decoration.Single,
+		  decorator : [ qx.ui.decoration.MSingleBorder ],
 
 			style : {
 				backgroundColor : "#FFF",
@@ -546,7 +522,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 		 */
 
 		"toolbar" : {
-			decorator : qx.ui.decoration.Single,
+		  decorator : [ qx.ui.decoration.MSingleBorder ],
 
 			style : {
 				backgroundColor : "background-light"
@@ -594,7 +570,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"toolbar-separator" : {
-			decorator : qx.ui.decoration.Single,
+		  decorator : [ qx.ui.decoration.MSingleBorder ],
 
 			style : {
 				widthLeft : 1,
@@ -609,8 +585,6 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"toolbar-part" : {
-			decorator : qx.ui.decoration.Background,
-
 			style : {
 				backgroundImage : "aristo/decoration/toolbar/toolbar-part.gif",
 				backgroundRepeat : "repeat-y"
@@ -637,7 +611,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"menu-separator" : {
-			decorator : qx.ui.decoration.Single,
+		  decorator : [ qx.ui.decoration.MSingleBorder ],
 
 			style : {
 				widthTop : 1,
@@ -666,15 +640,13 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"menu-selected" : {
-			decorator : qx.ui.decoration.Background,
-
 			style : {
 				backgroundColor : "background-dark"
 			}
 		},
 
 		"blank" : {
-			decorator : qx.ui.decoration.Single,
+		  decorator : [ qx.ui.decoration.MSingleBorder ],
 
 			style : {
 				backgroundColor : "white"
@@ -682,7 +654,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"transparent" : {
-			decorator : qx.ui.decoration.Single,
+		  decorator : [ qx.ui.decoration.MSingleBorder ],
 
 			style : {
 				backgroundColor : "transparent"
@@ -777,7 +749,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 				startColor: "tabbutton-active-start",
 				endColor: "tabbutton-active-end",
 				color: "tabbutton-active-border",
-				radius: 3,
+				radius: 4,
 				width: 1
 			}
 		},
@@ -791,7 +763,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 				startColor: "tabbutton-inactive-start",
 				endColor: "tabbutton-inactive-end",
 				color: "tabbutton-inactive-border",
-				radius: 5,
+				radius: 4,
 				width: 1
 			}
 		},
@@ -800,7 +772,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 			include: "tabview-page-button-base-active",
 
 			style : {
-				radius: [ 3, 3, 0, 0 ],
+				radius: [ 4, 4, 0, 0 ],
 				width: [ 1, 1, 0, 1 ]
 			}
 		},
@@ -809,7 +781,8 @@ qx.Theme.define("aristo.theme.Decoration", {
 			include: "tabview-page-button-base-inactive",
 
 			style : {
-				radius: [ 5, 5, 0, 0 ]
+				radius: [ 4, 4, 0, 0 ],
+        color: [ "tabbutton-inactive-border", "tabbutton-inactive-border", "tabbutton-active-border", "tabbutton-inactive-border" ]
 			}
 		},
 
@@ -817,7 +790,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 			include: "tabview-page-button-base-active",
 
 			style : {
-				radius: [ 0, 0, 3, 3 ],
+				radius: [ 0, 0, 4, 4 ],
 				width: [ 0, 1, 1, 1 ]
 			}
 		},
@@ -826,7 +799,8 @@ qx.Theme.define("aristo.theme.Decoration", {
 			include: "tabview-page-button-base-inactive",
 
 			style : {
-				radius: [ 0, 0, 5, 5 ]
+				radius: [ 0, 0, 4, 4 ],
+        color: [ "tabbutton-active-border", "tabbutton-inactive-border", "tabbutton-inactive-border", "tabbutton-inactive-border" ]
 			}
 		},
 
@@ -834,7 +808,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 			include: "tabview-page-button-base-active",
 			
 			style: {
-				radius: [ 3, 0, 0, 3 ],
+				radius: [ 4, 0, 0, 4 ],
 				width: [ 1, 0, 1, 1 ]
 			}
 		},
@@ -843,7 +817,8 @@ qx.Theme.define("aristo.theme.Decoration", {
 			include: "tabview-page-button-base-inactive",
 			
 			style: {
-				radius: [ 5, 0, 0, 5 ]
+				radius: [ 4, 0, 0, 4 ],
+        color: [ "tabbutton-inactive-border", "tabbutton-active-border", "tabbutton-inactive-border", "tabbutton-inactive-border" ]
 			}
 		},
 
@@ -851,7 +826,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 			include: "tabview-page-button-base-active",
 			
 			style: {
-				radius: [ 0, 3, 3, 0 ],
+				radius: [ 0, 4, 4, 0 ],
 				width: [ 1, 1, 1, 0 ]
 			}
 		},
@@ -860,7 +835,8 @@ qx.Theme.define("aristo.theme.Decoration", {
 			include: "tabview-page-button-base-inactive",
 			
 			style: {
-				radius: [ 0, 5, 5, 0 ]
+				radius: [ 0, 4, 4, 0 ],
+        color: [ "tabbutton-inactive-border", "tabbutton-inactive-border", "tabbutton-inactive-border", "tabbutton-active-border" ]
 			}
 		},
 
@@ -904,7 +880,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 		 */
 
 		"table" : {
-			decorator : qx.ui.decoration.Single,
+		  decorator : [ qx.ui.decoration.MSingleBorder ],
 
 			style : {
 				width : 1,
@@ -914,7 +890,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"table-scroller-header" : {
-			decorator : qx.ui.decoration.Single,
+		  decorator : [ qx.ui.decoration.MSingleBorder ],
 
 			style : {
 				backgroundImage : "aristo/decoration/table/header-cell.png",
@@ -927,7 +903,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"table-header-cell" : {
-			decorator : qx.ui.decoration.Single,
+		  decorator : [ qx.ui.decoration.MSingleBorder ],
 
 			style : {
 				widthRight : 1,
@@ -937,7 +913,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"table-header-cell-hovered" : {
-			decorator : qx.ui.decoration.Single,
+		  decorator : [ qx.ui.decoration.MSingleBorder ],
 
 			style : {
 				widthRight : 1,
@@ -951,7 +927,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"table-column-button" : {
-			decorator : qx.ui.decoration.Single,
+		  decorator : [ qx.ui.decoration.MSingleBorder ],
 
 			style : {
 				backgroundImage : "aristo/decoration/table/header-cell.png",
@@ -964,7 +940,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"table-scroller-focus-indicator" : {
-			decorator : qx.ui.decoration.Single,
+		  decorator : [ qx.ui.decoration.MSingleBorder ],
 
 			style : {
 				width : 1,
@@ -980,7 +956,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 		 */
 
 		"progressive-table-header" : {
-			decorator : qx.ui.decoration.Single,
+		  decorator : [ qx.ui.decoration.MSingleBorder ],
 
 			style : {
 				width : 1,
@@ -990,7 +966,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 		},
 
 		"progressive-table-header-cell" : {
-			decorator : qx.ui.decoration.Single,
+		  decorator : [ qx.ui.decoration.MSingleBorder ],
 
 			style : {
 				backgroundImage : "aristo/decoration/table/header-cell.png",
