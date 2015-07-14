@@ -63,7 +63,7 @@ qx.Class.define("aristo.demo.Application", {
       var calcItem = this.calcItem = new qx.ui.form.ListItem("Calculator");
       var colorItem = this.colorItem = new qx.ui.form.ListItem("Color Selector");
       var formItem = this.formItem = new qx.ui.form.ListItem("Form");
-      var editorItem = this.editorItem = new qx.ui.form.ListItem("HTML Editor");
+      // var editorItem = this.editorItem = new qx.ui.form.ListItem("HTML Editor");
       var tableItem = this.tableItem = new qx.ui.form.ListItem("Table");
       var browserItem = this.browserItem = new qx.ui.form.ListItem("Web Browser");
 
@@ -71,7 +71,7 @@ qx.Class.define("aristo.demo.Application", {
       showcaseButton.add(calcItem);
       showcaseButton.add(colorItem);
       showcaseButton.add(formItem);
-      showcaseButton.add(editorItem);
+      // showcaseButton.add(editorItem);
       showcaseButton.add(tableItem);
       showcaseButton.add(browserItem);
 
@@ -90,9 +90,9 @@ qx.Class.define("aristo.demo.Application", {
           this.formWindow.open();
           break;
 
-        case "HTML Editor":
-          this.editorWindow.open();
-          break;
+        // case "HTML Editor":
+        //   this.editorWindow.open();
+        //  break;
 
         case "Table":
           this.tableWindow.open();
@@ -428,8 +428,8 @@ qx.Class.define("aristo.demo.Application", {
       var tableWindow = this.tableWindow = new aristo.demo.TableWindow("Table");
       tableWindow.addListener("changeActive", this.resetShowcase, this);
 
-      var editorWindow = this.editorWindow = new aristo.demo.EditorWindow("HTML Editor");
-      editorWindow.addListener("changeActive", this.resetShowcase, this);
+      // var editorWindow = this.editorWindow = new aristo.demo.EditorWindow("HTML Editor");
+      // editorWindow.addListener("changeActive", this.resetShowcase, this);
 
       var calcWindow = this.calcWindow = new aristo.demo.CalcWindow();
       calcWindow.addListener("changeActive", this.resetShowcase, this);
@@ -485,9 +485,9 @@ qx.Class.define("aristo.demo.Application", {
         this.showcaseButton.setSelection([ this.tableItem ]);
         break;
 
-      case this.editorWindow.getActive():
-        this.showcaseButton.setSelection([ this.editorItem ]);
-        break;
+      //case this.editorWindow.getActive():
+      //  this.showcaseButton.setSelection([ this.editorItem ]);
+      //  break;
 
       case this.calcWindow.getActive():
         this.showcaseButton.setSelection([ this.calcItem ]);
@@ -509,7 +509,7 @@ qx.Class.define("aristo.demo.Application", {
     closeShowcase : function() {
       this.formWindow.close();
       this.tableWindow.close();
-      this.editorWindow.close();
+      // this.editorWindow.close();
       this.calcWindow.close();
       this.browserWindow.close();
       this.colorWindow.close();

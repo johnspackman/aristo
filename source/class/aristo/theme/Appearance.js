@@ -467,15 +467,18 @@ qx.Theme.define("aristo.theme.Appearance", {
 
       style: function(states) {
         var icon = "checkbox";
+        
+        if (states.checked)
+          icon += "-checked";
         if (states.undetermined)
           icon += "-undetermined";
-        else if (states.checked)
-          icon += "-checked";
+        if (states.pressed)
+          icon += "-pressed";
+        if (states.hovered)
+          icon += "-hovered";
         if (states.focused)
           icon += "-focused";
-        else if (states.disabled)
-          ;
-        else if (states.invalid)
+        if (states.invalid)
           icon += "-invalid";
 
         return {
@@ -512,14 +515,12 @@ qx.Theme.define("aristo.theme.Appearance", {
           icon += "-checked";
         if (states.pressed)
           icon += "-pressed";
+        if (states.hovered)
+          icon += "-hovered";
         if (states.focused)
           icon += "-focused";
-        if (states.hovered && !states.pressed)
-          icon += "-hovered";
         if (states.invalid)
           icon += "-invalid";
-        if (states.disabled)
-          icon += "-disabled";
 
         return {
           icon: "aristo/decoration/form/" + icon + ".png",
