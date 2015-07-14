@@ -79,6 +79,11 @@ qx.Theme.define("aristo.theme.Font", {
       family: [ "Courier New", "DejaVu Sans Mono", "monospace" ]
     },
 
+    "medium": {
+      size: 16,
+      family: [ /* "Open Sans", "Segoe UI", */ "Arial", "Tahoma", "Verdana", "Bitstream Vera Sans", "Liberation Sans" ]
+    },
+
     "headline": {
       size: 24,
       family: [ /* "Open Sans", "Segoe UI", */ "Arial", "Tahoma", "Verdana", "Bitstream Vera Sans", "Liberation Sans" ]
