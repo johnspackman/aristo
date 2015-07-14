@@ -134,16 +134,16 @@ qx.Theme.define("aristo.theme.Appearance", {
           decorator = "button-disabled";
         } else {
 
-          if (states.hovered || states.preselected) {
+          if (states.pressed) {
+            decorator = "button-pressed";
+            textColor = "text-hovered";
+            
+          } else if (states.hovered || states.preselected) {
             decorator = "button-hovered";
             textColor = "text-hovered";
 
           } else if (states.checked) {
-            decorator += "-checked";
-
-          } else if (states.pressed) {
-            decorator += "-pressed";
-            textColor = "text-hovered";
+            decorator = "button-checked";
           }
 
           if (states.focused)
@@ -165,7 +165,7 @@ qx.Theme.define("aristo.theme.Appearance", {
       }
     },
 
-    "button": {
+    "button-base": {
       alias: "button-frame",
       include: "button-frame",
 
@@ -176,8 +176,10 @@ qx.Theme.define("aristo.theme.Appearance", {
         };
       }
     },
+    
+    "button": "button-base",
 
-    "menubutton": "button",
+    "menubutton": "button-base",
 
     "hover-button": {
       alias: "atom",
@@ -197,13 +199,13 @@ qx.Theme.define("aristo.theme.Appearance", {
       }
     },
     "splitbutton/button": {
-      include: "button",
+      include: "button-base",
       style: function(states) {
         return {};
       }
     },
     "splitbutton/arrow": {
-      include: "button",
+      include: "button-base",
 
       style: function(states) {
         return {
@@ -260,7 +262,6 @@ qx.Theme.define("aristo.theme.Appearance", {
 
         return {
           padding: states.dragover ? [ 4, 4, 2, 4 ] : 4,
-          textColor: states.selected ? "text-selected" : undefined,
           decorator: decorator
         };
       }
@@ -1995,8 +1996,8 @@ qx.Theme.define("aristo.theme.Appearance", {
       }
     },
 
-    "colorpopup/selector-button": "button",
-    "colorpopup/auto-button": "button",
+    "colorpopup/selector-button": "button-base",
+    "colorpopup/auto-button": "button-base",
     "colorpopup/preview-pane": "groupbox",
 
     "colorpopup/current-preview": {
@@ -2024,8 +2025,8 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "colorpopup/colorselector-okbutton": {
-      alias: "button",
-      include: "button",
+      alias: "button-base",
+      include: "button-base",
 
       style: function(states) {
         return {
@@ -2035,8 +2036,8 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "colorpopup/colorselector-cancelbutton": {
-      alias: "button",
-      include: "button",
+      alias: "button-base",
+      include: "button-base",
 
       style: function(states) {
         return {

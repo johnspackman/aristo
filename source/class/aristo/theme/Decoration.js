@@ -53,6 +53,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 			}
 		},
 
+		
 		/*
 		 * ---------------------------------------------------------------------------
 		 * BUTTON
@@ -60,11 +61,6 @@ qx.Theme.define("aristo.theme.Decoration", {
 		 */
 
 		"button" : {
-			decorator : [
-			    qx.ui.decoration.MBoxShadow,
-					qx.ui.decoration.MLinearBackgroundGradient,
-					qx.ui.decoration.MBorderRadius,
-					qx.ui.decoration.MSingleBorder ],
 			style : {
 				startColor : "button-gradient-start",
 				endColor : "button-gradient-end",
@@ -84,11 +80,6 @@ qx.Theme.define("aristo.theme.Decoration", {
     },
 
 		"button-hovered" : {
-			decorator : [
-					qx.ui.decoration.MBoxShadow,
-					qx.ui.decoration.MLinearBackgroundGradient,
-					qx.ui.decoration.MBorderRadius,
-					qx.ui.decoration.MSingleBorder ],
 			style : {
 				startColor : "button-active-gradient-start",
 				endColor : "button-active-gradient-end",
@@ -108,11 +99,6 @@ qx.Theme.define("aristo.theme.Decoration", {
     },
 
 		"button-pressed" : {
-			decorator : [
-					qx.ui.decoration.MBoxShadow, 
-					qx.ui.decoration.MLinearBackgroundGradient,
-					qx.ui.decoration.MBorderRadius,
-					qx.ui.decoration.MSingleBorder ],
 			style : {
 				startColor : "button-gradient-end",
 				endColor : "button-gradient-start",
@@ -143,6 +129,8 @@ qx.Theme.define("aristo.theme.Decoration", {
 			include : "button"
 		},
 
+		
+		
 		/*******************************************************
 		 * SHADOW ******************************
 		 */
