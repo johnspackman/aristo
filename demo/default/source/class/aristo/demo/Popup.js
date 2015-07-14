@@ -54,7 +54,7 @@ qx.Class.define("aristo.demo.Popup",
 
       button.addListener("click", function(e)
       {
-        popup.placeToMouse(e);
+        popup.placeToPointer(e);
         popup.show();
       }, this);
 
@@ -77,7 +77,7 @@ qx.Class.define("aristo.demo.Popup",
 
       button.addListener("click", function(e)
       {
-        popup.placeToMouse(e);
+        popup.placeToPointer(e);
         popup.show();
       }, this);
 
