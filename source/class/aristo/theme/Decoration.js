@@ -706,25 +706,33 @@ qx.Theme.define("aristo.theme.Decoration", {
 		"tabview-pane-top": {
 			include: "tabview-pane",
 			style: {
-				radius: [ 0, 0, 4, 4 ]
+				radius: [ 0, 0, 4, 4 ],
+        width: [ 3, 1, 1, 1 ],
+        color: ["tabbutton-active-end", "tabbutton-active-border", "tabbutton-active-border", "tabbutton-active-border" ]
 			}
 		},
 		"tabview-pane-right": {
 			include: "tabview-pane",
 			style: {
-				radius: [ 4, 0, 0, 4 ]
+				radius: [ 4, 0, 0, 4 ],
+        width: [ 1, 3, 1, 1 ],
+        color: ["tabbutton-active-border", "tabbutton-active-end", "tabbutton-active-border", "tabbutton-active-border" ]
 			}
 		},
 		"tabview-pane-bottom": {
 			include: "tabview-pane",
 			style: {
-				radius: [ 4, 4, 0, 0 ]
+				radius: [ 4, 4, 0, 0 ],
+        width: [ 1, 1, 3, 1 ],
+        color: ["tabbutton-active-border", "tabbutton-active-border", "tabbutton-active-start", "tabbutton-active-border" ]
 			}
 		},
 		"tabview-pane-left": {
 			include: "tabview-pane",
 			style: {
-				radius: [ 0, 4, 4, 0 ]
+				radius: [ 0, 4, 4, 0 ],
+        width: [ 1, 1, 1, 3 ],
+        color: ["tabbutton-active-border", "tabbutton-active-border", "tabbutton-active-border", "tabbutton-active-end" ]
 			}
 		},
 
@@ -770,6 +778,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 
 			style : {
 				radius: [ 4, 4, 0, 0 ],
+        width: [ 1, 1, 0, 1 ],
         color: [ "tabbutton-inactive-border", "tabbutton-inactive-border", "tabbutton-active-border", "tabbutton-inactive-border" ]
 			}
 		},
@@ -788,6 +797,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 
 			style : {
 				radius: [ 0, 0, 4, 4 ],
+        width: [ 0, 1, 1, 1 ],
         color: [ "tabbutton-active-border", "tabbutton-inactive-border", "tabbutton-inactive-border", "tabbutton-inactive-border" ]
 			}
 		},
@@ -806,6 +816,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 			
 			style: {
 				radius: [ 4, 0, 0, 4 ],
+        width: [ 1, 0, 1, 1 ],
         color: [ "tabbutton-inactive-border", "tabbutton-active-border", "tabbutton-inactive-border", "tabbutton-inactive-border" ]
 			}
 		},
@@ -824,6 +835,7 @@ qx.Theme.define("aristo.theme.Decoration", {
 			
 			style: {
 				radius: [ 0, 4, 4, 0 ],
+        width: [ 1, 1, 1, 0 ],
         color: [ "tabbutton-inactive-border", "tabbutton-inactive-border", "tabbutton-inactive-border", "tabbutton-active-border" ]
 			}
 		},
