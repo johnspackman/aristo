@@ -1563,6 +1563,13 @@ qx.Theme.define("aristo.theme.Appearance", {
           padding = [ 5, 6 ];
         }
 
+        if(!states.checked) {
+          marginTop = states.barTop ? 4 : (states.barBottom?1:0);
+          marginBottom = states.barBottom ? 4 : (states.barTop?1:0);
+          marginLeft = states.barLeft ? 4 : (states.barRight?1:0);
+          marginRight = states.barRight ? 4 : (states.barLeft?1:0);
+        }
+        
         decorator = "tabview-page-button-";
         if (states.barTop)
           decorator += "top-";
@@ -1576,11 +1583,6 @@ qx.Theme.define("aristo.theme.Appearance", {
           decorator += "active";
         else
           decorator += "inactive";
-        
-        marginLeft = 0;
-        marginTop = 0;
-        marginBottom = 0;
-        marginRight = 0;
         
         if (states.barLeft || states.barRight) {
           if (!states.firstTab)
