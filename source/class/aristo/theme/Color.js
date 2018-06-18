@@ -53,7 +53,7 @@ qx.Theme.define("aristo.theme.Color", {
 
 		"background-application" : "#fcfcfc",
 		"background-light" : "#EEEEEE",
-		"background-item-selected" : "#5f83b9",
+    "background-item-selected" : "#c0d2ed",
 		"background-splitpane" : "#AFAFAF",
 		"background-toolbar" : "#d4d4d4",
 		"background-dark" : "#949494",
