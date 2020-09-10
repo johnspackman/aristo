@@ -132,6 +132,16 @@ qx.Theme.define("aristo.theme.Appearance", {
 
         if (states.disabled) {
           decorator = "button-disabled";
+          
+        } else if (states.selfColored) {
+
+          if (states.pressed || states.hovered || states.preselected)
+            textColor = "text-hovered";
+
+          decorator = "button-uncolored";
+          if (states.focused)
+            decorator += "-focused";
+            
         } else {
 
           if (states.pressed) {

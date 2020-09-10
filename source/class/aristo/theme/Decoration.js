@@ -60,13 +60,19 @@ qx.Theme.define("aristo.theme.Decoration", {
 		 * ---------------------------------------------------------------------------
 		 */
 
+    "button-uncolored": {
+      style: {
+        radius : 2,
+        width : 1,
+        color : "border-main"
+      }
+    },
+    
 		"button" : {
+      include : "button-uncolored",
 			style : {
-				startColor : "button-gradient-start",
-				endColor : "button-gradient-end",
-				radius : 2,
-				width : 1,
-				color : "border-main"
+        startColor : "button-gradient-start",
+        endColor : "button-gradient-end"
 			}
 		},
 
@@ -79,13 +85,20 @@ qx.Theme.define("aristo.theme.Decoration", {
       }
     },
 
+    "button-uncolored-focused" : {
+      include : "button-uncolored",
+      style : {
+        shadowColor: "input-shadow",
+        shadowLength: 1,
+        shadowBlurRadius: 1
+      }
+    },
+
 		"button-hovered" : {
+      include : "button-uncolored",
 			style : {
 				startColor : "button-active-gradient-start",
-				endColor : "button-active-gradient-end",
-				radius : 2,
-				width : 1,
-				color : "border-main"
+				endColor : "button-active-gradient-end"
 			}
 		},
 
@@ -99,11 +112,10 @@ qx.Theme.define("aristo.theme.Decoration", {
     },
 
 		"button-pressed" : {
+      include : "button-uncolored",
 			style : {
 				startColor : "button-gradient-end",
 				endColor : "button-gradient-start",
-				radius : 2,
-				width : 1,
 				color : "border-main"
 			}
 		},
