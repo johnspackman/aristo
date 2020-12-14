@@ -285,6 +285,32 @@ qx.Theme.define("aristo.theme.Appearance", {
         };
       }
     },
+    
+    "colored-listitem": {
+      alias: "listitem",
+      
+      style: function(states) {
+        var decorator;
+        if (states.dragover) {
+          decorator = states.selected ? "selected-border-dragover" : "dragover-border";
+        } else {
+          decorator = states.selected ? "selected-border" : "unselected-border";
+        }
+
+        return {
+          padding: states.dragover ? [ 4, 4, 2, 4 ] : 4,
+          decorator: decorator
+        };
+      }
+    },
+    
+    "colored-listitem/label": {
+      style: function(states) {
+        return {
+          padding: 0
+        };
+      }
+    },
 
     /*
      * ---------------------------------------------------------------------------

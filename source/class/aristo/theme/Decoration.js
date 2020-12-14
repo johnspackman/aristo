@@ -275,11 +275,27 @@ qx.Theme.define("aristo.theme.Decoration", {
 			}
 		},
 
-		"selected" : {
-			style : {
-				backgroundColor : "background-item-selected"
-			}
-		},
+    "selected" : {
+      style : {
+        backgroundColor : "background-item-selected"
+      }
+    },
+
+    "selected-border" : {
+      style : {
+        radius : 0,
+        width : [ 1, 2, 1, 2 ],
+        color : "background-item-selected"
+      }
+    },
+
+    "unselected-border" : {
+      style : {
+        radius : 0,
+        width : [ 1, 2, 1, 2 ],
+        color : "transparent"
+      }
+    },
 
 		"scrollbar-horizontal" : {
 			decorator : [ qx.ui.decoration.MLinearBackgroundGradient ],
