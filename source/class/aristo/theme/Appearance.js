@@ -2313,14 +2313,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     "virtual-list": "list",
     "virtual-list/row-layer": "row-layer",
 
-    "row-layer": {
-      style: function(states) {
-        return {
-          colorEven: "white",
-          colorOdd: "white"
-        };
-      }
-    },
+    "row-layer": "widget",
 
     "column-layer": "widget",
 
