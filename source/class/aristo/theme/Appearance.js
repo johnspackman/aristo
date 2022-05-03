@@ -2314,8 +2314,41 @@ qx.Theme.define("aristo.theme.Appearance", {
     "virtual-list/row-layer": "row-layer",
 
     "row-layer": "widget",
-
     "column-layer": "widget",
+
+    "virtual-background-span": {
+      alias: "widget",
+
+      style(states) {
+        var style = {
+          decorator: "virtual-background-span"
+        };
+
+        if (states.header) {
+          style.decorator = "virtual-background-header";
+        } else if (states.selected) {
+          style.backgroundColor = "table-row-background-selected";
+        } else if (states.odd) {
+          style.backgroundColor = "table-row-background-odd";
+        } else {
+          style.backgroundColor = "table-row-background-even";
+        }
+
+        return style;
+      }
+    },
+
+    "virtual-list-header-cell": {
+      alias: "atom",
+
+      style(states) {
+        return {
+          font: "bold",
+          paddingTop: 3,
+          paddingLeft: 5
+        };
+      }
+    },
 
     "group-item": {
       include: "label",

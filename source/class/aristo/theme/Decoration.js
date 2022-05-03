@@ -965,6 +965,19 @@ qx.Theme.define("aristo.theme.Decoration", {
 			}
 		},
 
+    "virtual-background-header": {
+      include: "table-header-cell"
+    },
+
+    "virtual-background-span": {
+      include: "table-header-cell",
+      style: {
+        color: "table-row-line",
+        width: [0, 0, 1, 0]
+      }
+    },
+
+
 		/*
 		 * ---------------------------------------------------------------------------
 		 * PROGRESSIVE
