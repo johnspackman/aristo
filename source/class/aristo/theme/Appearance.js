@@ -524,6 +524,7 @@ qx.Theme.define("aristo.theme.Appearance", {
         };
       }
     },
+    "checkedlistitem": "checkbox",
     "checkslider": {
       alias: "atom",
 
