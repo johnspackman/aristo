@@ -30,15 +30,15 @@
 
 /**
  * The Aristo appearance theme.
- * 
+ *
  * @asset(aristo.decoration.*)
  */
 qx.Theme.define("aristo.theme.Appearance", {
   appearances: {
-    "widget": {},
+    widget: {},
 
-    "root": {
-      style: function(states) {
+    root: {
+      style: function (states) {
         return {
           backgroundColor: "background-application",
           textColor: "text-label",
@@ -49,26 +49,26 @@ qx.Theme.define("aristo.theme.Appearance", {
       }
     },
 
-    "label": {
-      style: function(states) {
+    label: {
+      style: function (states) {
         return {
-          padding: [ 3, 0, 2, 0 ],
+          padding: [3, 0, 2, 0],
           textColor: states.disabled ? "text-disabled" : "text-label"
         };
       }
     },
 
-    "image": {
-      style: function(states) {
+    image: {
+      style: function (states) {
         return {
           opacity: !states.replacement && states.disabled ? 0.3 : 1
         };
       }
     },
-    "atom": {},
+    atom: {},
     "atom/label": {
       alias: "label",
-      style: function(states) {
+      style: function (states) {
         return {
           padding: 0,
           textColor: states.disabled ? "text-disabled" : "text-label"
@@ -78,7 +78,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     "atom/icon": "image",
 
     "move-frame": {
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: "main"
         };
@@ -89,7 +89,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     "window-resize-frame": "resize-frame",
 
     "dragdrop-cursor": {
-      style: function(states) {
+      style: function (states) {
         var icon = "nodrop";
 
         if (states.copy) {
@@ -103,13 +103,13 @@ qx.Theme.define("aristo.theme.Appearance", {
         return {
           source: "aristo/decoration/cursors/" + icon + ".gif",
           position: "right-top",
-          offset: [ 2, 16, 2, 6 ]
+          offset: [2, 16, 2, 6]
         };
       }
     },
 
-    "popup": {
-      style: function(states) {
+    popup: {
+      style: function (states) {
         return {
           decorator: "list",
           backgroundColor: "background-light"
@@ -126,38 +126,30 @@ qx.Theme.define("aristo.theme.Appearance", {
     "button-frame": {
       alias: "atom",
 
-      style: function(states) {
+      style: function (states) {
         var decorator = "button";
         var textColor = undefined;
 
         if (states.disabled) {
           decorator = "button-disabled";
-          
         } else if (states.selfColored) {
-
           if (states.pressed || states.hovered || states.preselected)
             textColor = "text-hovered";
 
           decorator = "button-uncolored";
-          if (states.focused)
-            decorator += "-focused";
-            
+          if (states.focused) decorator += "-focused";
         } else {
-
           if (states.pressed) {
             decorator = "button-pressed";
             textColor = "text-hovered";
-            
           } else if (states.hovered || states.preselected) {
             decorator = "button-hovered";
             textColor = "text-hovered";
-
           } else if (states.checked) {
             decorator = "button-checked";
           }
 
-          if (states.focused)
-            decorator += "-focused";
+          if (states.focused) decorator += "-focused";
         }
 
         return {
@@ -168,7 +160,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "button-frame/image": {
-      style: function(states) {
+      style: function (states) {
         return {
           opacity: !states.replacement && states.disabled ? 0.5 : 1
         };
@@ -179,23 +171,23 @@ qx.Theme.define("aristo.theme.Appearance", {
       alias: "button-frame",
       include: "button-frame",
 
-      style: function(states) {
+      style: function (states) {
         return {
-          padding: [ 2, 8 ],
+          padding: [2, 8],
           center: true
         };
       }
     },
-    
-    "button": "button-base",
 
-    "menubutton": "button-base",
+    button: "button-base",
+
+    menubutton: "button-base",
 
     "hover-button": {
       alias: "atom",
       include: "atom",
 
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: states.hovered ? "selected" : undefined,
           textColor: states.hovered ? "text-selected" : undefined
@@ -203,21 +195,21 @@ qx.Theme.define("aristo.theme.Appearance", {
       }
     },
 
-    "splitbutton": {
-      style: function(states) {
+    splitbutton: {
+      style: function (states) {
         return {};
       }
     },
     "splitbutton/button": {
       include: "button-base",
-      style: function(states) {
+      style: function (states) {
         return {};
       }
     },
     "splitbutton/arrow": {
       include: "button-base",
 
-      style: function(states) {
+      style: function (states) {
         return {
           icon: "aristo/decoration/arrows/arrow-down.png",
           padding: 2,
@@ -232,10 +224,10 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "list": {
+    list: {
       alias: "scrollarea",
 
-      style: function(states) {
+      style: function (states) {
         var decorator = "list";
 
         var focused = !!states.focused;
@@ -243,10 +235,8 @@ qx.Theme.define("aristo.theme.Appearance", {
         var disabled = !!states.disabled;
 
         if (!disabled) {
-          if (focused)
-            decorator += "-shadow";
-          if (invalid)
-            decorator += "-invalid";
+          if (focused) decorator += "-shadow";
+          if (invalid) decorator += "-invalid";
         }
 
         return {
@@ -259,10 +249,10 @@ qx.Theme.define("aristo.theme.Appearance", {
 
     "list/pane": "widget",
 
-    "listitem": {
+    listitem: {
       alias: "atom",
 
-      style: function(states) {
+      style: function (states) {
         var decorator;
         if (states.dragover) {
           decorator = states.selected ? "selected-dragover" : "dragover";
@@ -271,41 +261,47 @@ qx.Theme.define("aristo.theme.Appearance", {
         }
 
         return {
-          padding: states.dragover ? [ 4, 4, 2, 4 ] : 4,
+          padding: states.dragover ? [4, 4, 2, 4] : 4,
           decorator: decorator
         };
       }
     },
 
     "listitem/label": {
-      style: function(states) {
+      style: function (states) {
         return {
           padding: 0,
-          textColor: states.selected ? "text-selected" : states.disabled ? "text-disabled" : "text-label"
+          textColor: states.selected
+            ? "text-selected"
+            : states.disabled
+            ? "text-disabled"
+            : "text-label"
         };
       }
     },
-    
+
     "colored-listitem": {
       alias: "listitem",
-      
-      style: function(states) {
+
+      style: function (states) {
         var decorator;
         if (states.dragover) {
-          decorator = states.selected ? "selected-border-dragover" : "dragover-border";
+          decorator = states.selected
+            ? "selected-border-dragover"
+            : "dragover-border";
         } else {
           decorator = states.selected ? "selected-border" : "unselected-border";
         }
 
         return {
-          padding: states.dragover ? [ 4, 4, 2, 4 ] : 4,
+          padding: states.dragover ? [4, 4, 2, 4] : 4,
           decorator: decorator
         };
       }
     },
-    
+
     "colored-listitem/label": {
-      style: function(states) {
+      style: function (states) {
         return {
           padding: 0
         };
@@ -318,8 +314,8 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "scrollarea": {
-      style: function(states) {
+    scrollarea: {
+      style: function (states) {
         return {
           // since the scroll container disregards the
           // min size of the scrollbars
@@ -333,7 +329,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "scrollarea/corner": {
-      style: function(states) {
+      style: function (states) {
         return {
           backgroundColor: "background-application"
         };
@@ -344,8 +340,8 @@ qx.Theme.define("aristo.theme.Appearance", {
     "scrollarea/scrollbar-x": "scrollbar",
     "scrollarea/scrollbar-y": "scrollbar",
 
-    "scrollbar": {
-      style: function(states) {
+    scrollbar: {
+      style: function (states) {
         if (states["native"]) {
           return {};
         }
@@ -353,7 +349,9 @@ qx.Theme.define("aristo.theme.Appearance", {
         return {
           maxWidth: states.horizontal ? undefined : 13,
           maxHeight: states.horizontal ? 13 : undefined,
-          decorator: states.horizontal ? "scrollbar-horizontal" : "scrollbar-vertical",
+          decorator: states.horizontal
+            ? "scrollbar-horizontal"
+            : "scrollbar-vertical",
           padding: 0
         };
       }
@@ -362,24 +360,30 @@ qx.Theme.define("aristo.theme.Appearance", {
     "scrollbar/slider": {
       alias: "slider",
 
-      style: function(states) {
+      style: function (states) {
         return {
-          margin: states.horizontal ? [ 1, -6, 0, -6 ] : [ -8, 0, -7, 0 ]
+          margin: states.horizontal ? [1, -6, 0, -6] : [-8, 0, -7, 0]
         };
       }
     },
 
     "scrollbar/slider/knob": {
-      style: function(states) {
-        var decorator = states.horizontal ? "scrollbar-slider-horizontal" : "scrollbar-slider-vertical";
+      style: function (states) {
+        var decorator = states.horizontal
+          ? "scrollbar-slider-horizontal"
+          : "scrollbar-slider-vertical";
         if (states.disabled) {
           decorator += "-disabled";
         }
 
         return {
           decorator: decorator,
-          marginLeft: qx.bom.client.Browser.NAME == "ie" && !states.horizontal ? 2 : 1,
-          marginTop: qx.bom.client.Browser.NAME == "ie" && states.horizontal ? 1 : undefined,
+          marginLeft:
+            qx.bom.client.Browser.NAME == "ie" && !states.horizontal ? 2 : 1,
+          marginTop:
+            qx.bom.client.Browser.NAME == "ie" && states.horizontal
+              ? 1
+              : undefined,
           minHeight: states.horizontal ? undefined : 16,
           minWidth: states.horizontal ? 16 : undefined,
           maxWidth: states.horizontal ? undefined : 10,
@@ -392,26 +396,38 @@ qx.Theme.define("aristo.theme.Appearance", {
       alias: "button-frame",
       // include : "button-frame",
 
-      style: function(states) {
+      style: function (states) {
         var icon = "aristo/decoration/arrows/arrow-";
         var decorator;
         if (states.left) {
           icon += states.pressed ? "focused-left.png" : "left.png";
-          decorator = states.hovered || states.docused ? "scroll-bt-left-focused" : "scroll-bt-left";
+          decorator =
+            states.hovered || states.docused
+              ? "scroll-bt-left-focused"
+              : "scroll-bt-left";
         } else if (states.right) {
           icon += states.pressed ? "focused-right.png" : "right.png";
-          decorator = states.hovered || states.docused ? "scroll-bt-right-focused" : "scroll-bt-right";
+          decorator =
+            states.hovered || states.docused
+              ? "scroll-bt-right-focused"
+              : "scroll-bt-right";
         } else if (states.up) {
           icon += states.pressed ? "focused-up.png" : "up.png";
-          decorator = states.hovered || states.focused ? "scroll-bt-up-focused" : "scroll-bt-up";
+          decorator =
+            states.hovered || states.focused
+              ? "scroll-bt-up-focused"
+              : "scroll-bt-up";
         } else {
           icon += states.pressed ? "focused-down.png" : "down.png";
-          decorator = states.hovered || states.focused ? "scroll-bt-down-focused" : "scroll-bt-down";
+          decorator =
+            states.hovered || states.focused
+              ? "scroll-bt-down-focused"
+              : "scroll-bt-down";
         }
 
         if (states.left || states.right) {
           return {
-            padding: [ 0, 0, 0, states.left ? 6 : 16 ],
+            padding: [0, 0, 0, states.left ? 6 : 16],
             icon: icon,
             width: 29,
             height: 13,
@@ -419,7 +435,7 @@ qx.Theme.define("aristo.theme.Appearance", {
           };
         } else {
           return {
-            padding: [ states.up ? -10 : 12, 0, 0, 2 ],
+            padding: [states.up ? -10 : 12, 0, 0, 2],
             icon: icon,
             width: 13,
             height: 29,
@@ -438,17 +454,14 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "spinner": {
-      style: function(states) {
+    spinner: {
+      style: function (states) {
         var decorator = "input";
 
         if (!states.disabled) {
-          if (!!states.focused)
-            decorator += "-shadow";
-          if (!!states.readonly)
-            decorator += "-readonly";
-          else if (!!states.invalid)
-            decorator += "-invalid";
+          if (!!states.focused) decorator += "-shadow";
+          if (!!states.readonly) decorator += "-readonly";
+          else if (!!states.invalid) decorator += "-invalid";
         }
 
         return {
@@ -459,10 +472,10 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "spinner/textfield": {
-      style: function(states) {
+      style: function (states) {
         return {
           marginRight: 2,
-          padding: [ 2, 4, 1 ],
+          padding: [2, 4, 1],
           textColor: states.disabled ? "text-disabled" : "text-input",
           decorator: "spinner-input"
         };
@@ -473,10 +486,10 @@ qx.Theme.define("aristo.theme.Appearance", {
       alias: "button-frame",
       include: "button-frame",
 
-      style: function(states) {
+      style: function (states) {
         return {
           icon: "aristo/decoration/arrows/up-small.png",
-          padding: states.pressed ? [ 2, 2, 0, 4 ] : [ 1, 3, 1, 3 ]
+          padding: states.pressed ? [2, 2, 0, 4] : [1, 3, 1, 3]
         };
       }
     },
@@ -485,10 +498,10 @@ qx.Theme.define("aristo.theme.Appearance", {
       alias: "button-frame",
       include: "button-frame",
 
-      style: function(states) {
+      style: function (states) {
         return {
           icon: "aristo/decoration/arrows/down-small.png",
-          padding: states.pressed ? [ 2, 2, 0, 4 ] : [ 1, 3, 1, 3 ]
+          padding: states.pressed ? [2, 2, 0, 4] : [1, 3, 1, 3]
         };
       }
     },
@@ -499,24 +512,18 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "checkbox": {
+    checkbox: {
       alias: "atom",
 
-      style: function(states) {
+      style: function (states) {
         var icon = "checkbox";
-        
-        if (states.checked)
-          icon += "-checked";
-        if (states.undetermined)
-          icon += "-undetermined";
-        if (states.pressed)
-          icon += "-pressed";
-        if (states.hovered)
-          icon += "-hovered";
-        if (states.focused)
-          icon += "-focused";
-        if (states.invalid)
-          icon += "-invalid";
+
+        if (states.checked) icon += "-checked";
+        if (states.undetermined) icon += "-undetermined";
+        if (states.pressed) icon += "-pressed";
+        if (states.hovered) icon += "-hovered";
+        if (states.focused) icon += "-focused";
+        if (states.invalid) icon += "-invalid";
 
         return {
           icon: "aristo/decoration/form/" + icon + ".png",
@@ -524,18 +531,15 @@ qx.Theme.define("aristo.theme.Appearance", {
         };
       }
     },
-    "checkedlistitem": "checkbox",
-    "checkslider": {
+    checkedlistitem: "checkbox",
+    checkslider: {
       alias: "atom",
 
-      style: function(states) {
+      style: function (states) {
         var icon = "checkslider";
-        if (states.checked)
-          icon += "-checked";
-        if (states.disabled)
-          icon += "-disabled";
-        else if (states.invalid)
-          icon += "-invalid";
+        if (states.checked) icon += "-checked";
+        if (states.disabled) icon += "-disabled";
+        else if (states.invalid) icon += "-invalid";
 
         return {
           icon: "aristo/decoration/form/" + icon + ".png",
@@ -543,22 +547,17 @@ qx.Theme.define("aristo.theme.Appearance", {
         };
       }
     },
-    "radiobutton": {
+    radiobutton: {
       alias: "atom",
 
-      style: function(states) {
+      style: function (states) {
         var icon = "radiobutton";
 
-        if (states.checked)
-          icon += "-checked";
-        if (states.pressed)
-          icon += "-pressed";
-        if (states.hovered)
-          icon += "-hovered";
-        if (states.focused)
-          icon += "-focused";
-        if (states.invalid)
-          icon += "-invalid";
+        if (states.checked) icon += "-checked";
+        if (states.pressed) icon += "-pressed";
+        if (states.hovered) icon += "-hovered";
+        if (states.focused) icon += "-focused";
+        if (states.invalid) icon += "-invalid";
 
         return {
           icon: "aristo/decoration/form/" + icon + ".png",
@@ -573,13 +572,13 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "selectbox": {
+    selectbox: {
       alias: "button-frame",
       include: "button-frame",
 
-      style: function(states) {
+      style: function (states) {
         return {
-          padding: [ 2, 8 ],
+          padding: [2, 8],
           margin: 2
         };
       }
@@ -595,7 +594,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     "selectbox/arrow": {
       include: "image",
 
-      style: function(states) {
+      style: function (states) {
         return {
           source: "aristo/decoration/arrows/arrow-down.png",
           paddingLeft: 5
@@ -603,19 +602,17 @@ qx.Theme.define("aristo.theme.Appearance", {
       }
     },
 
-    "textfield": {
-      style: function(states) {
+    "selectbox-arrow-button": "widget",
+
+    textfield: {
+      style: function (states) {
         var decorator = "input";
 
-        if (!!states.disabled)
-          decorator += "-disabled";
+        if (!!states.disabled) decorator += "-disabled";
         else {
-          if (!!states.focused)
-            decorator += "-shadow";
-          if (!!states.readonly)
-            decorator += "-readonly";
-          else if (!!states.invalid)
-            decorator += "-invalid";
+          if (!!states.focused) decorator += "-shadow";
+          if (!!states.readonly) decorator += "-readonly";
+          else if (!!states.invalid) decorator += "-invalid";
         }
 
         var textColor;
@@ -631,17 +628,17 @@ qx.Theme.define("aristo.theme.Appearance", {
 
         return {
           decorator: decorator,
-          padding: [ 1, 4, 1 ],
+          padding: [1, 4, 1],
           textColor: textColor,
           margin: 2
         };
       }
     },
 
-    "textarea": {
+    textarea: {
       include: "textfield",
 
-      style: function(states) {
+      style: function (states) {
         return {
           padding: 4,
           margin: 2
@@ -655,17 +652,17 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "window": {
-      style: function(states) {
+    window: {
+      style: function (states) {
         return {
-          decorator: (states.active ? "window-active" : "window"),
-          contentPadding: [ 10, 10, 10, 10 ]
+          decorator: states.active ? "window-active" : "window",
+          contentPadding: [10, 10, 10, 10]
         };
       }
     },
 
     "window/pane": {
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: "window"
         };
@@ -673,9 +670,11 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "window/captionbar": {
-      style: function(states) {
+      style: function (states) {
         return {
-          decorator: states.active ? "window-captionbar-active" : "window-captionbar",
+          decorator: states.active
+            ? "window-captionbar-active"
+            : "window-captionbar",
           textColor: states.active ? "text-label" : "text-disabled",
           minHeight: 28,
           maxHeight: 28,
@@ -685,7 +684,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "window/title": {
-      style: function(states) {
+      style: function (states) {
         return {
           textAlign: "center",
           alignY: "middle",
@@ -699,11 +698,14 @@ qx.Theme.define("aristo.theme.Appearance", {
     "window/minimize-button": {
       alias: "atom",
 
-      style: function(states) {
+      style: function (states) {
         return {
-          icon: states.active ? states.hovered ? "aristo/decoration/window/minimize-active-hovered.png"
-              : "aristo/decoration/window/minimize-active.png" : "aristo/decoration/window/minimize-inactive.png",
-          margin: [ 2, 3, 2, 0 ]
+          icon: states.active
+            ? states.hovered
+              ? "aristo/decoration/window/minimize-active-hovered.png"
+              : "aristo/decoration/window/minimize-active.png"
+            : "aristo/decoration/window/minimize-inactive.png",
+          margin: [2, 3, 2, 0]
         };
       }
     },
@@ -711,11 +713,14 @@ qx.Theme.define("aristo.theme.Appearance", {
     "window/restore-button": {
       alias: "atom",
 
-      style: function(states) {
+      style: function (states) {
         return {
-          icon: states.active ? states.hovered ? "aristo/decoration/window/restore-active-hovered.png"
-              : "aristo/decoration/window/restore-active.png" : "aristo/decoration/window/restore-inactive.png",
-          margin: [ 2, 3, 2, 0 ]
+          icon: states.active
+            ? states.hovered
+              ? "aristo/decoration/window/restore-active-hovered.png"
+              : "aristo/decoration/window/restore-active.png"
+            : "aristo/decoration/window/restore-inactive.png",
+          margin: [2, 3, 2, 0]
         };
       }
     },
@@ -723,11 +728,14 @@ qx.Theme.define("aristo.theme.Appearance", {
     "window/maximize-button": {
       alias: "atom",
 
-      style: function(states) {
+      style: function (states) {
         return {
-          icon: states.active ? states.hovered ? "aristo/decoration/window/maximize-active-hovered.png"
-              : "aristo/decoration/window/maximize-active.png" : "aristo/decoration/window/maximize-inactive.png",
-          margin: [ 2, 3, 2, 0 ]
+          icon: states.active
+            ? states.hovered
+              ? "aristo/decoration/window/maximize-active-hovered.png"
+              : "aristo/decoration/window/maximize-active.png"
+            : "aristo/decoration/window/maximize-inactive.png",
+          margin: [2, 3, 2, 0]
         };
       }
     },
@@ -735,11 +743,14 @@ qx.Theme.define("aristo.theme.Appearance", {
     "window/close-button": {
       alias: "atom",
 
-      style: function(states) {
+      style: function (states) {
         return {
-          icon: states.active ? states.hovered ? "aristo/decoration/window/close-active-hovered.png"
-              : "aristo/decoration/window/close-active.png" : "aristo/decoration/window/close-inactive.png",
-          margin: [ 2, 3, 2, 0 ]
+          icon: states.active
+            ? states.hovered
+              ? "aristo/decoration/window/close-active-hovered.png"
+              : "aristo/decoration/window/close-active.png"
+            : "aristo/decoration/window/close-inactive.png",
+          margin: [2, 3, 2, 0]
         };
       }
     },
@@ -749,7 +760,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     "window/restore-button/icon": "window/icon",
     "window/minimize-button/icon": "window/icon",
     "window/icon": {
-      style: function(states) {
+      style: function (states) {
         return {
           alignY: "middle",
           marginLeft: 5,
@@ -760,9 +771,9 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "window/statusbar": {
-      style: function(states) {
+      style: function (states) {
         return {
-          padding: [ 2, 6 ],
+          padding: [2, 6],
           decorator: "window-statusbar",
           minHeight: 18
         };
@@ -770,7 +781,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "window/statusbar-text": {
-      style: function(states) {
+      style: function (states) {
         return {
           font: "small"
         };
@@ -782,8 +793,8 @@ qx.Theme.define("aristo.theme.Appearance", {
      * PROGRESSBAR
      * ---------------------------------------------------------------------------
      */
-    "progressbar": {
-      style: function(states) {
+    progressbar: {
+      style: function (states) {
         return {
           decorator: "progressbar",
           padding: 1,
@@ -793,9 +804,11 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "progressbar/progress": {
-      style: function(states) {
+      style: function (states) {
         return {
-          backgroundColor: states.disabled ? "text-disabled" : "button-gradient-end"
+          backgroundColor: states.disabled
+            ? "text-disabled"
+            : "button-gradient-end"
         };
       }
     },
@@ -806,8 +819,8 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "toolbar": {
-      style: function(states) {
+    toolbar: {
+      style: function (states) {
         return {
           decorator: "toolbar",
           spacing: 2
@@ -817,7 +830,7 @@ qx.Theme.define("aristo.theme.Appearance", {
 
     "toolbar-window": {
       include: "toolbar",
-      style: function(states) {
+      style: function (states) {
         return {
           margin: -10,
           decorator: "toolbar-window"
@@ -826,7 +839,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "toolbar/part": {
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: "toolbar-part",
           spacing: 2
@@ -835,7 +848,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "toolbar/part/container": {
-      style: function(states) {
+      style: function (states) {
         return {
           paddingLeft: 2,
           paddingRight: 2
@@ -844,7 +857,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "toolbar/part/handle": {
-      style: function(states) {
+      style: function (states) {
         return {
           source: "aristo/decoration/toolbar/toolbar-handle-knob.gif",
           marginLeft: 3,
@@ -856,13 +869,19 @@ qx.Theme.define("aristo.theme.Appearance", {
     "toolbar-button": {
       alias: "atom",
 
-      style: function(states) {
+      style: function (states) {
         return {
           marginTop: 2,
           marginBottom: 2,
           padding: 5,
-          decorator: states.pressed || (states.checked && !states.hovered) || (states.checked && states.disabled) ? "toolbar-button-checked"
-              : states.hovered && !states.disabled ? "toolbar-button-hovered" : "toolbar-button"
+          decorator:
+            states.pressed ||
+            (states.checked && !states.hovered) ||
+            (states.checked && states.disabled)
+              ? "toolbar-button-checked"
+              : states.hovered && !states.disabled
+              ? "toolbar-button-hovered"
+              : "toolbar-button"
         };
       }
     },
@@ -871,7 +890,7 @@ qx.Theme.define("aristo.theme.Appearance", {
       alias: "toolbar-button",
       include: "toolbar-button",
 
-      style: function(states) {
+      style: function (states) {
         return {
           showArrow: true
         };
@@ -882,7 +901,7 @@ qx.Theme.define("aristo.theme.Appearance", {
       alias: "image",
       include: "image",
 
-      style: function(states) {
+      style: function (states) {
         return {
           source: "aristo/decoration/arrows/down-small.png"
         };
@@ -890,7 +909,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "toolbar-splitbutton": {
-      style: function(states) {
+      style: function (states) {
         return {
           marginTop: 2,
           marginBottom: 2
@@ -902,7 +921,7 @@ qx.Theme.define("aristo.theme.Appearance", {
       alias: "toolbar-button",
       include: "toolbar-button",
 
-      style: function(states) {
+      style: function (states) {
         return {
           icon: "aristo/decoration/arrows/down.png",
           marginTop: undefined,
@@ -915,8 +934,12 @@ qx.Theme.define("aristo.theme.Appearance", {
       alias: "toolbar-button",
       include: "toolbar-button",
 
-      style: function(states) {
-        if (states.pressed || states.checked || (states.hovered && !states.disabled)) {
+      style: function (states) {
+        if (
+          states.pressed ||
+          states.checked ||
+          (states.hovered && !states.disabled)
+        ) {
           var padding = 1;
         } else {
           var padding = 3;
@@ -932,7 +955,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "toolbar-separator": {
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: "toolbar-separator",
           margin: 7
@@ -946,9 +969,11 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "slider": {
-      style: function(states) {
-        var decorator = states.horizontal ? "slider-horizontal" : "slider-vertical";
+    slider: {
+      style: function (states) {
+        var decorator = states.horizontal
+          ? "slider-horizontal"
+          : "slider-vertical";
 
         return {
           decorator: decorator,
@@ -965,9 +990,13 @@ qx.Theme.define("aristo.theme.Appearance", {
       alias: "atom",
       include: "atom",
 
-      style: function(states) {
+      style: function (states) {
         return {
-          decorator: states.disabled ? "slider-knob-disabled" : states.focused ? "slider-knob-focused" : "slider-knob",
+          decorator: states.disabled
+            ? "slider-knob-disabled"
+            : states.focused
+            ? "slider-knob-focused"
+            : "slider-knob",
           maxHeight: 18,
           // minHeight: 17,
           // marginTop: -0,
@@ -982,20 +1011,21 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "menu": {
-      style: function(states) {
+    menu: {
+      style: function (states) {
         var result = {
           decorator: "menu",
           spacingX: 6,
           spacingY: 1,
           iconColumnWidth: 16,
           arrowColumnWidth: 4,
-          placementModeY: states.submenu || states.contextmenu ? "best-fit" : "keep-align"
+          placementModeY:
+            states.submenu || states.contextmenu ? "best-fit" : "keep-align"
         };
 
         if (states.submenu) {
           result.position = "right-top";
-          result.offset = [ -2, -3 ];
+          result.offset = [-2, -3];
         }
 
         return result;
@@ -1007,7 +1037,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     "menu-slidebar": "widget",
 
     "menu-slidebar-button": {
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: states.hovered ? "selected" : undefined,
           padding: 7,
@@ -1019,9 +1049,11 @@ qx.Theme.define("aristo.theme.Appearance", {
     "menu-slidebar/button-backward": {
       include: "menu-slidebar-button",
 
-      style: function(states) {
+      style: function (states) {
         return {
-          icon: states.hovered ? "aristo/decoration/arrows/up-invert.png" : "aristo/decoration/arrows/up.png"
+          icon: states.hovered
+            ? "aristo/decoration/arrows/up-invert.png"
+            : "aristo/decoration/arrows/up.png"
         };
       }
     },
@@ -1029,19 +1061,21 @@ qx.Theme.define("aristo.theme.Appearance", {
     "menu-slidebar/button-forward": {
       include: "menu-slidebar-button",
 
-      style: function(states) {
+      style: function (states) {
         return {
-          icon: states.hovered ? "aristo/decoration/arrows/down-invert.png" : "aristo/decoration/arrows/down.png"
+          icon: states.hovered
+            ? "aristo/decoration/arrows/down-invert.png"
+            : "aristo/decoration/arrows/down.png"
         };
       }
     },
 
     "menu-separator": {
-      style: function(states) {
+      style: function (states) {
         return {
           height: 0,
           decorator: "menu-separator",
-          margin: [ 4, 2 ]
+          margin: [4, 2]
         };
       }
     },
@@ -1049,11 +1083,11 @@ qx.Theme.define("aristo.theme.Appearance", {
     "menu-button": {
       alias: "atom",
 
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: states.selected ? "selected" : undefined,
           textColor: states.selected ? "text-selected" : undefined,
-          padding: [ 4, 6 ]
+          padding: [4, 6]
         };
       }
     },
@@ -1061,7 +1095,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     "menu-button/icon": {
       include: "image",
 
-      style: function(states) {
+      style: function (states) {
         return {
           alignY: "middle"
         };
@@ -1071,7 +1105,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     "menu-button/label": {
       include: "label",
 
-      style: function(states) {
+      style: function (states) {
         return {
           alignY: "middle",
           padding: 1
@@ -1082,7 +1116,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     "menu-button/shortcut": {
       include: "label",
 
-      style: function(states) {
+      style: function (states) {
         return {
           alignY: "middle",
           marginLeft: 14,
@@ -1094,9 +1128,11 @@ qx.Theme.define("aristo.theme.Appearance", {
     "menu-button/arrow": {
       include: "image",
 
-      style: function(states) {
+      style: function (states) {
         return {
-          source: states.selected ? "aristo/decoration/arrows/right-invert.png" : "aristo/decoration/arrows/right.png",
+          source: states.selected
+            ? "aristo/decoration/arrows/right-invert.png"
+            : "aristo/decoration/arrows/right.png",
           alignY: "middle"
         };
       }
@@ -1106,10 +1142,13 @@ qx.Theme.define("aristo.theme.Appearance", {
       alias: "menu-button",
       include: "menu-button",
 
-      style: function(states) {
+      style: function (states) {
         return {
-          icon: !states.checked ? undefined : states.selected ? "aristo/decoration/menu/checkbox-invert.gif"
-              : "aristo/decoration/menu/checkbox.gif"
+          icon: !states.checked
+            ? undefined
+            : states.selected
+            ? "aristo/decoration/menu/checkbox-invert.gif"
+            : "aristo/decoration/menu/checkbox.gif"
         };
       }
     },
@@ -1118,10 +1157,13 @@ qx.Theme.define("aristo.theme.Appearance", {
       alias: "menu-button",
       include: "menu-button",
 
-      style: function(states) {
+      style: function (states) {
         return {
-          icon: !states.checked ? undefined : states.selected ? "aristo/decoration/menu/radiobutton-invert.gif"
-              : "aristo/decoration/menu/radiobutton.gif"
+          icon: !states.checked
+            ? undefined
+            : states.selected
+            ? "aristo/decoration/menu/radiobutton-invert.gif"
+            : "aristo/decoration/menu/radiobutton.gif"
         };
       }
     },
@@ -1132,8 +1174,8 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "menubar": {
-      style: function(states) {
+    menubar: {
+      style: function (states) {
         return {
           decorator: "menubar"
         };
@@ -1141,12 +1183,15 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "menubar-button": {
-
-      style: function(states) {
+      style: function (states) {
         return {
-          decorator: (states.pressed || states.hovered) && !states.disabled ? "selected" : undefined,
-          textColor: states.pressed || states.hovered ? "text-selected" : undefined,
-          padding: [ 3, 8 ]
+          decorator:
+            (states.pressed || states.hovered) && !states.disabled
+              ? "selected"
+              : undefined,
+          textColor:
+            states.pressed || states.hovered ? "text-selected" : undefined,
+          padding: [3, 8]
         };
       }
     },
@@ -1157,16 +1202,16 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "datefield": "combobox",
+    datefield: "combobox",
 
     "datefield/button": {
       alias: "combobox/button",
       include: "combobox/button",
 
-      style: function(states) {
+      style: function (states) {
         return {
           icon: "aristo/decoration/icons/16x16/calendar.png",
-          padding: [ 0, 3 ],
+          padding: [0, 3],
           decorator: "blank",
           marginLeft: -3
         };
@@ -1179,7 +1224,7 @@ qx.Theme.define("aristo.theme.Appearance", {
       alias: "datechooser",
       include: "datechooser",
 
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: undefined
         };
@@ -1192,8 +1237,8 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "datechooser": {
-      style: function(states) {
+    datechooser: {
+      style: function (states) {
         var decorator;
 
         var focused = !!states.focused;
@@ -1226,9 +1271,9 @@ qx.Theme.define("aristo.theme.Appearance", {
       include: "button-frame",
       alias: "button-frame",
 
-      style: function(states) {
+      style: function (states) {
         var result = {
-          padding: [ 2, 4 ]
+          padding: [2, 4]
         };
 
         if (states.lastYear) {
@@ -1258,7 +1303,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     "datechooser/next-year-button": "datechooser/nav-button",
 
     "datechooser/month-year-label": {
-      style: function(states) {
+      style: function (states) {
         return {
           font: "bold",
           textAlign: "center",
@@ -1268,7 +1313,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "datechooser/date-pane": {
-      style: function(states) {
+      style: function (states) {
         return {
           textColor: states.disabled ? "text-disabled" : undefined,
           marginTop: 2
@@ -1277,9 +1322,13 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "datechooser/weekday": {
-      style: function(states) {
+      style: function (states) {
         return {
-          textColor: states.disabled ? "text-disabled" : states.weekend ? "text-light" : undefined,
+          textColor: states.disabled
+            ? "text-disabled"
+            : states.weekend
+            ? "text-light"
+            : undefined,
           textAlign: "center",
           paddingTop: 2,
           backgroundColor: "background-medium"
@@ -1288,24 +1337,33 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "datechooser/week": {
-      style: function(states) {
+      style: function (states) {
         return {
           textAlign: "center",
-          padding: [ 2, 4 ],
+          padding: [2, 4],
           backgroundColor: "background-medium"
         };
       }
     },
 
     "datechooser/day": {
-      style: function(states) {
+      style: function (states) {
         return {
           textAlign: "center",
-          decorator: states.disabled ? undefined : states.selected ? "selected" : undefined,
-          textColor: states.disabled ? "text-disabled" : states.selected ? "text-selected"
-              : states.otherMonth ? "text-light" : undefined,
+          decorator: states.disabled
+            ? undefined
+            : states.selected
+            ? "selected"
+            : undefined,
+          textColor: states.disabled
+            ? "text-disabled"
+            : states.selected
+            ? "text-selected"
+            : states.otherMonth
+            ? "text-light"
+            : undefined,
           font: states.today ? "bold" : undefined,
-          padding: [ 2, 4 ]
+          padding: [2, 4]
         };
       }
     },
@@ -1316,8 +1374,8 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "combobox": {
-      style: function(states) {
+    combobox: {
+      style: function (states) {
         var decorator = "input";
 
         var focused = !!states.focused;
@@ -1325,10 +1383,8 @@ qx.Theme.define("aristo.theme.Appearance", {
         var disabled = !!states.disabled;
 
         if (!disabled) {
-          if (focused)
-            decorator += "-shadow";
-          if (invalid)
-            decorator += "-invalid";
+          if (focused) decorator += "-shadow";
+          if (invalid) decorator += "-invalid";
         }
 
         return {
@@ -1347,7 +1403,7 @@ qx.Theme.define("aristo.theme.Appearance", {
       include: "button-frame",
       alias: "button-frame",
 
-      style: function(states) {
+      style: function (states) {
         var ret = {
           icon: "aristo/decoration/arrows/arrow-down.png",
           padding: 2
@@ -1364,7 +1420,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     "combobox/textfield": {
       include: "textfield",
 
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: "blank",
           padding: 3,
@@ -1379,14 +1435,14 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "tooltip": {
+    tooltip: {
       include: "popup",
 
-      style: function(states) {
+      style: function (states) {
         return {
           backgroundColor: "background-tip",
-          padding: [ 1, 3, 2, 3 ],
-          offset: [ 15, 5, 5, 5 ]
+          padding: [1, 3, 2, 3],
+          offset: [15, 5, 5, 5]
         };
       }
     },
@@ -1396,11 +1452,11 @@ qx.Theme.define("aristo.theme.Appearance", {
     "tooltip-error": {
       include: "tooltip",
 
-      style: function(states) {
+      style: function (states) {
         return {
           textColor: "text-selected",
           placeMethod: "widget",
-          offset: [ 0, 0, 0, 14 ],
+          offset: [0, 0, 0, 14],
           marginTop: -2,
           position: "right-top",
           showTimeout: 100,
@@ -1419,8 +1475,8 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "groupbox": {
-      style: function(states) {
+    groupbox: {
+      style: function (states) {
         return {
           legendPosition: "top"
         };
@@ -1430,9 +1486,9 @@ qx.Theme.define("aristo.theme.Appearance", {
     "groupbox/legend": {
       alias: "atom",
 
-      style: function(states) {
+      style: function (states) {
         return {
-          padding: [ 1, 0, 1, 4 ],
+          padding: [1, 0, 1, 4],
           textColor: states.invalid ? "invalid" : "text-title",
           font: "bold"
         };
@@ -1440,7 +1496,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "groupbox/frame": {
-      style: function(states) {
+      style: function (states) {
         return {
           padding: 12,
           decorator: "group"
@@ -1454,9 +1510,9 @@ qx.Theme.define("aristo.theme.Appearance", {
       alias: "checkbox",
       include: "checkbox",
 
-      style: function(states) {
+      style: function (states) {
         return {
-          padding: [ 1, 0, 1, 4 ],
+          padding: [1, 0, 1, 4],
           textColor: states.invalid ? "invalid" : "text-title",
           font: "bold"
         };
@@ -1469,9 +1525,9 @@ qx.Theme.define("aristo.theme.Appearance", {
       alias: "radiobutton",
       include: "radiobutton",
 
-      style: function(states) {
+      style: function (states) {
         return {
-          padding: [ 1, 0, 1, 4 ],
+          padding: [1, 0, 1, 4],
           textColor: states.invalid ? "invalid" : "text-title",
           font: "bold"
         };
@@ -1484,8 +1540,8 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "tabview": {
-      style: function(states) {
+    tabview: {
+      style: function (states) {
         return {
           contentPadding: 16
         };
@@ -1495,7 +1551,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     "tabview/bar": {
       alias: "slidebar",
 
-      style: function(states) {
+      style: function (states) {
         var result = {
           marginBottom: states.barTop ? -1 : 0,
           marginTop: states.barBottom ? -1 : 0,
@@ -1523,7 +1579,7 @@ qx.Theme.define("aristo.theme.Appearance", {
       include: "slidebar/button-forward",
       alias: "slidebar/button-forward",
 
-      style: function(states) {
+      style: function (states) {
         if (states.barTop || states.barBottom) {
           return {
             marginTop: 2,
@@ -1542,7 +1598,7 @@ qx.Theme.define("aristo.theme.Appearance", {
       include: "slidebar/button-backward",
       alias: "slidebar/button-backward",
 
-      style: function(states) {
+      style: function (states) {
         if (states.barTop || states.barBottom) {
           return {
             marginTop: 2,
@@ -1560,13 +1616,20 @@ qx.Theme.define("aristo.theme.Appearance", {
     "tabview/bar/scrollpane": {},
 
     "tabview/pane": {
-      style: function(states) {
+      style: function (states) {
         /*
          * default tabview does not forward states to the pane
          */
         return {
-          decorator: states.barTop ? "tabview-pane-top" : states.barRight ? "tabview-pane-right"
-              : states.barBottom ? "tabview-pane-bottom" : states.barLeft ? "tabview-pane-left" : "tabview-pane",
+          decorator: states.barTop
+            ? "tabview-pane-top"
+            : states.barRight
+            ? "tabview-pane-right"
+            : states.barBottom
+            ? "tabview-pane-bottom"
+            : states.barLeft
+            ? "tabview-pane-left"
+            : "tabview-pane",
           minHeight: 100,
 
           marginBottom: states.barBottom ? -1 : 0,
@@ -1582,50 +1645,46 @@ qx.Theme.define("aristo.theme.Appearance", {
     "tabview-page/button": {
       alias: "atom",
 
-      style: function(states) {
+      style: function (states) {
         /*
          * Note: Aristo (as with Modern) used to use margins to inflate the size of the selected tab; this
          * does not work reliably when the tab labels are different length because they can cause the
          * width of the bar to be calculated differently depending on which tab is selected - this has
          * an unpleasant knock-on effect on the rest of the display.
-         * 
-         * Each tab must have the same margin, regardless of which is selected. 
+         *
+         * Each tab must have the same margin, regardless of which is selected.
          */
-        var decorator, padding = 0;
-        var marginTop = 0, marginBottom = 0, marginLeft = 0, marginRight = 0;
+        var decorator,
+          padding = 0;
+        var marginTop = 0,
+          marginBottom = 0,
+          marginLeft = 0,
+          marginRight = 0;
 
         if (states.barTop || states.barBottom) {
-          padding = [ 4, 10 ];
+          padding = [4, 10];
         } else {
-          padding = [ 5, 6 ];
+          padding = [5, 6];
         }
 
         decorator = "tabview-page-button-";
-        if (states.barTop)
-          decorator += "top-";
-        else if (states.barBottom)
-          decorator += "bottom-";
-        else if (states.barRight)
-          decorator += "right-";
-        else
-          decorator += "left-";
-        if (states.checked)
-          decorator += "active";
-        else
-          decorator += "inactive";
-        
+        if (states.barTop) decorator += "top-";
+        else if (states.barBottom) decorator += "bottom-";
+        else if (states.barRight) decorator += "right-";
+        else decorator += "left-";
+        if (states.checked) decorator += "active";
+        else decorator += "inactive";
+
         marginLeft = 0;
         marginTop = 0;
         marginBottom = 0;
         marginRight = 0;
-        
+
         if (states.barLeft || states.barRight) {
-          if (!states.firstTab)
-            marginTop = -1;
+          if (!states.firstTab) marginTop = -1;
         }
         if (states.barTop || states.barBottom) {
-          if (!states.firstTab)
-            marginLeft = -1;
+          if (!states.firstTab) marginLeft = -1;
         }
 
         return {
@@ -1636,14 +1695,18 @@ qx.Theme.define("aristo.theme.Appearance", {
           marginBottom: marginBottom,
           marginLeft: marginLeft,
           marginRight: marginRight,
-          textColor: states.checked ? "text-active" : states.disabled ? "text-disabled" : "text-inactive"
+          textColor: states.checked
+            ? "text-active"
+            : states.disabled
+            ? "text-disabled"
+            : "text-inactive"
         };
       }
     },
 
     "tabview-page/button/close-button": {
       alias: "atom",
-      style: function(states) {
+      style: function (states) {
         return {
           icon: "aristo/decoration/window/close-active.png"
         };
@@ -1656,7 +1719,7 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "slidebar": {},
+    slidebar: {},
     "slidebar/scrollpane": {},
     "slidebar/content": {},
 
@@ -1664,11 +1727,13 @@ qx.Theme.define("aristo.theme.Appearance", {
       alias: "button-frame",
       include: "button-frame",
 
-      style: function(states) {
+      style: function (states) {
         return {
           padding: 5,
           center: true,
-          icon: states.vertical ? "aristo/decoration/arrows/down.png" : "aristo/decoration/arrows/right.png"
+          icon: states.vertical
+            ? "aristo/decoration/arrows/down.png"
+            : "aristo/decoration/arrows/right.png"
         };
       }
     },
@@ -1677,11 +1742,13 @@ qx.Theme.define("aristo.theme.Appearance", {
       alias: "button-frame",
       include: "button-frame",
 
-      style: function(states) {
+      style: function (states) {
         return {
           padding: 5,
           center: true,
-          icon: states.vertical ? "aristo/decoration/arrows/up.png" : "aristo/decoration/arrows/left.png"
+          icon: states.vertical
+            ? "aristo/decoration/arrows/up.png"
+            : "aristo/decoration/arrows/left.png"
         };
       }
     },
@@ -1692,12 +1759,12 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "tree": "list",
+    tree: "list",
 
     "tree-item": {
-      style: function(states) {
+      style: function (states) {
         return {
-          padding: [ 2, 6 ],
+          padding: [2, 6],
           textColor: states.selected ? "text-selected" : undefined,
           decorator: states.selected ? "selected" : undefined
         };
@@ -1707,7 +1774,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     "tree-item/icon": {
       include: "image",
 
-      style: function(states) {
+      style: function (states) {
         return {
           paddingRight: 5
         };
@@ -1719,7 +1786,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     "tree-item/open": {
       include: "image",
 
-      style: function(states) {
+      style: function (states) {
         var icon;
         if (states.selected && states.opened) {
           icon = "aristo/decoration/tree/open-selected.png";
@@ -1732,7 +1799,7 @@ qx.Theme.define("aristo.theme.Appearance", {
         }
 
         return {
-          padding: [ 0, 5, 0, 2 ],
+          padding: [0, 5, 0, 2],
           source: icon
         };
       }
@@ -1742,14 +1809,20 @@ qx.Theme.define("aristo.theme.Appearance", {
       include: "tree-item",
       alias: "tree-item",
 
-      style: function(states) {
+      style: function (states) {
         var icon;
         if (states.small) {
-          icon = states.opened ? "icon/16/places/folder-open.png" : "icon/16/places/folder.png";
+          icon = states.opened
+            ? "icon/16/places/folder-open.png"
+            : "icon/16/places/folder.png";
         } else if (states.large) {
-          icon = states.opened ? "icon/32/places/folder-open.png" : "icon/32/places/folder.png";
+          icon = states.opened
+            ? "icon/32/places/folder-open.png"
+            : "icon/32/places/folder.png";
         } else {
-          icon = states.opened ? "icon/22/places/folder-open.png" : "icon/22/places/folder.png";
+          icon = states.opened
+            ? "icon/22/places/folder-open.png"
+            : "icon/22/places/folder.png";
         }
 
         return {
@@ -1762,10 +1835,13 @@ qx.Theme.define("aristo.theme.Appearance", {
       include: "tree-item",
       alias: "tree-item",
 
-      style: function(states) {
+      style: function (states) {
         return {
-          icon: states.small ? "icon/16/mimetypes/office-document.png"
-              : states.large ? "icon/32/mimetypes/office-document.png" : "icon/22/mimetypes/office-document.png"
+          icon: states.small
+            ? "icon/16/mimetypes/office-document.png"
+            : states.large
+            ? "icon/32/mimetypes/office-document.png"
+            : "icon/22/mimetypes/office-document.png"
         };
       }
     },
@@ -1776,12 +1852,14 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "treevirtual": "table",
+    treevirtual: "table",
 
     "treevirtual-folder": {
-      style: function(states) {
+      style: function (states) {
         return {
-          icon: states.opened ? "icon/16/places/folder-open.png" : "icon/16/places/folder.png"
+          icon: states.opened
+            ? "icon/16/places/folder-open.png"
+            : "icon/16/places/folder.png"
         };
       }
     },
@@ -1790,7 +1868,7 @@ qx.Theme.define("aristo.theme.Appearance", {
       include: "treevirtual-folder",
       alias: "treevirtual-folder",
 
-      style: function(states) {
+      style: function (states) {
         return {
           icon: "icon/16/mimetypes/office-document.png"
         };
@@ -1798,7 +1876,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "treevirtual-line": {
-      style: function(states) {
+      style: function (states) {
         return {
           icon: "qx/static/blank.gif"
         };
@@ -1806,7 +1884,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "treevirtual-contract": {
-      style: function(states) {
+      style: function (states) {
         return {
           icon: "aristo/decoration/tree/open.png",
           paddingLeft: 5,
@@ -1816,7 +1894,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "treevirtual-expand": {
-      style: function(states) {
+      style: function (states) {
         return {
           icon: "aristo/decoration/tree/closed.png",
           paddingLeft: 5,
@@ -1835,7 +1913,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     "treevirtual-cross-expand": "treevirtual-expand",
 
     "treevirtual-end": {
-      style: function(states) {
+      style: function (states) {
         return {
           icon: "qx/static/blank.gif"
         };
@@ -1843,7 +1921,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "treevirtual-cross": {
-      style: function(states) {
+      style: function (states) {
         return {
           icon: "qx/static/blank.gif"
         };
@@ -1856,8 +1934,8 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "iframe": {
-      style: function(states) {
+    iframe: {
+      style: function (states) {
         return {
           decorator: "main"
         };
@@ -1870,8 +1948,8 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "resizer": {
-      style: function(states) {
+    resizer: {
+      style: function (states) {
         return {
           decorator: "pane"
         };
@@ -1884,8 +1962,8 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "splitpane": {
-      style: function(states) {
+    splitpane: {
+      style: function (states) {
         return {
           decorator: "splitpane"
         };
@@ -1893,7 +1971,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "splitpane/splitter": {
-      style: function(states) {
+      style: function (states) {
         return {
           width: states.horizontal ? 3 : undefined,
           height: states.vertical ? 3 : undefined,
@@ -1903,16 +1981,17 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "splitpane/splitter/knob": {
-      style: function(states) {
+      style: function (states) {
         return {
-          source: states.horizontal ? "aristo/decoration/splitpane/knob-horizontal.png"
-              : "aristo/decoration/splitpane/knob-vertical.png"
+          source: states.horizontal
+            ? "aristo/decoration/splitpane/knob-horizontal.png"
+            : "aristo/decoration/splitpane/knob-vertical.png"
         };
       }
     },
 
     "splitpane/slider": {
-      style: function(states) {
+      style: function (states) {
         return {
           width: states.horizontal ? 3 : undefined,
           height: states.vertical ? 3 : undefined,
@@ -1927,14 +2006,14 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "colorselector": "widget",
+    colorselector: "widget",
     "colorselector/control-bar": "widget",
     "colorselector/control-pane": "widget",
     "colorselector/visual-pane": "groupbox",
     "colorselector/preset-grid": "widget",
 
     "colorselector/colorbucket": {
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: "main",
           width: 16,
@@ -1961,7 +2040,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     "colorselector/hsb-spinner-brightness": "spinner",
 
     "colorselector/preview-content-old": {
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: "main",
           width: 50,
@@ -1971,7 +2050,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "colorselector/preview-content-new": {
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: "main",
           backgroundColor: "background-light",
@@ -1982,7 +2061,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "colorselector/hue-saturation-field": {
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: "main",
           margin: 5
@@ -1991,10 +2070,10 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "colorselector/brightness-field": {
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: "main",
-          margin: [ 5, 7 ]
+          margin: [5, 7]
         };
       }
     },
@@ -2010,11 +2089,11 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "colorpopup": {
+    colorpopup: {
       alias: "popup",
       include: "popup",
 
-      style: function(states) {
+      style: function (states) {
         return {
           padding: 5,
           backgroundColor: "background-application"
@@ -2023,7 +2102,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "colorpopup/field": {
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: "main",
           margin: 2,
@@ -2039,7 +2118,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     "colorpopup/preview-pane": "groupbox",
 
     "colorpopup/current-preview": {
-      style: function(state) {
+      style: function (state) {
         return {
           height: 20,
           padding: 4,
@@ -2051,7 +2130,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "colorpopup/selected-preview": {
-      style: function(state) {
+      style: function (state) {
         return {
           height: 20,
           padding: 4,
@@ -2066,7 +2145,7 @@ qx.Theme.define("aristo.theme.Appearance", {
       alias: "button-base",
       include: "button-base",
 
-      style: function(states) {
+      style: function (states) {
         return {
           icon: "icon/16/actions/dialog-ok.png"
         };
@@ -2077,7 +2156,7 @@ qx.Theme.define("aristo.theme.Appearance", {
       alias: "button-base",
       include: "button-base",
 
-      style: function(states) {
+      style: function (states) {
         return {
           icon: "icon/16/actions/dialog-cancel.png"
         };
@@ -2090,10 +2169,10 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "table": {
+    table: {
       alias: "widget",
 
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: "table"
         };
@@ -2103,10 +2182,10 @@ qx.Theme.define("aristo.theme.Appearance", {
     "table-header": {},
 
     "table/statusbar": {
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: "table-statusbar",
-          padding: [ 0, 2 ]
+          padding: [0, 2]
         };
       }
     },
@@ -2114,7 +2193,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     "table/column-button": {
       alias: "button-frame",
 
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: "table-column-button",
           padding: 3,
@@ -2127,7 +2206,7 @@ qx.Theme.define("aristo.theme.Appearance", {
       include: "menu-button",
       alias: "menu-button",
 
-      style: function() {
+      style: function () {
         return {
           icon: "icon/16/actions/view-refresh.png"
         };
@@ -2140,7 +2219,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     "table-scroller/scrollbar-y": "scrollbar",
 
     "table-scroller/header": {
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: "table-scroller-header",
           font: "bold"
@@ -2149,7 +2228,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "table-scroller/pane": {
-      style: function(states) {
+      style: function (states) {
         return {
           backgroundColor: "table-pane"
         };
@@ -2157,7 +2236,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "table-scroller/focus-indicator": {
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: "table-scroller-focus-indicator"
         };
@@ -2165,7 +2244,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "table-scroller/resize-line": {
-      style: function(states) {
+      style: function (states) {
         return {
           backgroundColor: "border-separator",
           width: 2
@@ -2175,20 +2254,25 @@ qx.Theme.define("aristo.theme.Appearance", {
 
     "table-header-cell": {
       alias: "atom",
-      style: function(states) {
+      style: function (states) {
         return {
           minWidth: 13,
           minHeight: 33,
-          padding: states.hovered ? [ 3, 6, 2, 6 ] : [ 3, 6 ],
-          decorator: states.hovered ? "table-header-cell-hovered" : "table-header-cell",
-          sortIcon: states.sorted ? (states.sortedAscending ? "aristo/decoration/table/ascending.png"
-              : "aristo/decoration/table/descending.png") : undefined
+          padding: states.hovered ? [3, 6, 2, 6] : [3, 6],
+          decorator: states.hovered
+            ? "table-header-cell-hovered"
+            : "table-header-cell",
+          sortIcon: states.sorted
+            ? states.sortedAscending
+              ? "aristo/decoration/table/ascending.png"
+              : "aristo/decoration/table/descending.png"
+            : undefined
         };
       }
     },
 
     "table-header-cell/label": {
-      style: function(states) {
+      style: function (states) {
         return {
           minWidth: 0,
           alignY: "middle",
@@ -2198,7 +2282,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "table-header-cell/sort-icon": {
-      style: function(states) {
+      style: function (states) {
         return {
           alignY: "middle",
           alignX: "right"
@@ -2207,7 +2291,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     },
 
     "table-header-cell/icon": {
-      style: function(states) {
+      style: function (states) {
         return {
           minWidth: 0,
           alignY: "middle",
@@ -2219,10 +2303,10 @@ qx.Theme.define("aristo.theme.Appearance", {
     "table-editor-textfield": {
       include: "textfield",
 
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: undefined,
-          padding: [ 2, 2 ],
+          padding: [2, 2],
           backgroundColor: "background-light"
         };
       }
@@ -2232,9 +2316,9 @@ qx.Theme.define("aristo.theme.Appearance", {
       include: "selectbox",
       alias: "selectbox",
 
-      style: function(states) {
+      style: function (states) {
         return {
-          padding: [ 0, 2 ],
+          padding: [0, 2],
           backgroundColor: "background-light"
         };
       }
@@ -2244,7 +2328,7 @@ qx.Theme.define("aristo.theme.Appearance", {
       include: "combobox",
       alias: "combobox",
 
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: undefined,
           backgroundColor: "background-light"
@@ -2261,7 +2345,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     "progressive-table-header": {
       alias: "widget",
 
-      style: function(states) {
+      style: function (states) {
         return {
           decorator: "progressive-table-header"
         };
@@ -2270,7 +2354,7 @@ qx.Theme.define("aristo.theme.Appearance", {
 
     "progressive-table-header-cell": {
       alias: "atom",
-      style: function(states) {
+      style: function (states) {
         return {
           minWidth: 40,
           minHeight: 25,
@@ -2287,18 +2371,18 @@ qx.Theme.define("aristo.theme.Appearance", {
      */
 
     "app-header": {
-      style: function(states) {
+      style: function (states) {
         return {
           font: "headline",
           textColor: "text-selected",
           backgroundColor: "background-selected-dark",
-          padding: [ 8, 12 ]
+          padding: [8, 12]
         };
       }
     },
 
     "app-header-label": {
-      style: function(states) {
+      style: function (states) {
         return {
           paddingTop: 5
         };
@@ -2355,7 +2439,7 @@ qx.Theme.define("aristo.theme.Appearance", {
       include: "label",
       alias: "label",
 
-      style: function(states) {
+      style: function (states) {
         return {
           padding: 4,
           backgroundColor: "#BABABA",
@@ -2381,7 +2465,7 @@ qx.Theme.define("aristo.theme.Appearance", {
       include: "tree",
       alias: "tree",
 
-      style: function(states) {
+      style: function (states) {
         return {
           itemHeight: 21
         };
@@ -2391,11 +2475,11 @@ qx.Theme.define("aristo.theme.Appearance", {
     "virtual-tree-folder": "tree-folder",
     "virtual-tree-file": "tree-file",
 
-    "cell": {
-      style: function(states) {
+    cell: {
+      style: function (states) {
         return {
           textColor: states.selected ? "text-selected" : "text-label",
-          padding: [ 3, 6 ],
+          padding: [3, 6],
           font: "default"
         };
       }
@@ -2404,7 +2488,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     "cell-string": "cell",
     "cell-number": {
       include: "cell",
-      style: function(states) {
+      style: function (states) {
         return {
           textAlign: "right"
         };
@@ -2413,7 +2497,7 @@ qx.Theme.define("aristo.theme.Appearance", {
     "cell-image": "cell",
     "cell-boolean": {
       include: "cell",
-      style: function(states) {
+      style: function (states) {
         return {
           iconTrue: "aristo/decoration/table/boolean-true.png",
           iconFalse: "aristo/decoration/table/boolean-false.png"
@@ -2430,18 +2514,23 @@ qx.Theme.define("aristo.theme.Appearance", {
      * ---------------------------------------------------------------------------
      */
 
-    "htmlarea": {
-      "include": "widget",
+    htmlarea: {
+      include: "widget",
 
-      style: function(states) {
+      style: function (states) {
         return {
           backgroundColor: "white"
         };
       }
     }
-
   }
 });
 
-qx.util.AliasManager.getInstance().add("decoration/table/boolean-true.png", "aristo/decoration/table/boolean-true.png");
-qx.util.AliasManager.getInstance().add("decoration/table/boolean-false.png", "aristo/decoration/table/boolean-false.png");
+qx.util.AliasManager.getInstance().add(
+  "decoration/table/boolean-true.png",
+  "aristo/decoration/table/boolean-true.png"
+);
+qx.util.AliasManager.getInstance().add(
+  "decoration/table/boolean-false.png",
+  "aristo/decoration/table/boolean-false.png"
+);
